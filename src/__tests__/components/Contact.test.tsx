@@ -6,7 +6,8 @@ import { Contact } from '@/components/Contact';
 describe('Contact', () => {
   it('renders section title', () => {
     render(<Contact />);
-    expect(screen.getByText('Hubungi')).toBeInTheDocument();
+    expect(screen.getByText('Ayo')).toBeInTheDocument();
+    expect(screen.getByText('Terhubung')).toBeInTheDocument();
   });
 
   it('renders contact info labels', () => {
@@ -16,20 +17,20 @@ describe('Contact', () => {
     expect(screen.getByText('Lokasi')).toBeInTheDocument();
   });
 
-  it('does not render email section', () => {
+  it('does not render email address', () => {
     render(<Contact />);
     expect(screen.queryByText('adndaaryadi@gmail.com')).not.toBeInTheDocument();
   });
 
   it('renders contact form fields', () => {
     render(<Contact />);
-    expect(screen.getByLabelText('Nama')).toBeInTheDocument();
-    expect(screen.getByLabelText('Pesan')).toBeInTheDocument();
-    expect(screen.getByText('Hubungi via LinkedIn')).toBeInTheDocument();
+    expect(screen.getByText('Nama Kamu')).toBeInTheDocument();
+    expect(screen.getByText('Pesan')).toBeInTheDocument();
+    expect(screen.getByText('Kirim Pesan via LinkedIn')).toBeInTheDocument();
   });
 
   it('renders form inputs with placeholders', () => {
     render(<Contact />);
-    expect(screen.getByPlaceholderText('Nama lengkap kamu')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('John Doe')).toBeInTheDocument();
   });
 });

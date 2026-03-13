@@ -4,29 +4,29 @@ import '@testing-library/jest-dom';
 import { Hero } from '@/components/Hero';
 
 describe('Hero', () => {
-  it('renders greeting text', () => {
-    render(<Hero />);
-    expect(screen.getByText('Hai, perkenalkan saya')).toBeInTheDocument();
-  });
-
-  it('renders title', () => {
+  it('renders badge text', () => {
     render(<Hero />);
     expect(screen.getByText('Data Analyst & Researcher')).toBeInTheDocument();
   });
 
-  it('renders shuffle text component', () => {
+  it('renders name with shuffle text', () => {
     render(<Hero />);
     expect(screen.getByTestId('shuffle-text')).toBeInTheDocument();
   });
 
+  it('renders heading text', () => {
+    render(<Hero />);
+    expect(screen.getByText(/Halo, Saya/)).toBeInTheDocument();
+  });
+
   it('renders CTA buttons', () => {
     render(<Hero />);
-    expect(screen.getByText('Lihat Proyek Saya')).toBeInTheDocument();
-    expect(screen.getByText('Hubungi Saya')).toBeInTheDocument();
+    expect(screen.getByText('Lihat Portofolio')).toBeInTheDocument();
+    expect(screen.getByText('Mari Berdiskusi')).toBeInTheDocument();
   });
 
   it('renders hero section element', () => {
     render(<Hero />);
-    expect(screen.getByText('Hai, perkenalkan saya').closest('section')).toHaveAttribute('id', 'beranda');
+    expect(screen.getByText('Data Analyst & Researcher').closest('section')).toHaveAttribute('id', 'beranda');
   });
 });

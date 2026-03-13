@@ -23,8 +23,8 @@ describe('About', () => {
     expect(screen.getByText('Research')).toBeInTheDocument();
   });
 
-  it('renders education mention', () => {
+  it('renders KND mention', () => {
     render(<About />);
-    expect(screen.getByText(/UNAS/)).toBeInTheDocument();
+    expect(screen.getByText(/Komisi Nasional Disabilitas/)).toBeInTheDocument();
   });
 });
