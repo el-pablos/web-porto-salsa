@@ -42,7 +42,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300 mb-6">
-            Data Analyst & QA Enthusiast
+            Data Analyst & Researcher
           </h2>
         </motion.div>
 
@@ -53,7 +53,7 @@ export function Hero() {
           className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Mengubah data mentah menjadi insight bermakna.
-          Passionate dalam analisis data, visualisasi, dan quality assurance.
+          Passionate dalam analisis data, visualisasi, dan riset kuantitatif.
         </motion.p>
 
         <motion.div
