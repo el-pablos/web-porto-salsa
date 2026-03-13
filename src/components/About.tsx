@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiAcademicCap, HiCode, HiChartBar, HiShieldCheck } from 'react-icons/hi';
+import { HiAcademicCap, HiDatabase, HiChartBar, HiDocumentText } from 'react-icons/hi';
 
 const highlights = [
   {
@@ -11,14 +11,14 @@ const highlights = [
     desc: 'Mengolah dataset besar menjadi insight yang actionable',
   },
   {
-    icon: HiCode,
-    title: 'Visualization',
-    desc: 'Membangun dashboard & chart interaktif yang informatif',
+    icon: HiDatabase,
+    title: 'Database & Query',
+    desc: 'Mengelola dan mengquery data dengan SQL dan tools modern',
   },
   {
-    icon: HiShieldCheck,
-    title: 'QA Testing',
-    desc: 'Memastikan kualitas software melalui testing metodis',
+    icon: HiDocumentText,
+    title: 'Visualization',
+    desc: 'Membangun dashboard & chart interaktif yang informatif',
   },
   {
     icon: HiAcademicCap,
@@ -64,9 +64,9 @@ export function About() {
               untuk laporan tahunan.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              Saat ini saya aktif mengeksplorasi bidang Quality Assurance dan
-              Security Testing, menggabungkan kemampuan analitis saya dengan
-              metodologi pengujian software yang terstruktur.
+              Saat ini saya aktif mengeksplorasi bidang data engineering dan
+              riset kuantitatif, menggabungkan kemampuan analitis saya dengan
+              metodologi penelitian sosial yang terstruktur.
             </p>
           </motion.div>
 
