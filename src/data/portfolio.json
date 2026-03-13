@@ -1,0 +1,88 @@
+{
+  "name": "Adinda Salsa Aryadi Putri",
+  "nickname": "Salsa",
+  "title": "Data Analyst & QA Enthusiast",
+  "tagline": "Mengubah data mentah menjadi insight bermakna",
+  "description": "Mahasiswi Sosiologi FISIP UNAS yang passionate di bidang Data Analysis, Data Visualization, dan Quality Assurance. Berpengalaman mengolah data dan membangun visualisasi yang informatif untuk mendukung pengambilan keputusan berbasis data.",
+  "education": [
+    {
+      "institution": "Universitas Nasional (UNAS)",
+      "degree": "S1 Sosiologi",
+      "faculty": "FISIP - Fakultas Ilmu Sosial dan Ilmu Politik",
+      "year": "2022 - Sekarang",
+      "description": "Fokus pada penelitian sosial kuantitatif dan analisis data sosial"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Komisi Nasional Disabilitas (KND)",
+      "role": "Data Analyst Intern",
+      "period": "2024 - 2025",
+      "description": "Mengolah dan menganalisis data terkait isu disabilitas nasional untuk mendukung kebijakan publik",
+      "highlights": [
+        "Menganalisis dataset disabilitas nasional",
+        "Membuat visualisasi data untuk laporan tahunan",
+        "Mendukung penelitian kebijakan berbasis data"
+      ]
+    }
+  ],
+  "skills": {
+    "dataAnalysis": [
+      { "name": "Python (Pandas, NumPy)", "level": 80 },
+      { "name": "SQL & Database", "level": 75 },
+      { "name": "Statistical Analysis", "level": 78 },
+      { "name": "Data Cleaning & Processing", "level": 85 }
+    ],
+    "visualization": [
+      { "name": "Power BI", "level": 82 },
+      { "name": "Tableau", "level": 70 },
+      { "name": "Matplotlib & Seaborn", "level": 75 },
+      { "name": "Excel Advanced", "level": 90 }
+    ],
+    "qaTesting": [
+      { "name": "Manual Testing", "level": 80 },
+      { "name": "Test Documentation", "level": 85 },
+      { "name": "Bug Reporting", "level": 82 },
+      { "name": "Security Testing Basics", "level": 65 }
+    ],
+    "softSkills": [
+      { "name": "Research & Analysis", "level": 88 },
+      { "name": "Report Writing", "level": 85 },
+      { "name": "Team Collaboration", "level": 90 },
+      { "name": "Critical Thinking", "level": 85 }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Pentest-for-QA Toolkit",
+      "description": "Berkolaborasi dalam proyek penetration testing toolkit komprehensif. Berkontribusi dalam aspek QA testing, dokumentasi, dan analisis hasil vulnerability assessment terhadap 13+ domain.",
+      "tech": ["Python", "Security Testing", "QA Methodology", "Documentation"],
+      "highlights": ["70+ custom scripts", "20+ tools terintegrasi", "13+ domain diuji"],
+      "link": "https://github.com/el-pablos/pentest-for-qa"
+    },
+    {
+      "title": "Analisis Data Disabilitas Nasional",
+      "description": "Proyek analisis data terkait isu disabilitas di Indonesia untuk Komisi Nasional Disabilitas. Meliputi pengolahan data sensus, visualisasi tren, dan penyusunan rekomendasi kebijakan.",
+      "tech": ["Python", "Pandas", "Power BI", "Excel"],
+      "highlights": ["Dataset nasional", "Visualisasi interaktif", "Laporan kebijakan"]
+    },
+    {
+      "title": "Penelitian Sosial Kuantitatif UNAS",
+      "description": "Riset akademik menggunakan metode kuantitatif untuk menganalisis fenomena sosial. Pengumpulan data primer melalui survei dan analisis menggunakan tools statistik.",
+      "tech": ["SPSS", "Google Forms", "Excel", "Statistical Analysis"],
+      "highlights": ["Metode kuantitatif", "Survei 200+ responden", "Paper akademik"]
+    }
+  ],
+  "contact": {
+    "email": "adndaaryadi@gmail.com",
+    "github": "https://github.com/adndaaryadi",
+    "linkedin": "https://linkedin.com/in/adinda-salsa-aryadi-putri",
+    "location": "Jakarta, Indonesia"
+  },
+  "stats": {
+    "projectsCompleted": 15,
+    "datasetsAnalyzed": 30,
+    "toolsMastered": 12,
+    "yearsLearning": 3
+  }
+}
