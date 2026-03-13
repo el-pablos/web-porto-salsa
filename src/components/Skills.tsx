@@ -13,7 +13,7 @@ type SkillCategory = {
 const categories: SkillCategory[] = [
   { label: 'Data Analysis', key: 'dataAnalysis', color: '#6C63FF' },
   { label: 'Visualization', key: 'visualization', color: '#FF6584' },
-  { label: 'QA & Testing', key: 'qaTesting', color: '#00D4AA' },
+  { label: 'Database & Query', key: 'databaseQuery', color: '#00D4AA' },
   { label: 'Soft Skills', key: 'softSkills', color: '#FFB347' },
 ];
 
