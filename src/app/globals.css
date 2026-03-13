@@ -3,93 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #E8849A;
-  --color-secondary: #D4687E;
-  --color-accent: #B8A9D4;
-  --color-bg: #FFF0F5;
-  --color-bg-card: rgba(255, 255, 255, 0.6);
-  --smooth-radius: 1rem;
+  --primary: #FF99C8;
+  --secondary: #9ED2D6;
+  --accent: #CFBAF0;
+  --cream: #FFF9E1;
+  --soft-pink: #FFF0F5;
+  --text-main: #3D3040;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  body {
+    @apply bg-soft-light text-neutral leading-relaxed antialiased;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-neutral font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-20 md:py-32;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-primary text-white rounded-soft-md font-semibold 
+           shadow-soft hover:shadow-soft-md hover:bg-primary-dark
+           transition-all duration-300 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-primary/20 text-primary rounded-soft-md font-semibold
+           hover:bg-primary/5 transition-all duration-300 active:scale-95;
+  }
+
+  .card-soft {
+    @apply bg-white/80 backdrop-blur-sm rounded-soft-lg p-8
+           border border-white/40 shadow-soft
+           hover:shadow-soft-md hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-soft-light;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full border-4 border-soft-light hover:bg-primary/50 transition-colors;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--color-bg);
-  color: #3D3040;
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-  overflow-x: hidden;
-}
-
-/* Smooth scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #FFF0F5;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #E8849A;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #D4687E;
-}
-
-/* Selection */
-::selection {
-  background: rgba(232, 132, 154, 0.3);
-  color: #3D3040;
-}
-
-/* Smooth transitions globally */
-a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Glass morphism utility */
-@layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(232, 132, 154, 0.15);
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(232, 132, 154, 0.15);
-    border-radius: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .glass-card:hover {
-    border-color: rgba(232, 132, 154, 0.35);
-    box-shadow: 0 8px 32px rgba(232, 132, 154, 0.12);
-    transform: translateY(-4px);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #E8849A, #B8A9D4, #F4B8C1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-border {
-    box-shadow: 0 0 15px rgba(232, 132, 154, 0.15),
-                inset 0 0 15px rgba(232, 132, 154, 0.05);
-  }
 }

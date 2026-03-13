@@ -31,66 +31,69 @@ export function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <section id="tentang" className="py-20 md:py-32 px-4 sm:px-6" ref={ref}>
-      <div className="max-w-6xl mx-auto">
+    <section id="tentang" className="section-container" ref={ref}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-20"
+      >
+        <h2 className="text-4xl md:text-5xl font-black mb-4">
+          Tentang <span className="text-gradient">Saya</span>
+        </h2>
+        <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
+      </motion.div>
+
+      <div className="grid lg:grid-cols-12 gap-16 items-start">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, x: -30 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="lg:col-span-7 space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Tentang <span className="text-gradient">Saya</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <div className="space-y-6 text-lg text-neutral-light leading-relaxed">
+            <p>
+              Halo! Saya <span className="text-primary font-bold">Adinda Salsa Aryadi Putri</span>,
+              seorang mahasiswi Sosiologi yang memiliki ketertarikan mendalam pada dunia data.
+            </p>
+            <p>
+              Bagi saya, data bukan sekadar angka, melainkan cerita yang menunggu untuk diceritakan. 
+              Fokus saya adalah menjembatani antara fenomena sosial dengan analisis data kuantitatif 
+              untuk menghasilkan insight yang valid dan berdampak.
+            </p>
+            <p>
+              Berbekal pengalaman di <span className="text-secondary font-bold">Komisi Nasional Disabilitas (KND)</span>, 
+              saya terbiasa menangani dataset kompleks dan mengubahnya menjadi visualisasi yang mudah dipahami 
+              oleh para pengambil kebijakan.
+            </p>
+          </div>
+          
+          <div className="pt-4">
+            <a href="#kontak" className="btn-primary">
+              Unduh CV
+            </a>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="text-pastel-900/80 leading-relaxed mb-6 text-base md:text-lg">
-              Saya <span className="text-primary font-semibold">Adinda Salsa Aryadi Putri</span>,
-              mahasiswi Sosiologi di FISIP Universitas Nasional (UNAS) angkatan 2022.
-              Saya memiliki passion besar dalam mengolah data mentah menjadi informasi
-              yang bermakna dan dapat digunakan untuk pengambilan keputusan.
-            </p>
-            <p className="text-pastel-800/60 leading-relaxed mb-6">
-              Pengalaman saya di Komisi Nasional Disabilitas (KND) membuka mata saya
-              tentang pentingnya data dalam mendukung kebijakan publik. Di sana saya
-              belajar menganalisis dataset nasional dan membangun visualisasi data
-              untuk laporan tahunan.
-            </p>
-            <p className="text-pastel-800/60 leading-relaxed">
-              Saat ini saya aktif mengeksplorasi bidang data engineering dan
-              riset kuantitatif, menggabungkan kemampuan analitis saya dengan
-              metodologi penelitian sosial yang terstruktur.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 gap-4"
-          >
-            {highlights.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                className="glass-card p-5 text-center"
-              >
-                <item.icon className="text-primary text-3xl mx-auto mb-3" />
-                <h3 className="font-semibold text-pastel-900 text-sm mb-1">{item.title}</h3>
-                <p className="text-pastel-800/60 text-xs leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="lg:col-span-5 grid grid-cols-2 gap-4"
+        >
+          {highlights.map((item, i) => (
+            <div
+              key={item.title}
+              className="card-soft flex flex-col items-center text-center p-6"
+            >
+              <div className="w-12 h-12 rounded-soft-md bg-primary/10 flex items-center justify-center mb-4 text-primary text-2xl">
+                <item.icon />
+              </div>
+              <h3 className="font-bold text-neutral text-sm mb-2">{item.title}</h3>
+              <p className="text-neutral-soft text-xs leading-tight">{item.desc}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

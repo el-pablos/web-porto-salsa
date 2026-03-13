@@ -3,118 +3,104 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiLocationMarker } from 'react-icons/hi';
+import { HiLocationMarker, HiMail } from 'react-icons/hi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import portfolioData from '@/data/portfolio.json';
 
 export function Contact() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formData, setFormData] = useState({ name: '', message: '' });
 
   const contactLinks = [
-    { icon: FaGithub, label: 'GitHub', value: 'adndaaryadi', href: portfolioData.contact.github },
-    { icon: FaLinkedin, label: 'LinkedIn', value: 'Adinda Salsa', href: portfolioData.contact.linkedin },
-    { icon: HiLocationMarker, label: 'Lokasi', value: portfolioData.contact.location, href: '#' },
+    { icon: FaLinkedin, label: 'LinkedIn', value: 'Adinda Salsa', href: portfolioData.contact.linkedin, color: 'text-blue-600' },
+    { icon: FaGithub, label: 'GitHub', value: 'adndaaryadi', href: portfolioData.contact.github, color: 'text-neutral' },
+    { icon: HiLocationMarker, label: 'Lokasi', value: portfolioData.contact.location, href: '#', color: 'text-red-500' },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const linkedinUrl = portfolioData.contact.linkedin;
-    window.open(linkedinUrl, '_blank');
+    window.open(portfolioData.contact.linkedin, '_blank');
   };
 
   return (
-    <section id="kontak" className="py-20 md:py-32 px-4 sm:px-6" ref={ref}>
-      <div className="max-w-6xl mx-auto">
+    <section id="kontak" className="section-container" ref={ref}>
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Hubungi <span className="text-gradient">Saya</span>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">
+            Ayo <span className="text-gradient">Terhubung</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
-          <p className="text-pastel-800/60 mt-4 max-w-lg mx-auto">
-            Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!
-          </p>
+          <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
+        <div className="grid lg:grid-cols-11 gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="lg:col-span-4 space-y-4"
           >
             {contactLinks.map((link, i) => (
-              <motion.a
+              <a
                 key={link.label}
                 href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="glass-card p-4 flex items-center gap-4 group"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-soft p-5 flex items-center gap-5 group hover:bg-white"
               >
-                <div className="w-12 h-12 rounded-smooth bg-primary/10 flex items-center justify-center
-                              group-hover:bg-primary/20 transition-colors">
-                  <link.icon className="text-primary text-xl" />
+                <div className={`w-12 h-12 rounded-soft-md bg-neutral/5 flex items-center justify-center text-2xl ${link.color} group-hover:scale-110 transition-transform`}>
+                  <link.icon />
                 </div>
                 <div>
-                  <p className="text-xs text-pastel-800/50 uppercase tracking-wider">{link.label}</p>
-                  <p className="text-pastel-900 font-medium">{link.value}</p>
+                  <p className="text-[10px] uppercase tracking-widest font-black text-neutral-soft mb-0.5">{link.label}</p>
+                  <p className="font-bold text-neutral group-hover:text-primary transition-colors">{link.value}</p>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </motion.div>
 
-          {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card p-6 space-y-4"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:col-span-7 card-soft p-10 space-y-8 bg-white"
           >
-            <div>
-              <label htmlFor="name" className="block text-sm text-pastel-800/60 mb-1.5">Nama</label>
-              <input
-                id="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 bg-white/50 border border-pastel-300/50 rounded-smooth
-                           text-pastel-900 placeholder-pastel-400 focus:outline-none focus:border-primary/50
-                           transition-colors"
-                placeholder="Nama lengkap kamu"
-              />
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label className="text-sm font-black text-neutral uppercase tracking-wider ml-1">Nama Kamu</label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-5 py-4 bg-soft-light/50 border-2 border-transparent rounded-soft-md focus:outline-none focus:border-primary/20 focus:bg-white transition-all font-medium"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-black text-neutral uppercase tracking-wider ml-1">Email</label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-5 py-4 bg-soft-light/50 border-2 border-transparent rounded-soft-md focus:outline-none focus:border-primary/20 focus:bg-white transition-all font-medium"
+                  placeholder="john@example.com"
+                />
+              </div>
             </div>
-            <div>
-              <label htmlFor="message" className="block text-sm text-pastel-800/60 mb-1.5">Pesan</label>
+            <div className="space-y-2">
+              <label className="text-sm font-black text-neutral uppercase tracking-wider ml-1">Pesan</label>
               <textarea
-                id="message"
                 required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 bg-white/50 border border-pastel-300/50 rounded-smooth
-                           text-pastel-900 placeholder-pastel-400 focus:outline-none focus:border-primary/50
-                           transition-colors resize-none"
-                placeholder="Tulis pesan kamu di sini..."
+                rows={5}
+                className="w-full px-5 py-4 bg-soft-light/50 border-2 border-transparent rounded-soft-md focus:outline-none focus:border-primary/20 focus:bg-white transition-all font-medium resize-none"
+                placeholder="Halo Salsa, saya tertarik..."
               />
             </div>
-            <button
-              type="submit"
-              className="w-full py-3 bg-primary rounded-smooth text-white font-semibold
-                         hover:bg-secondary hover:shadow-lg hover:shadow-primary/25
-                         transition-all duration-300"
-            >
-              Hubungi via LinkedIn
+            <button type="submit" className="btn-primary w-full py-5 text-lg">
+              Kirim Pesan via LinkedIn
             </button>
           </motion.form>
         </div>

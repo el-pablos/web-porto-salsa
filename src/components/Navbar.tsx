@@ -2,94 +2,98 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenu, HiX } from 'react-icons/hi';
 
-const navItems = [
-  { label: 'Beranda', href: '#beranda' },
-  { label: 'Tentang', href: '#tentang' },
-  { label: 'Keahlian', href: '#keahlian' },
-  { label: 'Proyek', href: '#proyek' },
-  { label: 'Pengalaman', href: '#pengalaman' },
-  { label: 'Kontak', href: '#kontak' },
+const navLinks = [
+  { name: 'Beranda', href: '#beranda' },
+  { name: 'Tentang', href: '#tentang' },
+  { name: 'Skill', href: '#skill' },
+  { name: 'Proyek', href: '#proyek' },
+  { name: 'Pengalaman', href: '#pengalaman' },
+  { name: 'Kontak', href: '#kontak' },
 ];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'glass py-3 shadow-lg shadow-pastel-400/10'
-          : 'bg-transparent py-5'
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 ${
+        isScrolled ? 'px-4' : 'px-6'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        <a href="#beranda" className="text-xl font-bold text-gradient">
-          Salsa.
+      <div 
+        className={`max-w-5xl mx-auto transition-all duration-500 rounded-soft-lg flex items-center justify-between px-6 py-3 ${
+          isScrolled 
+            ? 'bg-white/70 backdrop-blur-md shadow-soft border border-white/40' 
+            : 'bg-transparent'
+        }`}
+      >
+        <a href="#beranda" className="text-2xl font-black text-primary hover:scale-105 transition-transform">
+          S<span className="text-secondary">.</span>
         </a>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="text-sm text-pastel-800/70 hover:text-primary transition-colors duration-300 font-medium"
-              >
-                {item.label}
-              </a>
-            </li>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-semibold text-neutral-light hover:text-primary transition-colors relative group"
+            >
+              {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
           ))}
-        </ul>
+          <a href="#kontak" className="btn-primary py-2 text-sm">
+            Kontak
+          </a>
+        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-pastel-800 hover:text-primary transition-colors"
-          aria-label="Toggle menu"
+        {/* Mobile Toggle */}
+        <button 
+          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          <div className={`w-6 h-0.5 bg-neutral-light transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <div className={`w-6 h-0.5 bg-neutral-light transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <div className={`w-6 h-0.5 bg-neutral-light transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden glass mx-4 mt-2 rounded-smooth overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-24 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-soft-xl shadow-soft-lg border border-white/40 p-8 md:hidden flex flex-col gap-6 items-center"
           >
-            <ul className="flex flex-col py-4">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-6 py-3 text-pastel-800/70 hover:text-primary hover:bg-primary/5
-                               transition-all duration-300 font-medium"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-bold text-neutral-light hover:text-primary transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="btn-primary w-full text-center">
+              Kontak Saya
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }
