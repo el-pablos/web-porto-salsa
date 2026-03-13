@@ -22,6 +22,8 @@
 
 Website portfolio pribadi untuk **Adinda Salsa Aryadi Putri** — mahasiswi Sosiologi FISIP UNAS yang fokus di bidang Data Analysis dan Riset Kuantitatif. Dibangun pake Next.js 14 dengan TypeScript, Tailwind CSS buat styling, dan Framer Motion buat animasi smooth.
 
+Desain menggunakan **tema pink pastel** yang soft dan feminin dengan glass morphism effect — berdasarkan feedback langsung dari pemilik portfolio.
+
 Live di **[salsa.tams.codes](https://salsa.tams.codes)**.
 
 ## Tech Stack
@@ -52,7 +54,7 @@ src/
 │   ├── Navbar.tsx             # Navigasi responsive + glass effect
 │   ├── Hero.tsx               # Hero + LaserFlow (lazy loaded) + ShuffleText
 │   ├── About.tsx              # Tentang saya
-│   ├── Skills.tsx             # Skill bars animated (dari portfolio.json)
+│   ├── Skills.tsx             # Skill tags/chips (dari portfolio.json)
 │   ├── Projects.tsx           # Project cards (dari portfolio.json)
 │   ├── Experience.tsx         # Timeline pengalaman & pendidikan
 │   ├── Contact.tsx            # Form kontak + info
