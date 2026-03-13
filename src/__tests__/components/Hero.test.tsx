@@ -11,7 +11,7 @@ describe('Hero', () => {
 
   it('renders title', () => {
     render(<Hero />);
-    expect(screen.getByText('Data Analyst & QA Enthusiast')).toBeInTheDocument();
+    expect(screen.getByText('Data Analyst & Researcher')).toBeInTheDocument();
   });
 
   it('renders shuffle text component', () => {
@@ -25,8 +25,8 @@ describe('Hero', () => {
     expect(screen.getByText('Hubungi Saya')).toBeInTheDocument();
   });
 
-  it('renders laser flow background', () => {
+  it('renders hero section element', () => {
     render(<Hero />);
-    expect(screen.getByTestId('laser-flow')).toBeInTheDocument();
+    expect(screen.getByText('Hai, perkenalkan saya').closest('section')).toHaveAttribute('id', 'beranda');
   });
 });

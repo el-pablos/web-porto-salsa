@@ -12,18 +12,21 @@ describe('Projects', () => {
 
   it('renders project cards', () => {
     render(<Projects />);
-    expect(screen.getByText('Pentest-for-QA Toolkit')).toBeInTheDocument();
     expect(screen.getByText('Analisis Data Disabilitas Nasional')).toBeInTheDocument();
+    expect(screen.getByText('Dashboard Visualisasi Data KND')).toBeInTheDocument();
     expect(screen.getByText('Penelitian Sosial Kuantitatif UNAS')).toBeInTheDocument();
+    expect(screen.getByText('Analisis Sentimen Media Sosial')).toBeInTheDocument();
   });
 
   it('renders technology tags', () => {
     render(<Projects />);
     expect(screen.getAllByText('Python').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Power BI').length).toBeGreaterThan(0);
   });
 
   it('renders project highlights', () => {
     render(<Projects />);
-    expect(screen.getByText('70+ custom scripts')).toBeInTheDocument();
+    expect(screen.getByText('Dataset nasional')).toBeInTheDocument();
+    expect(screen.getByText('Dashboard real-time')).toBeInTheDocument();
   });
 });
