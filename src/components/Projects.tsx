@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiExternalLink } from 'react-icons/hi';
 import portfolioData from '@/data/portfolio.json';
 
 export function Projects() {
@@ -36,17 +35,6 @@ export function Projects() {
                 <h3 className="text-lg font-semibold text-white leading-tight">
                   {project.title}
                 </h3>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/70 transition-colors shrink-0 ml-2"
-                    aria-label={`Buka ${project.title}`}
-                  >
-                    <HiExternalLink size={20} />
-                  </a>
-                )}
               </div>
 
               <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
