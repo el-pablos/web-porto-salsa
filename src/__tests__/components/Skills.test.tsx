@@ -17,7 +17,7 @@ describe('Skills', () => {
     expect(screen.getByText('Soft Skills')).toBeInTheDocument();
   });
 
-  it('renders skill names from data', () => {
+  it('renders skill names as tags', () => {
     render(<Skills />);
     expect(screen.getByText('Python (Pandas, NumPy)')).toBeInTheDocument();
     expect(screen.getByText('Power BI')).toBeInTheDocument();
@@ -26,10 +26,8 @@ describe('Skills', () => {
     expect(screen.getByText('Google Sheets Advanced')).toBeInTheDocument();
   });
 
-  it('renders skill level percentages', () => {
+  it('does not render percentage values', () => {
     render(<Skills />);
-    expect(screen.getAllByText('90%').length).toBe(2);
-    expect(screen.getAllByText('75%').length).toBeGreaterThanOrEqual(2);
-    expect(screen.getByText('65%')).toBeInTheDocument();
+    expect(screen.queryByText(/\d+%/)).not.toBeInTheDocument();
   });
 });
