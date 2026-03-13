@@ -1,23 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import dynamic from 'next/dynamic';
-
-const PixelBackground = dynamic(
-  () => import('@/components/effects/PixelBackground').then(mod => ({ default: mod.PixelBackground })),
-  { ssr: false }
-);
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -42,10 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="relative min-h-screen antialiased">
-        <PixelBackground />
-        <main className="relative z-10">
+    <html lang="id" className={`scroll-smooth ${inter.variable}`}>
+      <body className="bg-soft-light text-neutral antialiased selection:bg-primary/20 selection:text-primary-dark">
+        <main className="relative overflow-x-hidden">
           {children}
         </main>
       </body>

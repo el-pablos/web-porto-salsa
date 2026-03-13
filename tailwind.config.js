@@ -8,38 +8,48 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#E8849A',
-        secondary: '#D4687E',
-        accent: '#B8A9D4',
-        pastel: {
-          50:  '#FFFAFC',
-          100: '#FFF0F5',
-          200: '#FFE4EE',
-          300: '#FFD1DC',
-          400: '#FFB6C1',
-          500: '#E8849A',
-          600: '#D4687E',
-          700: '#C05270',
-          800: '#A83D5E',
-          900: '#8E2A4A',
+        primary: {
+          DEFAULT: '#FF99C8',
+          light: '#FCB1D1',
+          dark: '#E94E89',
         },
+        secondary: {
+          DEFAULT: '#9ED2D6',
+          light: '#C2E9FB',
+        },
+        accent: {
+          DEFAULT: '#CFBAF0',
+          light: '#F1C0E8',
+        },
+        cream: '#FFF9E1',
+        soft: {
+          DEFAULT: '#FAD2E1',
+          light: '#FFF0F5',
+        },
+        neutral: {
+          DEFAULT: '#3D3040',
+          light: '#6B5B6E',
+          soft: '#A899A9',
+        }
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        'smooth': '1rem',
-        'smooth-lg': '1.5rem',
-        'smooth-xl': '2rem',
+        'soft-sm': '0.75rem',
+        'soft-md': '1.25rem',
+        'soft-lg': '1.75rem',
+        'soft-xl': '2.5rem',
+      },
+      boxShadow: {
+        'soft': '0 4px 20px -2px rgba(255, 153, 200, 0.15)',
+        'soft-md': '0 10px 30px -5px rgba(255, 153, 200, 0.2)',
+        'soft-lg': '0 20px 50px -10px rgba(255, 153, 200, 0.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'slide-up': 'slideUp 0.6s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'float': 'float 5s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -47,24 +57,12 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(232, 132, 154, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(232, 132, 154, 0.6)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },
