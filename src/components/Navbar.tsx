@@ -1,94 +1,92 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiMenu, HiX } from 'react-icons/hi';
 
-const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+const navItems = [
+  { label: 'Beranda', href: '#beranda' },
+  { label: 'Tentang', href: '#tentang' },
+  { label: 'Keahlian', href: '#keahlian' },
+  { label: 'Proyek', href: '#proyek' },
+  { label: 'Pengalaman', href: '#pengalaman' },
+  { label: 'Kontak', href: '#kontak' },
 ];
 
-export default function Navbar() {
+export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass border-b border-white/5 py-3" : "py-5"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'glass py-3 shadow-lg shadow-black/20'
+          : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <motion.a
-          href="#home"
-          className="text-xl font-bold gradient-text"
-          whileHover={{ scale: 1.05 }}
-        >
-          tama.dev
-        </motion.a>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <a href="#beranda" className="text-xl font-bold text-gradient">
+          Salsa.
+        </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-white/60 hover:text-white transition-colors duration-200 hover:text-cyan-400"
-            >
-              {link.label}
-            </a>
+        <ul className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="text-sm text-gray-300 hover:text-primary transition-colors duration-300 font-medium"
+              >
+                {item.label}
+              </a>
+            </li>
           ))}
-          <a
-            href="#contact"
-            className="px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-cyan-500 to-purple-600 hover:opacity-90 transition-opacity"
-          >
-            Hire Me
-          </a>
-        </div>
+        </ul>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white/70 hover:text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-300 hover:text-primary transition-colors"
+          aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {menuOpen && (
+        {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/5"
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass mx-4 mt-2 rounded-smooth overflow-hidden"
           >
-            <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-white/70 hover:text-cyan-400 transition-colors"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+            <ul className="flex flex-col py-4">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-6 py-3 text-gray-300 hover:text-primary hover:bg-primary/5
+                               transition-all duration-300 font-medium"
+                  >
+                    {item.label}
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>

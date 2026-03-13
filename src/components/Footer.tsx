@@ -1,41 +1,43 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Github, Instagram, MessageCircle, Heart } from "lucide-react";
+import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
+import portfolioData from '@/data/portfolio.json';
 
-export default function Footer() {
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-10 border-t border-white/5">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-white/30 text-sm flex items-center gap-1.5"
-        >
-          Built with <Heart size={13} className="text-pink-500" /> by{" "}
-          <span className="gradient-text font-semibold">Tama El Pablo</span>
-        </motion.div>
+    <footer className="py-8 px-4 sm:px-6 border-t border-gray-800/50">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-gray-500 text-sm flex items-center gap-1">
+          &copy; {currentYear} {portfolioData.name}. Dibuat dengan
+          <FaHeart className="text-secondary text-xs" />
+        </p>
 
         <div className="flex items-center gap-4">
-          {[
-            { href: "https://github.com/el-pablos", icon: <Github size={16} /> },
-            { href: "https://instagram.com/tam.aspx", icon: <Instagram size={16} /> },
-            { href: "https://wa.me/6282210819939", icon: <MessageCircle size={16} /> },
-          ].map((s, i) => (
-            <a
-              key={i}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/30 hover:text-cyan-400 transition-colors"
-            >
-              {s.icon}
-            </a>
-          ))}
+          <a
+            href={portfolioData.contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-primary transition-colors"
+            aria-label="GitHub"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a
+            href={portfolioData.contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={20} />
+          </a>
         </div>
 
-        <p className="text-white/20 text-xs">© 2026 tams.codes</p>
+        <p className="text-gray-600 text-xs">
+          Built by <a href="https://github.com/el-pablos" target="_blank" rel="noopener noreferrer" className="text-primary/60 hover:text-primary transition-colors">el-pablos</a>
+        </p>
       </div>
     </footer>
   );
