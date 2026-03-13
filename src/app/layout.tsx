@@ -1,19 +1,17 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import './globals.css';
+import { ClickSpark } from '@/components/effects/ClickSpark';
+import { PixelBackground } from '@/components/effects/PixelBackground';
 
 export const metadata: Metadata = {
-  title: "Tama El Pablo — Full-Stack Developer",
-  description: "Portfolio of Tama El Pablo — Full-Stack Developer, AI Enthusiast, and Problem Solver.",
+  title: 'Adinda Salsa Aryadi Putri | Portfolio',
+  description: 'Portfolio - Data Analyst & QA Enthusiast. Mengubah data mentah menjadi insight bermakna.',
+  keywords: ['portfolio', 'data analyst', 'QA', 'Adinda Salsa', 'UNAS'],
+  authors: [{ name: 'Adinda Salsa Aryadi Putri' }],
   openGraph: {
-    title: "Tama El Pablo — Full-Stack Developer",
-    description: "Portfolio of Tama El Pablo — Full-Stack Developer, AI Enthusiast, and Problem Solver.",
-    url: "https://porto.tams.codes",
-    siteName: "Tama El Pablo",
-    locale: "id_ID",
-    type: "website",
+    title: 'Adinda Salsa Aryadi Putri | Portfolio',
+    description: 'Data Analyst & QA Enthusiast',
+    type: 'website',
   },
 };
 
@@ -24,8 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className="scroll-smooth">
-      <body className={`${inter.className} bg-[#0a0a0f] text-white antialiased`}>
-        {children}
+      <body className="relative min-h-screen antialiased">
+        <PixelBackground />
+        <ClickSpark />
+        <main className="relative z-10">
+          {children}
+        </main>
       </body>
     </html>
   );
