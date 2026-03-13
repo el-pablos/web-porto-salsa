@@ -13,9 +13,9 @@ interface Pixel {
 }
 
 const PIXEL_COLORS = [
-  'rgba(108, 99, 255, ',
-  'rgba(255, 101, 132, ',
-  'rgba(0, 212, 170, ',
+  'rgba(232, 132, 154, ',
+  'rgba(184, 169, 212, ',
+  'rgba(244, 184, 193, ',
 ];
 
 const FPS_LIMIT = 30;

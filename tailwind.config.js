@@ -8,14 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#6C63FF',
-        secondary: '#FF6584',
-        accent: '#00D4AA',
-        dark: {
-          100: '#1a1a2e',
-          200: '#16213e',
-          300: '#0f3460',
-          400: '#0a0a1a',
+        primary: '#E8849A',
+        secondary: '#D4687E',
+        accent: '#B8A9D4',
+        pastel: {
+          50:  '#FFFAFC',
+          100: '#FFF0F5',
+          200: '#FFE4EE',
+          300: '#FFD1DC',
+          400: '#FFB6C1',
+          500: '#E8849A',
+          600: '#D4687E',
+          700: '#C05270',
+          800: '#A83D5E',
+          900: '#8E2A4A',
         },
       },
       fontFamily: {
@@ -53,8 +59,8 @@ module.exports = {
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(108, 99, 255, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(108, 99, 255, 0.6)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(232, 132, 154, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(232, 132, 154, 0.6)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },

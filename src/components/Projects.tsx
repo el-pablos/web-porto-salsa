@@ -32,12 +32,12 @@ export function Projects() {
               className="glass-card p-6 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white leading-tight">
+                <h3 className="text-lg font-semibold text-pastel-900 leading-tight">
                   {project.title}
                 </h3>
               </div>
 
-              <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+              <p className="text-pastel-800/60 text-sm leading-relaxed mb-4 flex-grow">
                 {project.description}
               </p>
 
@@ -54,11 +54,11 @@ export function Projects() {
                 </div>
               )}
 
-              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-700/30">
+              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-pastel-300/30">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-2 py-0.5 bg-dark-200 text-gray-400 rounded font-mono"
+                    className="text-xs px-2 py-0.5 bg-pastel-200 text-pastel-800 rounded font-mono"
                   >
                     {t}
                   </span>

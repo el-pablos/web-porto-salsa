@@ -36,7 +36,7 @@ export function Contact() {
             Hubungi <span className="text-gradient">Saya</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
-          <p className="text-gray-400 mt-4 max-w-lg mx-auto">
+          <p className="text-pastel-800/60 mt-4 max-w-lg mx-auto">
             Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!
           </p>
         </motion.div>
@@ -65,8 +65,8 @@ export function Contact() {
                   <link.icon className="text-primary text-xl" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">{link.label}</p>
-                  <p className="text-gray-300 font-medium">{link.value}</p>
+                  <p className="text-xs text-pastel-800/50 uppercase tracking-wider">{link.label}</p>
+                  <p className="text-pastel-900 font-medium">{link.value}</p>
                 </div>
               </motion.a>
             ))}
@@ -81,29 +81,29 @@ export function Contact() {
             className="glass-card p-6 space-y-4"
           >
             <div>
-              <label htmlFor="name" className="block text-sm text-gray-400 mb-1.5">Nama</label>
+              <label htmlFor="name" className="block text-sm text-pastel-800/60 mb-1.5">Nama</label>
               <input
                 id="name"
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
-                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
+                className="w-full px-4 py-3 bg-white/50 border border-pastel-300/50 rounded-smooth
+                           text-pastel-900 placeholder-pastel-400 focus:outline-none focus:border-primary/50
                            transition-colors"
                 placeholder="Nama lengkap kamu"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm text-gray-400 mb-1.5">Pesan</label>
+              <label htmlFor="message" className="block text-sm text-pastel-800/60 mb-1.5">Pesan</label>
               <textarea
                 id="message"
                 required
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
-                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
+                className="w-full px-4 py-3 bg-white/50 border border-pastel-300/50 rounded-smooth
+                           text-pastel-900 placeholder-pastel-400 focus:outline-none focus:border-primary/50
                            transition-colors resize-none"
                 placeholder="Tulis pesan kamu di sini..."
               />
@@ -111,7 +111,7 @@ export function Contact() {
             <button
               type="submit"
               className="w-full py-3 bg-primary rounded-smooth text-white font-semibold
-                         hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25
+                         hover:bg-secondary hover:shadow-lg hover:shadow-primary/25
                          transition-all duration-300"
             >
               Hubungi via LinkedIn

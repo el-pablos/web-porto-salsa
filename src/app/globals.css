@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #6C63FF;
-  --color-secondary: #FF6584;
-  --color-accent: #00D4AA;
-  --color-bg-dark: #0a0a1a;
-  --color-bg-card: #1a1a2e;
+  --color-primary: #E8849A;
+  --color-secondary: #D4687E;
+  --color-accent: #B8A9D4;
+  --color-bg: #FFF0F5;
+  --color-bg-card: rgba(255, 255, 255, 0.6);
   --smooth-radius: 1rem;
 }
 
@@ -22,8 +22,8 @@ html {
 }
 
 body {
-  background-color: var(--color-bg-dark);
-  color: #e0e0e0;
+  background-color: var(--color-bg);
+  color: #3D3040;
   font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -34,22 +34,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-dark);
+  background: #FFF0F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #E8849A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5a52d5;
+  background: #D4687E;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(108, 99, 255, 0.3);
-  color: #fff;
+  background: rgba(232, 132, 154, 0.3);
+  color: #3D3040;
 }
 
 /* Smooth transitions globally */
@@ -60,36 +60,36 @@ a, button {
 /* Glass morphism utility */
 @layer utilities {
   .glass {
-    background: rgba(26, 26, 46, 0.7);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(108, 99, 255, 0.15);
+    border: 1px solid rgba(232, 132, 154, 0.15);
   }
 
   .glass-card {
-    background: rgba(26, 26, 46, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(108, 99, 255, 0.1);
+    border: 1px solid rgba(232, 132, 154, 0.15);
     border-radius: 1rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-card:hover {
-    border-color: rgba(108, 99, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.15);
+    border-color: rgba(232, 132, 154, 0.35);
+    box-shadow: 0 8px 32px rgba(232, 132, 154, 0.12);
     transform: translateY(-4px);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #6C63FF, #FF6584, #00D4AA);
+    background: linear-gradient(135deg, #E8849A, #B8A9D4, #F4B8C1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glow-border {
-    box-shadow: 0 0 15px rgba(108, 99, 255, 0.2),
-                inset 0 0 15px rgba(108, 99, 255, 0.05);
+    box-shadow: 0 0 15px rgba(232, 132, 154, 0.15),
+                inset 0 0 15px rgba(232, 132, 154, 0.05);
   }
 }
