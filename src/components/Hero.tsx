@@ -1,9 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { ShuffleText } from '@/components/effects/ShuffleText';
-import { LaserFlow } from '@/components/effects/LaserFlow';
 import { HiArrowDown } from 'react-icons/hi';
+
+const LaserFlow = dynamic(
+  () => import('@/components/effects/LaserFlow').then(mod => ({ default: mod.LaserFlow })),
+  { ssr: false }
+);
 
 export function Hero() {
   return (
