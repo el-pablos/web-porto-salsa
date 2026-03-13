@@ -3,16 +3,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiMail, HiLocationMarker } from 'react-icons/hi';
+import { HiLocationMarker } from 'react-icons/hi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import portfolioData from '@/data/portfolio.json';
 
 export function Contact() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', message: '' });
 
   const contactLinks = [
-    { icon: HiMail, label: 'Email', value: portfolioData.contact.email, href: `mailto:${portfolioData.contact.email}` },
     { icon: FaGithub, label: 'GitHub', value: 'adndaaryadi', href: portfolioData.contact.github },
     { icon: FaLinkedin, label: 'LinkedIn', value: 'Adinda Salsa', href: portfolioData.contact.linkedin },
     { icon: HiLocationMarker, label: 'Lokasi', value: portfolioData.contact.location, href: '#' },
@@ -20,8 +19,8 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${portfolioData.contact.email}?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
-    window.open(mailtoLink, '_blank');
+    const linkedinUrl = portfolioData.contact.linkedin;
+    window.open(linkedinUrl, '_blank');
   };
 
   return (
@@ -96,20 +95,6 @@ export function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-gray-400 mb-1.5">Email</label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
-                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
-                           transition-colors"
-                placeholder="email@example.com"
-              />
-            </div>
-            <div>
               <label htmlFor="message" className="block text-sm text-gray-400 mb-1.5">Pesan</label>
               <textarea
                 id="message"
@@ -129,7 +114,7 @@ export function Contact() {
                          hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25
                          transition-all duration-300"
             >
-              Kirim Pesan
+              Hubungi via LinkedIn
             </button>
           </motion.form>
         </div>
