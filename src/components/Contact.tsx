@@ -1,122 +1,136 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Github, Instagram, MessageCircle, Mail, Send, CheckCircle } from "lucide-react";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { HiMail, HiLocationMarker } from 'react-icons/hi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import portfolioData from '@/data/portfolio.json';
 
-const socials = [
-  { label: "GitHub", handle: "el-pablos", href: "https://github.com/el-pablos", icon: <Github size={20} />, color: "hover:border-white/40 hover:text-white" },
-  { label: "Instagram", handle: "tam.aspx", href: "https://instagram.com/tam.aspx", icon: <Instagram size={20} />, color: "hover:border-pink-500/40 hover:text-pink-400" },
-  { label: "WhatsApp", handle: "082210819939", href: "https://wa.me/6282210819939", icon: <MessageCircle size={20} />, color: "hover:border-green-500/40 hover:text-green-400" },
-];
+export function Contact() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const contactLinks = [
+    { icon: HiMail, label: 'Email', value: portfolioData.contact.email, href: `mailto:${portfolioData.contact.email}` },
+    { icon: FaGithub, label: 'GitHub', value: 'adndaaryadi', href: portfolioData.contact.github },
+    { icon: FaLinkedin, label: 'LinkedIn', value: 'Adinda Salsa', href: portfolioData.contact.linkedin },
+    { icon: HiLocationMarker, label: 'Lokasi', value: portfolioData.contact.location, href: '#' },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailto = `mailto:tama@tams.codes?subject=From ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.name} (${form.email})`;
-    window.location.href = mailto;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    const mailtoLink = `mailto:${portfolioData.contact.email}?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+    window.open(mailtoLink, '_blank');
   };
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent pointer-events-none" />
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="kontak" className="py-20 md:py-32 px-4 sm:px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-cyan-400 text-sm font-mono mb-3">// get in touch</p>
-          <h2 className="text-4xl md:text-5xl font-black">
-            Let&apos;s <span className="gradient-text">Connect</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Hubungi <span className="text-gradient">Saya</span>
           </h2>
-          <p className="text-white/40 mt-4 max-w-md mx-auto">
-            Punya project keren? Mau kolaborasi? Atau sekadar say hi — w selalu open buat ngobrol.
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <p className="text-gray-400 mt-4 max-w-lg mx-auto">
+            Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          {/* Socials */}
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-4"
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-6"
           >
-            <h3 className="text-white/60 text-sm font-mono mb-2">// find me at</h3>
-            {socials.map((s, i) => (
+            {contactLinks.map((link, i) => (
               <motion.a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ x: 6 }}
-                className={`flex items-center gap-4 p-4 glass rounded-xl border border-white/5 ${s.color} transition-all duration-200`}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                className="glass-card p-4 flex items-center gap-4 group"
               >
-                <span className="text-white/40">{s.icon}</span>
+                <div className="w-12 h-12 rounded-smooth bg-primary/10 flex items-center justify-center
+                              group-hover:bg-primary/20 transition-colors">
+                  <link.icon className="text-primary text-xl" />
+                </div>
                 <div>
-                  <div className="font-medium text-white">{s.label}</div>
-                  <div className="text-sm text-white/40">{s.handle}</div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">{link.label}</p>
+                  <p className="text-gray-300 font-medium">{link.value}</p>
                 </div>
               </motion.a>
             ))}
           </motion.div>
 
-          {/* Form */}
+          {/* Contact Form */}
           <motion.form
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="glass-card p-6 space-y-4"
           >
-            <h3 className="text-white/60 text-sm font-mono mb-2">// send message</h3>
-            <input
-              type="text"
-              placeholder="Your name"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="px-4 py-3 rounded-xl glass border border-white/10 focus:border-cyan-500/50 outline-none text-white placeholder:text-white/30 bg-transparent transition-colors"
-            />
-            <input
-              type="email"
-              placeholder="Your email"
-              required
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="px-4 py-3 rounded-xl glass border border-white/10 focus:border-cyan-500/50 outline-none text-white placeholder:text-white/30 bg-transparent transition-colors"
-            />
-            <textarea
-              placeholder="What's on your mind?"
-              required
-              rows={4}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="px-4 py-3 rounded-xl glass border border-white/10 focus:border-cyan-500/50 outline-none text-white placeholder:text-white/30 bg-transparent transition-colors resize-none"
-            />
-            <motion.button
+            <div>
+              <label htmlFor="name" className="block text-sm text-gray-400 mb-1.5">Nama</label>
+              <input
+                id="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
+                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
+                           transition-colors"
+                placeholder="Nama lengkap kamu"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm text-gray-400 mb-1.5">Email</label>
+              <input
+                id="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
+                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
+                           transition-colors"
+                placeholder="email@example.com"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm text-gray-400 mb-1.5">Pesan</label>
+              <textarea
+                id="message"
+                required
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-3 bg-dark-400/50 border border-gray-700/50 rounded-smooth
+                           text-white placeholder-gray-600 focus:outline-none focus:border-primary/50
+                           transition-colors resize-none"
+                placeholder="Tulis pesan kamu di sini..."
+              />
+            </div>
+            <button
               type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-purple-600 hover:opacity-90 transition-opacity"
+              className="w-full py-3 bg-primary rounded-smooth text-white font-semibold
+                         hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25
+                         transition-all duration-300"
             >
-              {sent ? (
-                <><CheckCircle size={18} /> Sent!</>
-              ) : (
-                <><Send size={18} /> Send Message</>
-              )}
-            </motion.button>
+              Kirim Pesan
+            </button>
           </motion.form>
         </div>
       </div>

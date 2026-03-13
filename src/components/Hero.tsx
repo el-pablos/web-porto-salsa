@@ -1,156 +1,90 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Github, Instagram, MessageCircle, ArrowDown, Terminal } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ShuffleText } from '@/components/effects/ShuffleText';
+import { LaserFlow } from '@/components/effects/LaserFlow';
+import { HiArrowDown } from 'react-icons/hi';
 
-const roles = [
-  "Full-Stack Developer",
-  "AI Enthusiast",
-  "Problem Solver",
-  "Open Source Contributor",
-];
-
-export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
-
-  useEffect(() => {
-    const role = roles[roleIndex];
-    let i = 0;
-    let timeout: NodeJS.Timeout;
-
-    if (typing) {
-      if (displayed.length < role.length) {
-        timeout = setTimeout(() => {
-          setDisplayed(role.slice(0, displayed.length + 1));
-        }, 60);
-      } else {
-        timeout = setTimeout(() => setTyping(false), 1800);
-      }
-    } else {
-      if (displayed.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayed(displayed.slice(0, -1));
-        }, 35);
-      } else {
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-        setTyping(true);
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, typing, roleIndex]);
-
+export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center grid-bg overflow-hidden">
-      {/* Glow blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="beranda" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <LaserFlow />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        {/* Badge */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <p className="text-primary font-mono text-sm md:text-base mb-4 tracking-wider">
+            Hai, perkenalkan saya
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <ShuffleText text="Adinda Salsa" className="text-gradient" />
+          </h1>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-500/20 text-cyan-400 text-sm mb-8"
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          Available for new projects
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300 mb-6">
+            Data Analyst & QA Enthusiast
+          </h2>
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-6xl md:text-8xl font-black mb-4 tracking-tight"
-        >
-          <span className="text-white">Tama </span>
-          <span className="gradient-text">El Pablo</span>
-        </motion.h1>
-
-        {/* Typing role */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="flex items-center justify-center gap-2 text-2xl md:text-3xl font-light text-white/60 mb-6 h-10"
-        >
-          <Terminal size={24} className="text-cyan-400" />
-          <span className="text-cyan-300 font-mono">{displayed}</span>
-          <span className="w-0.5 h-7 bg-cyan-400 animate-pulse" />
-        </motion.div>
-
-        {/* Bio */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-white/50 max-w-xl mx-auto text-lg mb-10 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Building cool things with code — from AI chatbots to full-stack web apps.
-          Passionate about clean code, creative solutions, and turning ideas into reality.
+          Mengubah data mentah menjadi insight bermakna.
+          Passionate dalam analisis data, visualisasi, dan quality assurance.
         </motion.p>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12"
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#projects"
-            className="px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-purple-600 hover:opacity-90 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+            href="#proyek"
+            className="px-8 py-3 bg-primary rounded-smooth text-white font-semibold
+                       hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/25
+                       transition-all duration-300"
           >
-            See My Work
+            Lihat Proyek Saya
           </a>
           <a
-            href="#contact"
-            className="px-8 py-3 rounded-xl font-semibold glass border border-white/10 hover:border-cyan-500/40 transition-all duration-200 hover:scale-105"
+            href="#kontak"
+            className="px-8 py-3 border border-primary/30 rounded-smooth text-primary font-semibold
+                       hover:bg-primary/10 transition-all duration-300"
           >
-            Get In Touch
+            Hubungi Saya
           </a>
         </motion.div>
 
-        {/* Social links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="flex items-center justify-center gap-5"
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          {[
-            { href: "https://github.com/el-pablos", icon: <Github size={20} />, label: "GitHub" },
-            { href: "https://instagram.com/tam.aspx", icon: <Instagram size={20} />, label: "Instagram" },
-            { href: "https://wa.me/6282210819939", icon: <MessageCircle size={20} />, label: "WhatsApp" },
-          ].map((s) => (
-            <motion.a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -3 }}
-              className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-white/50 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
-            >
-              {s.icon}
-            </motion.a>
-          ))}
+          <a href="#tentang" className="text-gray-500 hover:text-primary transition-colors animate-bounce inline-block">
+            <HiArrowDown size={24} />
+          </a>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ delay: 1.2, repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30"
-      >
-        <ArrowDown size={20} />
-      </motion.div>
     </section>
   );
 }
