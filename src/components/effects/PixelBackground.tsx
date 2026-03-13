@@ -18,6 +18,9 @@ const PIXEL_COLORS = [
   'rgba(0, 212, 170, ',
 ];
 
+const FPS_LIMIT = 30;
+const FRAME_INTERVAL = 1000 / FPS_LIMIT;
+
 export function PixelBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -29,6 +32,8 @@ export function PixelBackground() {
     if (!ctx) return;
 
     let animationId: number;
+    let lastTime = 0;
+    let paused = false;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -36,10 +41,16 @@ export function PixelBackground() {
     };
 
     resize();
-    window.addEventListener('resize', resize);
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 250);
+    };
+    window.addEventListener('resize', debouncedResize);
 
     const pixelSize = 4;
-    const gap = 40;
+    const gap = 60;
     const pixels: Pixel[] = [];
 
     const cols = Math.ceil(canvas.width / gap);
@@ -47,7 +58,7 @@ export function PixelBackground() {
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        if (Math.random() > 0.3) continue;
+        if (Math.random() > 0.15) continue;
         pixels.push({
           x: i * gap + Math.random() * 10,
           y: j * gap + Math.random() * 10,
@@ -62,7 +73,18 @@ export function PixelBackground() {
 
     let time = 0;
 
-    const animate = () => {
+    const animate = (timestamp: number) => {
+      if (paused) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
+      if (timestamp - lastTime < FRAME_INTERVAL) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      lastTime = timestamp;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 0.01;
 
@@ -76,11 +98,18 @@ export function PixelBackground() {
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationId = requestAnimationFrame(animate);
+
+    const handleVisibilityChange = () => {
+      paused = document.hidden;
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', debouncedResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
