@@ -51,19 +51,19 @@ export function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-gray-300 leading-relaxed mb-6 text-base md:text-lg">
+            <p className="text-pastel-900/80 leading-relaxed mb-6 text-base md:text-lg">
               Saya <span className="text-primary font-semibold">Adinda Salsa Aryadi Putri</span>,
               mahasiswi Sosiologi di FISIP Universitas Nasional (UNAS) angkatan 2022.
               Saya memiliki passion besar dalam mengolah data mentah menjadi informasi
               yang bermakna dan dapat digunakan untuk pengambilan keputusan.
             </p>
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <p className="text-pastel-800/60 leading-relaxed mb-6">
               Pengalaman saya di Komisi Nasional Disabilitas (KND) membuka mata saya
               tentang pentingnya data dalam mendukung kebijakan publik. Di sana saya
               belajar menganalisis dataset nasional dan membangun visualisasi data
               untuk laporan tahunan.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-pastel-800/60 leading-relaxed">
               Saat ini saya aktif mengeksplorasi bidang data engineering dan
               riset kuantitatif, menggabungkan kemampuan analitis saya dengan
               metodologi penelitian sosial yang terstruktur.
@@ -85,8 +85,8 @@ export function About() {
                 className="glass-card p-5 text-center"
               >
                 <item.icon className="text-primary text-3xl mx-auto mb-3" />
-                <h3 className="font-semibold text-white text-sm mb-1">{item.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                <h3 className="font-semibold text-pastel-900 text-sm mb-1">{item.title}</h3>
+                <p className="text-pastel-800/60 text-xs leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>

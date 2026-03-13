@@ -45,9 +45,9 @@ export function LaserFlow() {
     }> = [];
 
     const colors = [
-      'rgba(108, 99, 255, ',
-      'rgba(255, 101, 132, ',
-      'rgba(0, 212, 170, ',
+      'rgba(232, 132, 154, ',
+      'rgba(184, 169, 212, ',
+      'rgba(244, 184, 193, ',
     ];
 
     for (let i = 0; i < 10; i++) {
@@ -74,7 +74,7 @@ export function LaserFlow() {
       }
       lastTime = timestamp;
 
-      ctx.fillStyle = 'rgba(10, 10, 26, 0.08)';
+      ctx.fillStyle = 'rgba(255, 240, 245, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       time += 0.005;

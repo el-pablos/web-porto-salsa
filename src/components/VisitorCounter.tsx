@@ -31,7 +31,7 @@ export function VisitorCounter() {
                 {inView && <CountUp end={stat.value} duration={2} />}
                 {stat.suffix}
               </div>
-              <p className="text-gray-400 text-sm">{stat.label}</p>
+              <p className="text-pastel-800/60 text-sm">{stat.label}</p>
             </motion.div>
           ))}
         </div>

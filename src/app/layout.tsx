@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import dynamic from 'next/dynamic';
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     description: 'Data Analyst & Researcher',
     type: 'website',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#FFF0F5',
 };
 
 export default function RootLayout({

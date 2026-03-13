@@ -39,17 +39,17 @@ export function Experience() {
               }`}
             >
               <div className="hidden md:block md:w-1/2" />
-              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-400 border-2 border-primary flex items-center justify-center z-10">
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-pastel-100 border-2 border-primary flex items-center justify-center z-10">
                 <HiBriefcase className="text-primary text-lg" />
               </div>
               <div className="ml-16 md:ml-0 md:w-1/2 glass-card p-6">
                 <span className="text-primary text-xs font-mono mb-2 block">{exp.period}</span>
-                <h3 className="text-lg font-semibold text-white mb-1">{exp.role}</h3>
-                <p className="text-sm text-gray-400 mb-3">{exp.company}</p>
-                <p className="text-sm text-gray-400 leading-relaxed mb-3">{exp.description}</p>
+                <h3 className="text-lg font-semibold text-pastel-900 mb-1">{exp.role}</h3>
+                <p className="text-sm text-pastel-800/60 mb-3">{exp.company}</p>
+                <p className="text-sm text-pastel-800/60 leading-relaxed mb-3">{exp.description}</p>
                 <ul className="space-y-1">
                   {exp.highlights.map((h) => (
-                    <li key={h} className="text-xs text-gray-500 flex items-start gap-2">
+                    <li key={h} className="text-xs text-pastel-800/50 flex items-start gap-2">
                       <span className="text-primary mt-1">&#x25B8;</span>
                       {h}
                     </li>
@@ -69,15 +69,15 @@ export function Experience() {
               className="relative flex items-start gap-6 mb-12"
             >
               <div className="hidden md:block md:w-1/2" />
-              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-400 border-2 border-accent flex items-center justify-center z-10">
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-pastel-100 border-2 border-accent flex items-center justify-center z-10">
                 <HiAcademicCap className="text-accent text-lg" />
               </div>
               <div className="ml-16 md:ml-0 md:w-1/2 glass-card p-6">
                 <span className="text-accent text-xs font-mono mb-2 block">{edu.year}</span>
-                <h3 className="text-lg font-semibold text-white mb-1">{edu.degree}</h3>
-                <p className="text-sm text-gray-400 mb-1">{edu.institution}</p>
-                <p className="text-sm text-gray-400">{edu.faculty}</p>
-                <p className="text-xs text-gray-500 mt-2">{edu.description}</p>
+                <h3 className="text-lg font-semibold text-pastel-900 mb-1">{edu.degree}</h3>
+                <p className="text-sm text-pastel-800/60 mb-1">{edu.institution}</p>
+                <p className="text-sm text-pastel-800/60">{edu.faculty}</p>
+                <p className="text-xs text-pastel-800/50 mt-2">{edu.description}</p>
               </div>
             </motion.div>
           ))}

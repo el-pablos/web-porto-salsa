@@ -30,7 +30,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass py-3 shadow-lg shadow-black/20'
+          ? 'glass py-3 shadow-lg shadow-pastel-400/10'
           : 'bg-transparent py-5'
       }`}
     >
@@ -45,7 +45,7 @@ export function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm text-gray-300 hover:text-primary transition-colors duration-300 font-medium"
+                className="text-sm text-pastel-800/70 hover:text-primary transition-colors duration-300 font-medium"
               >
                 {item.label}
               </a>
@@ -56,7 +56,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-300 hover:text-primary transition-colors"
+          className="md:hidden text-pastel-800 hover:text-primary transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -79,7 +79,7 @@ export function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-6 py-3 text-gray-300 hover:text-primary hover:bg-primary/5
+                    className="block px-6 py-3 text-pastel-800/70 hover:text-primary hover:bg-primary/5
                                transition-all duration-300 font-medium"
                   >
                     {item.label}
