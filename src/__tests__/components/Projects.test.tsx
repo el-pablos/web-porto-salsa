@@ -7,7 +7,7 @@ describe('Projects', () => {
   it('renders section title', () => {
     render(<Projects />);
     expect(screen.getByText('Proyek')).toBeInTheDocument();
-    expect(screen.getByText('Unggulan')).toBeInTheDocument();
+    expect(screen.getByText('Terpilih')).toBeInTheDocument();
   });
 
   it('renders project cards', () => {
@@ -20,8 +20,8 @@ describe('Projects', () => {
 
   it('renders technology tags', () => {
     render(<Projects />);
-    expect(screen.getAllByText('Python').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('Power BI').length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/#Python/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/#Power BI/).length).toBeGreaterThan(0);
   });
 
   it('renders project highlights', () => {

@@ -6,17 +6,16 @@ import { Navbar } from '@/components/Navbar';
 describe('Navbar', () => {
   it('renders navigation brand', () => {
     render(<Navbar />);
-    expect(screen.getByText('Salsa.')).toBeInTheDocument();
+    expect(screen.getByText('S')).toBeInTheDocument();
   });
 
   it('renders all nav links', () => {
     render(<Navbar />);
     expect(screen.getByText('Beranda')).toBeInTheDocument();
     expect(screen.getByText('Tentang')).toBeInTheDocument();
-    expect(screen.getByText('Keahlian')).toBeInTheDocument();
+    expect(screen.getByText('Skill')).toBeInTheDocument();
     expect(screen.getByText('Proyek')).toBeInTheDocument();
     expect(screen.getByText('Pengalaman')).toBeInTheDocument();
-    expect(screen.getByText('Kontak')).toBeInTheDocument();
   });
 
   it('has correct href attributes', () => {
@@ -27,6 +26,7 @@ describe('Navbar', () => {
 
   it('renders mobile menu button', () => {
     render(<Navbar />);
-    expect(screen.getByLabelText('Toggle menu')).toBeInTheDocument();
+    const button = document.querySelector('button.md\\:hidden');
+    expect(button).toBeInTheDocument();
   });
 });

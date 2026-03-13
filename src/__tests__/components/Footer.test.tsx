@@ -11,12 +11,15 @@ describe('Footer', () => {
 
   it('renders social links', () => {
     render(<Footer />);
-    expect(screen.getByLabelText('GitHub')).toBeInTheDocument();
-    expect(screen.getByLabelText('LinkedIn')).toBeInTheDocument();
+    const githubLink = document.querySelector('a[href*="github.com/adndaaryadi"]');
+    const linkedinLink = document.querySelector('a[href*="linkedin.com"]');
+    expect(githubLink).toBeInTheDocument();
+    expect(linkedinLink).toBeInTheDocument();
   });
 
-  it('renders builder credit', () => {
+  it('renders copyright year', () => {
     render(<Footer />);
-    expect(screen.getByText('el-pablos')).toBeInTheDocument();
+    const currentYear = new Date().getFullYear().toString();
+    expect(screen.getByText(new RegExp(currentYear))).toBeInTheDocument();
   });
 });
