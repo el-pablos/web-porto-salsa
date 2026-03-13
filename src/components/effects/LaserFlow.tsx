@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 
+const FPS_LIMIT = 30;
+const FRAME_INTERVAL = 1000 / FPS_LIMIT;
+
 export function LaserFlow() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -13,7 +16,9 @@ export function LaserFlow() {
     if (!ctx) return;
 
     let animationId: number;
+    let lastTime = 0;
     let time = 0;
+    let paused = false;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -21,7 +26,13 @@ export function LaserFlow() {
     };
 
     resize();
-    window.addEventListener('resize', resize);
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 250);
+    };
+    window.addEventListener('resize', debouncedResize);
 
     const lines: Array<{
       x: number;
@@ -39,19 +50,30 @@ export function LaserFlow() {
       'rgba(0, 212, 170, ',
     ];
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 10; i++) {
       lines.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         angle: Math.random() * Math.PI * 2,
-        speed: 0.3 + Math.random() * 0.8,
-        length: 80 + Math.random() * 200,
+        speed: 0.3 + Math.random() * 0.6,
+        length: 80 + Math.random() * 150,
         color: colors[Math.floor(Math.random() * colors.length)],
-        opacity: 0.05 + Math.random() * 0.15,
+        opacity: 0.05 + Math.random() * 0.12,
       });
     }
 
-    const animate = () => {
+    const animate = (timestamp: number) => {
+      if (paused) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
+      if (timestamp - lastTime < FRAME_INTERVAL) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      lastTime = timestamp;
+
       ctx.fillStyle = 'rgba(10, 10, 26, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -86,11 +108,18 @@ export function LaserFlow() {
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationId = requestAnimationFrame(animate);
+
+    const handleVisibilityChange = () => {
+      paused = document.hidden;
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', debouncedResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
