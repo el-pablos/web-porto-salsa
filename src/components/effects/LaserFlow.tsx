@@ -1,0 +1,104 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+export function LaserFlow() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationId: number;
+    let time = 0;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    const lines: Array<{
+      x: number;
+      y: number;
+      angle: number;
+      speed: number;
+      length: number;
+      color: string;
+      opacity: number;
+    }> = [];
+
+    const colors = [
+      'rgba(108, 99, 255, ',
+      'rgba(255, 101, 132, ',
+      'rgba(0, 212, 170, ',
+    ];
+
+    for (let i = 0; i < 15; i++) {
+      lines.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        angle: Math.random() * Math.PI * 2,
+        speed: 0.3 + Math.random() * 0.8,
+        length: 80 + Math.random() * 200,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        opacity: 0.05 + Math.random() * 0.15,
+      });
+    }
+
+    const animate = () => {
+      ctx.fillStyle = 'rgba(10, 10, 26, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      time += 0.005;
+
+      lines.forEach((line) => {
+        line.angle += Math.sin(time + line.x * 0.001) * 0.02;
+        line.x += Math.cos(line.angle) * line.speed;
+        line.y += Math.sin(line.angle) * line.speed;
+
+        if (line.x < -100) line.x = canvas.width + 100;
+        if (line.x > canvas.width + 100) line.x = -100;
+        if (line.y < -100) line.y = canvas.height + 100;
+        if (line.y > canvas.height + 100) line.y = -100;
+
+        const endX = line.x + Math.cos(line.angle) * line.length;
+        const endY = line.y + Math.sin(line.angle) * line.length;
+
+        const gradient = ctx.createLinearGradient(line.x, line.y, endX, endY);
+        gradient.addColorStop(0, `${line.color}0)`);
+        gradient.addColorStop(0.5, `${line.color}${line.opacity})`);
+        gradient.addColorStop(1, `${line.color}0)`);
+
+        ctx.beginPath();
+        ctx.moveTo(line.x, line.y);
+        ctx.lineTo(endX, endY);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      });
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 z-0 pointer-events-none"
+      data-testid="laser-flow"
+    />
+  );
+}
