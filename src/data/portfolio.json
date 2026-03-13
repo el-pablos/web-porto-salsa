@@ -54,23 +54,28 @@
   },
   "projects": [
     {
-      "title": "Pentest-for-QA Toolkit",
-      "description": "Berkolaborasi dalam proyek penetration testing toolkit komprehensif. Berkontribusi dalam aspek QA testing, dokumentasi, dan analisis hasil vulnerability assessment terhadap 13+ domain.",
-      "tech": ["Python", "Security Testing", "QA Methodology", "Documentation"],
-      "highlights": ["70+ custom scripts", "20+ tools terintegrasi", "13+ domain diuji"],
-      "link": "https://github.com/el-pablos/pentest-for-qa"
-    },
-    {
       "title": "Analisis Data Disabilitas Nasional",
       "description": "Proyek analisis data terkait isu disabilitas di Indonesia untuk Komisi Nasional Disabilitas. Meliputi pengolahan data sensus, visualisasi tren, dan penyusunan rekomendasi kebijakan.",
       "tech": ["Python", "Pandas", "Power BI", "Excel"],
       "highlights": ["Dataset nasional", "Visualisasi interaktif", "Laporan kebijakan"]
     },
     {
+      "title": "Dashboard Visualisasi Data KND",
+      "description": "Membangun dashboard interaktif untuk monitoring dan visualisasi data disabilitas nasional. Dashboard menyajikan tren regional, demografi, dan progress program aksesibilitas.",
+      "tech": ["Power BI", "SQL", "Python", "DAX"],
+      "highlights": ["Dashboard real-time", "34 provinsi", "Filter interaktif"]
+    },
+    {
       "title": "Penelitian Sosial Kuantitatif UNAS",
       "description": "Riset akademik menggunakan metode kuantitatif untuk menganalisis fenomena sosial. Pengumpulan data primer melalui survei dan analisis menggunakan tools statistik.",
       "tech": ["SPSS", "Google Forms", "Excel", "Statistical Analysis"],
       "highlights": ["Metode kuantitatif", "Survei 200+ responden", "Paper akademik"]
+    },
+    {
+      "title": "Analisis Sentimen Media Sosial",
+      "description": "Menganalisis sentimen publik terkait isu disabilitas dan inklusi sosial di media sosial menggunakan teknik NLP dan text mining untuk mendukung strategi advokasi.",
+      "tech": ["Python", "NLTK", "Pandas", "Matplotlib"],
+      "highlights": ["10.000+ data tweets", "Sentiment scoring", "Visualisasi tren"]
     }
   ],
   "contact": {
