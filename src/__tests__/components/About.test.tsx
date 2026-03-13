@@ -18,8 +18,8 @@ describe('About', () => {
   it('renders highlight cards', () => {
     render(<About />);
     expect(screen.getByText('Data Analysis')).toBeInTheDocument();
+    expect(screen.getByText('Database & Query')).toBeInTheDocument();
     expect(screen.getByText('Visualization')).toBeInTheDocument();
-    expect(screen.getByText('QA Testing')).toBeInTheDocument();
     expect(screen.getByText('Research')).toBeInTheDocument();
   });
 
