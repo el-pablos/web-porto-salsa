@@ -39,11 +39,11 @@
       { "name": "Matplotlib & Seaborn", "level": 75 },
       { "name": "Excel Advanced", "level": 90 }
     ],
-    "qaTesting": [
-      { "name": "Manual Testing", "level": 80 },
-      { "name": "Test Documentation", "level": 85 },
-      { "name": "Bug Reporting", "level": 82 },
-      { "name": "Security Testing Basics", "level": 65 }
+    "databaseQuery": [
+      { "name": "SQL & PostgreSQL", "level": 75 },
+      { "name": "Google Sheets Advanced", "level": 88 },
+      { "name": "ETL & Data Pipeline", "level": 70 },
+      { "name": "Data Warehousing Basics", "level": 65 }
     ],
     "softSkills": [
       { "name": "Research & Analysis", "level": 88 },
