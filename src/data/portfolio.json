@@ -28,28 +28,28 @@
   ],
   "skills": {
     "dataAnalysis": [
-      { "name": "Python (Pandas, NumPy)", "level": 80 },
-      { "name": "SQL & Database", "level": 75 },
-      { "name": "Statistical Analysis", "level": 78 },
-      { "name": "Data Cleaning & Processing", "level": 85 }
+      "Python (Pandas, NumPy)",
+      "SQL & Database",
+      "Statistical Analysis",
+      "Data Cleaning & Processing"
     ],
     "visualization": [
-      { "name": "Power BI", "level": 82 },
-      { "name": "Tableau", "level": 70 },
-      { "name": "Matplotlib & Seaborn", "level": 75 },
-      { "name": "Excel Advanced", "level": 90 }
+      "Power BI",
+      "Tableau",
+      "Matplotlib & Seaborn",
+      "Excel Advanced"
     ],
     "databaseQuery": [
-      { "name": "SQL & PostgreSQL", "level": 75 },
-      { "name": "Google Sheets Advanced", "level": 88 },
-      { "name": "ETL & Data Pipeline", "level": 70 },
-      { "name": "Data Warehousing Basics", "level": 65 }
+      "SQL & PostgreSQL",
+      "Google Sheets Advanced",
+      "ETL & Data Pipeline",
+      "Data Warehousing Basics"
     ],
     "softSkills": [
-      { "name": "Research & Analysis", "level": 88 },
-      { "name": "Report Writing", "level": 85 },
-      { "name": "Team Collaboration", "level": 90 },
-      { "name": "Critical Thinking", "level": 85 }
+      "Research & Analysis",
+      "Report Writing",
+      "Team Collaboration",
+      "Critical Thinking"
     ]
   },
   "projects": [
