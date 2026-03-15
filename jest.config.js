@@ -24,7 +24,7 @@ const config = {
   transformIgnorePatterns: [
     'node_modules/(?!(react-icons)/)',
   ],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/e2e/'],
   collectCoverageFrom: [
     'src/components/**/*.{ts,tsx}',
     '!src/components/**/index.{ts,tsx}',
