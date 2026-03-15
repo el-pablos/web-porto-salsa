@@ -3,11 +3,31 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { About } from '@/components/About';
 
+jest.mock('vanilla-tilt', () => ({
+  default: { init: jest.fn() },
+}));
+
+beforeAll(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query: string) => ({
+      matches: query === '(pointer: coarse)',
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })),
+  });
+});
+
 describe('About', () => {
   it('renders section title', () => {
     render(<About />);
     expect(screen.getByText('Tentang')).toBeInTheDocument();
-    expect(screen.getByText('Saya')).toBeInTheDocument();
+    expect(screen.getByRole('text', { name: 'Saya' })).toBeInTheDocument();
   });
 
   it('renders name in text', () => {
