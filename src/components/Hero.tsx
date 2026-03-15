@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { ShuffleText } from '@/components/effects/ShuffleText';
+import { useConfettiEgg } from '@/components/effects/useConfettiEgg';
 
 const LaserFlow = dynamic(
   () => import('@/components/effects/LaserFlow').then(mod => ({ default: mod.LaserFlow })),
@@ -10,6 +11,8 @@ const LaserFlow = dynamic(
 );
 
 export function Hero() {
+  const { handleClick } = useConfettiEgg(5);
+
   return (
     <section id="beranda" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
       <LaserFlow />
@@ -40,7 +43,9 @@ export function Hero() {
         >
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 leading-tight">
             <span className="text-neutral-light">Halo, Saya </span>
-            <ShuffleText text="Salsa" className="text-gradient" />
+            <span onClick={handleClick}>
+              <ShuffleText text="Salsa" className="text-gradient" />
+            </span>
           </h1>
         </motion.div>
 
