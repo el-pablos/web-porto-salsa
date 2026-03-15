@@ -20,6 +20,8 @@ dist/
 # Testing
 coverage/
 *.lcov
+test-results/
+e2e/screenshots/
 
 # Debug
 npm-debug.log*
