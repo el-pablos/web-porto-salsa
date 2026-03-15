@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import portfolioData from '@/data/portfolio.json';
+import { StaggerReveal } from '@/components/effects/StaggerReveal';
+import { WaveText } from '@/components/effects/WaveText';
 
 type SkillCategory = {
   label: string;
@@ -30,7 +32,7 @@ export function Skills() {
         className="text-center mb-20"
       >
         <h2 className="text-4xl md:text-5xl font-black mb-4">
-          Keahlian <span className="text-gradient">Analitis</span>
+          Keahlian <span className="text-gradient"><WaveText text="Analitis" /></span>
         </h2>
         <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
       </motion.div>
@@ -48,8 +50,8 @@ export function Skills() {
               <span className={`w-2 h-6 rounded-full ${cat.bgClass.replace('/10', '')}`} />
               {cat.label}
             </h3>
-            <div className="flex flex-wrap gap-3">
-              {portfolioData.skills[cat.key].map((skill, i) => (
+            <StaggerReveal className="flex flex-wrap gap-3">
+              {portfolioData.skills[cat.key].map((skill) => (
                 <span
                   key={skill}
                   className={`px-5 py-2 rounded-soft-md text-sm font-bold ${cat.bgClass} ${cat.textClass}
@@ -58,7 +60,7 @@ export function Skills() {
                   {skill}
                 </span>
               ))}
-            </div>
+            </StaggerReveal>
           </motion.div>
         ))}
       </div>
