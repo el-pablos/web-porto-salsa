@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import portfolioData from '@/data/portfolio.json';
+import { ShimmerCard } from '@/components/effects/ShimmerCard';
 
 export function Projects() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -30,6 +31,7 @@ export function Projects() {
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="card-soft group"
           >
+            <ShimmerCard>
             <div className="flex flex-col h-full">
               <div className="mb-6">
                 <h3 className="text-2xl font-black text-neutral mb-3 leading-tight group-hover:text-primary transition-colors">
@@ -57,6 +59,7 @@ export function Projects() {
                 </div>
               </div>
             </div>
+            </ShimmerCard>
           </motion.div>
         ))}
       </div>
