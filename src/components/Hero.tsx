@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { ShuffleText } from '@/components/effects/ShuffleText';
 import { useConfettiEgg } from '@/components/effects/useConfettiEgg';
+import { FloatingElements } from '@/components/effects/FloatingElements';
 
 const LaserFlow = dynamic(
   () => import('@/components/effects/LaserFlow').then(mod => ({ default: mod.LaserFlow })),
@@ -16,6 +17,7 @@ export function Hero() {
   return (
     <section id="beranda" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
       <LaserFlow />
+      <FloatingElements />
 
       {/* Morphing blob backgrounds */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-primary/15 blur-3xl animate-float"
