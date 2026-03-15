@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 interface WaveTextProps {
   text: string;
   className?: string;
+  charClassName?: string;
   delay?: number;
 }
 
-export function WaveText({ text, className = '', delay = 0 }: WaveTextProps) {
+export function WaveText({ text, className = '', charClassName = '', delay = 0 }: WaveTextProps) {
   const characters = text.split('');
 
   return (
@@ -22,6 +23,7 @@ export function WaveText({ text, className = '', delay = 0 }: WaveTextProps) {
         <motion.span
           key={index}
           aria-hidden="true"
+          className={charClassName}
           style={{ display: 'inline-block' }}
           animate={{ y: [0, -8, 0] }}
           transition={{

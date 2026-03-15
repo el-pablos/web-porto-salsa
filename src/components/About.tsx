@@ -43,7 +43,7 @@ export function About() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-black mb-4">
-            Tentang <span className="text-gradient"><WaveText text="Saya" /></span>
+            Tentang <WaveText text="Saya" charClassName="text-gradient" />
           </h2>
           <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
         </motion.div>
