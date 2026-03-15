@@ -2,6 +2,12 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ScrollProgress } from '@/components/effects/ScrollProgress';
+import dynamic from 'next/dynamic';
+
+const SparkleTrail = dynamic(
+  () => import('@/components/effects/SparkleTrail').then(mod => ({ default: mod.SparkleTrail })),
+  { ssr: false }
+);
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,6 +40,7 @@ export default function RootLayout({
     <html lang="id" className={`scroll-smooth ${inter.variable}`}>
       <body className="bg-soft-light text-neutral antialiased selection:bg-primary/20 selection:text-primary-dark">
         <ScrollProgress />
+        <SparkleTrail />
         <main className="relative overflow-x-hidden">
           {children}
         </main>
