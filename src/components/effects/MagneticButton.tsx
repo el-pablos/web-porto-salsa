@@ -12,9 +12,11 @@ interface MagneticButtonProps {
 export function MagneticButton({ children, className = '', strength = 0.3 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [mounted, setMounted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const mediaQuery = window.matchMedia('(pointer: fine)');
     setIsDesktop(mediaQuery.matches);
 
@@ -37,19 +39,17 @@ export function MagneticButton({ children, className = '', strength = 0.3 }: Mag
     setPosition({ x: 0, y: 0 });
   }, []);
 
-  if (!isDesktop) {
-    return <>{children}</>;
-  }
-
+  // Selalu render wrapper div, tapi hanya aktifkan efek magnetic di desktop
+  // Ini menghindari hydration mismatch karena server dan client render struktur yang sama
   return (
     <motion.div
       ref={ref}
       data-testid="magnetic-button"
       className={className}
-      animate={{ x: position.x, y: position.y }}
+      animate={mounted && isDesktop ? { x: position.x, y: position.y } : undefined}
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={mounted && isDesktop ? handleMouseMove : undefined}
+      onMouseLeave={mounted && isDesktop ? handleMouseLeave : undefined}
       style={{ display: 'inline-block' }}
     >
       {children}
