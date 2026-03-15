@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ScrollProgress } from '@/components/effects/ScrollProgress';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="id" className={`scroll-smooth ${inter.variable}`}>
       <body className="bg-soft-light text-neutral antialiased selection:bg-primary/20 selection:text-primary-dark">
+        <ScrollProgress />
         <main className="relative overflow-x-hidden">
           {children}
         </main>
