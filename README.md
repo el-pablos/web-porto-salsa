@@ -1,30 +1,29 @@
 <div align="center">
 
-# Portfolio Adinda Salsa — Data Analyst
+# 🌸 Portfolio — Adinda Salsa Aryadi Putri
 
-[![Deploy Status](https://img.shields.io/github/deployments/el-pablos/web-porto-salsa/production?label=vercel&logo=vercel)](https://salsa.tams.codes)
-[![Tests](https://img.shields.io/github/actions/workflow/status/el-pablos/web-porto-salsa/main.yml?label=tests&logo=github)](https://github.com/el-pablos/web-porto-salsa/actions)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=nextdotjs)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)](https://typescriptlang.org)
-[![Tailwind](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwindcss)](https://tailwindcss.com)
-[![Tests](https://img.shields.io/badge/Tests-35%2F35_Passed-00D4AA)](https://github.com/el-pablos/web-porto-salsa/actions)
+**Data Analyst & Researcher**
 
-**Portfolio digital Adinda Salsa Aryadi Putri — Data Analyst & Researcher.**
-**Full responsive, mobile-first, smooth animations.**
+*Mengubah data mentah menjadi insight bermakna*
 
-[Live Demo](https://salsa.tams.codes) · [Repository](https://github.com/el-pablos/web-porto-salsa)
+[![Live Site](https://img.shields.io/badge/🔗_Live-salsa.tams.codes-FF99C8?style=for-the-badge)](https://salsa.tams.codes)
+[![Next.js](https://img.shields.io/badge/Next.js-14-000?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
 </div>
 
 ---
 
-## Deskripsi
+## Deskripsi Projek
 
-Website portfolio pribadi untuk **Adinda Salsa Aryadi Putri** — mahasiswi Sosiologi FISIP UNAS yang fokus di bidang Data Analysis dan Riset Kuantitatif. Dibangun pake Next.js 14 dengan TypeScript, Tailwind CSS buat styling, dan Framer Motion buat animasi smooth.
+Website portfolio pribadi buat **Adinda Salsa Aryadi Putri** — mahasiswi Sosiologi FISIP UNAS yang fokus di bidang Data Analysis dan Riset Kuantitatif. Dibangun pake Next.js 14 dengan TypeScript, Tailwind CSS buat styling, dan Framer Motion buat animasi smooth.
 
-Desain menggunakan **tema pink pastel** yang soft dan feminin dengan glass morphism effect — berdasarkan feedback langsung dari pemilik portfolio.
+Desainnya pake **tema pink pastel soft** yang feminin dengan glass morphism effect, blob morphing, sparkle cursor trail, dan berbagai micro-interactions lucu — berdasarkan feedback langsung dari pemilik portfolio.
 
 Live di **[salsa.tams.codes](https://salsa.tams.codes)**.
+
+---
 
 ## Tech Stack
 
@@ -33,68 +32,145 @@ Live di **[salsa.tams.codes](https://salsa.tams.codes)**.
 | Next.js | 14 | Framework React dengan SSR dan App Router |
 | TypeScript | 5.7 | Static typing buat keamanan kode |
 | Tailwind CSS | 3.4 | Utility-first CSS framework |
-| Framer Motion | 11 | Animasi komponen yang smooth |
-| React Icons | 5 | Kumpulan icon SVG |
-| Jest + RTL | 29 | Unit testing dan component testing |
-| GitHub Actions | - | CI/CD automation |
-| Vercel | - | Hosting dan deployment |
-| Redis Cloud | - | Visitor counter backend |
+| Framer Motion | 11 | Library animasi dan transisi |
+| canvas-confetti | 1.9 | Efek confetti easter egg |
+| Jest | 29 | Unit testing framework |
+| GitHub Actions | — | CI/CD pipeline otomatis |
 
-## Arsitektur
+---
+
+## Arsitektur Projek
 
 ```
-src/
-├── app/                       # Next.js App Router
-│   ├── layout.tsx             # Root layout + PixelBackground (lazy loaded)
-│   ├── page.tsx               # Halaman utama
-│   ├── globals.css            # Global styles + glass morphism
-│   ├── not-found.tsx          # Custom 404 (FuzzyText)
-│   └── error.tsx              # Custom 500 (FuzzyText)
-├── components/
-│   ├── Navbar.tsx             # Navigasi responsive + glass effect
-│   ├── Hero.tsx               # Hero + LaserFlow (lazy loaded) + ShuffleText
-│   ├── About.tsx              # Tentang saya
-│   ├── Skills.tsx             # Skill tags/chips (dari portfolio.json)
-│   ├── Projects.tsx           # Project cards (dari portfolio.json)
-│   ├── Experience.tsx         # Timeline pengalaman & pendidikan
-│   ├── Contact.tsx            # Form kontak + info
-│   ├── VisitorCounter.tsx     # Stats counter animasi
-│   ├── Footer.tsx             # Footer
-│   └── effects/               # Efek visual
-│       ├── ShuffleText.tsx    # Animasi shuffle teks
-│       ├── FuzzyText.tsx      # Animasi glitch teks
-│       ├── CountUp.tsx        # Counter animasi
-│       ├── LaserFlow.tsx      # Background laser (optimized 30fps)
-│       └── PixelBackground.tsx # Global pixel background (optimized 30fps)
-├── data/
-│   └── portfolio.json         # Single source of truth untuk semua konten
-└── __tests__/                 # 35 unit tests, 10 suites
+web-porto-salsa/
+├── .github/
+│   └── workflows/
+│       └── main.yml                # CI/CD: test → build → release otomatis
+├── __mocks__/
+│   └── framer-motion.js            # Mock framer-motion buat unit test
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx              # Root layout + ScrollProgress + SparkleTrail
+│   │   ├── page.tsx                # Halaman utama (compose semua section)
+│   │   ├── globals.css             # Global styles + animasi keyframes
+│   │   ├── not-found.tsx           # Custom 404 page (FuzzyText)
+│   │   └── error.tsx               # Custom 500 page (FuzzyText)
+│   ├── components/
+│   │   ├── Navbar.tsx              # Navigasi responsive + glass effect
+│   │   ├── Hero.tsx                # Hero + ShuffleText + LaserFlow + FloatingElements + Confetti
+│   │   ├── About.tsx               # Tentang saya + highlight cards
+│   │   ├── Skills.tsx              # Skill tags/chips per kategori
+│   │   ├── Projects.tsx            # Project cards + ShimmerCard hover effect
+│   │   ├── Experience.tsx          # Timeline pengalaman & pendidikan (alternating)
+│   │   ├── Contact.tsx             # Form kontak + info sosial
+│   │   ├── VisitorCounter.tsx      # Stats counter animasi (CountUp)
+│   │   ├── Footer.tsx              # Footer + social links
+│   │   └── effects/                # Efek visual & animasi interaktif
+│   │       ├── ShuffleText.tsx     # Animasi shuffle/random teks
+│   │       ├── FuzzyText.tsx       # Animasi glitch teks (error pages)
+│   │       ├── CountUp.tsx         # Animasi count up angka
+│   │       ├── LaserFlow.tsx       # Canvas laser beam background
+│   │       ├── PixelBackground.tsx # Pixel background effect
+│   │       ├── ScrollProgress.tsx  # Progress bar gradient di atas halaman
+│   │       ├── SparkleTrail.tsx    # Sparkle cursor trail (desktop only)
+│   │       ├── ShimmerCard.tsx     # Hover shimmer/gloss effect pada cards
+│   │       ├── FloatingElements.tsx# Elemen dekoratif melayang
+│   │       └── useConfettiEgg.ts   # Hook easter egg confetti (klik 5x)
+│   ├── data/
+│   │   └── portfolio.json          # Data konten portfolio (single source of truth)
+│   └── __tests__/                  # Unit tests (44 tests, 15 suites)
+│       ├── components/             # Test setiap komponen
+│       └── effects/                # Test setiap efek visual
+├── tailwind.config.js              # Konfigurasi tema pink pastel
+├── jest.config.ts                  # Konfigurasi Jest
+├── tsconfig.json                   # TypeScript config
+└── package.json                    # Dependencies & scripts
 ```
 
-## Flowchart
+---
 
-```mermaid
-graph TD
-    A[Visitor buka website] --> B[Next.js App Router]
-    B --> C[layout.tsx]
-    C --> D[PixelBackground - lazy loaded]
-    C --> E[page.tsx - Semua Section]
-    E --> F[Navbar]
-    E --> G[Hero + LaserFlow]
-    E --> H[About]
-    E --> I[Skills]
-    E --> J[Projects]
-    E --> K[Experience]
-    E --> L[Contact]
-    E --> M[VisitorCounter]
-    E --> N[Footer]
-    I --> O[(portfolio.json)]
-    J --> O
-    K --> O
-    L --> O
+## Flowchart Arsitektur
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                        layout.tsx                            │
+│  ┌─────────────────┐  ┌──────────────────┐                  │
+│  │ ScrollProgress   │  │  SparkleTrail    │ ← global effects │
+│  └─────────────────┘  └──────────────────┘                  │
+│                                                              │
+│  ┌────────────────── page.tsx ──────────────────┐           │
+│  │                                              │           │
+│  │  ┌──────────┐                                │           │
+│  │  │  Navbar  │ ← glass morphism, responsive   │           │
+│  │  └──────────┘                                │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────────────────────────────┐        │           │
+│  │  │           Hero Section           │        │           │
+│  │  │  ┌────────────┐ ┌─────────────┐  │        │           │
+│  │  │  │ LaserFlow  │ │FloatingElems│  │        │           │
+│  │  │  │ (canvas)   │ │ (shapes)    │  │        │           │
+│  │  │  └────────────┘ └─────────────┘  │        │           │
+│  │  │  ┌────────────┐ ┌─────────────┐  │        │           │
+│  │  │  │ShuffleText │ │ConfettiEgg  │  │        │           │
+│  │  │  │ (typing)   │ │ (5x click)  │  │        │           │
+│  │  │  └────────────┘ └─────────────┘  │        │           │
+│  │  │  + Blob Morphing BG (CSS)        │        │           │
+│  │  └──────────────────────────────────┘        │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────┐                                │           │
+│  │  │  About   │ ← highlight cards              │           │
+│  │  └──────────┘                                │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────┐                                │           │
+│  │  │  Skills  │ ← tag chips per kategori       │           │
+│  │  └──────────┘                                │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────────────────────────────┐        │           │
+│  │  │        Projects Section          │        │           │
+│  │  │  ┌────────────┐                  │        │           │
+│  │  │  │ShimmerCard │ ← hover glow     │        │           │
+│  │  │  └────────────┘                  │        │           │
+│  │  └──────────────────────────────────┘        │           │
+│  │       ↓                                      │           │
+│  │  ┌────────────┐                              │           │
+│  │  │ Experience │ ← alternating timeline       │           │
+│  │  └────────────┘                              │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────┐                                │           │
+│  │  │ Contact  │ ← form + social links          │           │
+│  │  └──────────┘                                │           │
+│  │       ↓                                      │           │
+│  │  ┌────────────────┐                          │           │
+│  │  │VisitorCounter  │ ← CountUp animasi        │           │
+│  │  └────────────────┘                          │           │
+│  │       ↓                                      │           │
+│  │  ┌──────────┐                                │           │
+│  │  │  Footer  │                                │           │
+│  │  └──────────┘                                │           │
+│  └──────────────────────────────────────────────┘           │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-## Cara Development
+---
+
+## Fitur Animasi Interaktif
+
+| Fitur | Deskripsi | Tipe |
+|---|---|---|
+| ShuffleText | Teks "Salsa" acak random lalu settle ke nama asli | Component |
+| LaserFlow | Canvas laser beam pink melayang di background hero | Canvas |
+| FloatingElements | Shapes dekoratif (✦ ◇ ○ ✿ ⬡) melayang perlahan | Framer Motion |
+| SparkleTrail | Bintang pink ikutin cursor mouse (desktop only) | Canvas |
+| ScrollProgress | Progress bar gradient di atas halaman saat scroll | Framer Motion |
+| ShimmerCard | Efek glossy/holographic saat hover project cards | CSS + State |
+| Blob Morphing | Background blob berubah bentuk terus-menerus | CSS Keyframes |
+| Gradient Shift | Teks gradient bergerak shimmer pink→lavender→teal | CSS Keyframes |
+| Confetti Burst | Easter egg — klik nama "Salsa" 5x = confetti meledak | canvas-confetti |
+| CountUp | Angka statistik count dari 0 ke target saat masuk viewport | Component |
+
+---
+
+## Cara Jalanin Lokal
 
 ```bash
 # clone repo
@@ -104,40 +180,74 @@ cd web-porto-salsa
 # install dependencies
 npm install
 
-# setup environment (copy dan isi credentials)
-cp .env.example .env
-
-# jalankan development server
+# jalanin development server
 npm run dev
 
-# jalankan tests
-npm test
-
-# build production
-npm run build
+# buka di browser
+# http://localhost:3000
 ```
 
 ## Testing
 
-- **10 test suites**, **35 tests** — semua **100% passed**
-- Framework: Jest + React Testing Library
-- Coverage: semua komponen utama dan efek visual
+```bash
+# jalanin semua test
+npm test
 
-## Optimasi Performa
+# jalanin test dengan watch mode
+npm run test:watch
 
-- Canvas animations di-throttle ke 30fps
-- Visibility API pause saat tab tidak aktif
-- Resize handler di-debounce
-- Google Fonts via `next/font` (no render blocking)
-- Dynamic import dengan `ssr: false` untuk canvas components
-- Console.log dihapus otomatis di production build
-- First Load JS: ~135kB
+# jalanin test dengan coverage report
+npm run test:coverage
+```
+
+**Status test saat ini: 44 tests, 15 suites — 100% passed**
+
+---
+
+## CI/CD Pipeline
+
+Setiap push ke branch `master`:
+
+```
+Push → Test & Lint → Build → Create Tag → Create Release (latest + versioned)
+```
+
+Pipeline otomatis:
+1. Install dependencies
+2. Jalanin linter
+3. Jalanin semua unit test dengan coverage
+4. Build production
+5. Buat git tag (`v2.0.0-abc1234`)
+6. Buat GitHub Release `latest` (selalu update ke commit terbaru)
+7. Buat GitHub Release versioned (history semua release)
+
+---
+
+## Data Flow
+
+```
+portfolio.json (single source of truth)
+       │
+       ├──→ Hero.tsx        → nama, title, tagline
+       ├──→ About.tsx       → deskripsi, highlights
+       ├──→ Skills.tsx      → skill categories & tags
+       ├──→ Projects.tsx    → project cards + tech tags
+       ├──→ Experience.tsx  → timeline pengalaman & pendidikan
+       ├──→ Contact.tsx     → social links & lokasi
+       ├──→ VisitorCounter  → stats counter
+       └──→ Footer.tsx      → nama, social links
+```
+
+---
 
 ## Kontributor
 
-<a href="https://github.com/el-pablos/web-porto-salsa/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=el-pablos/web-porto-salsa" />
-</a>
+| | Nama | Peran |
+|---|---|---|
+| 🧑‍💻 | **[el-pablos](https://github.com/el-pablos)** | Developer & maintainer |
+| 🤖 | **Claude Opus 4.6** | AI pair programmer |
+| 🤖 | **Gemini CLI** | AI redesign assistant |
+| 🎨 | **Adinda Salsa Aryadi Putri** | Pemilik portfolio & design feedback |
 
 ---
 
@@ -145,9 +255,11 @@ npm run build
 
 **Dibuat oleh [el-pablos](https://github.com/el-pablos)**
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/el-pablos/web-porto-salsa)
-![GitHub repo size](https://img.shields.io/github/repo-size/el-pablos/web-porto-salsa)
-![GitHub top language](https://img.shields.io/github/languages/top/el-pablos/web-porto-salsa)
-![GitHub last commit](https://img.shields.io/github/last-commit/el-pablos/web-porto-salsa)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/el-pablos/web-porto-salsa?color=FF99C8)
+![GitHub repo size](https://img.shields.io/github/repo-size/el-pablos/web-porto-salsa?color=CFBAF0)
+![GitHub top language](https://img.shields.io/github/languages/top/el-pablos/web-porto-salsa?color=9ED2D6)
+![GitHub last commit](https://img.shields.io/github/last-commit/el-pablos/web-porto-salsa?color=FF99C8)
+![GitHub release](https://img.shields.io/github/v/release/el-pablos/web-porto-salsa?color=CFBAF0)
+![GitHub workflow status](https://img.shields.io/github/actions/workflow/status/el-pablos/web-porto-salsa/main.yml?color=9ED2D6&label=CI%2FCD)
 
 </div>
