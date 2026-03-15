@@ -5,6 +5,9 @@ import dynamic from 'next/dynamic';
 import { ShuffleText } from '@/components/effects/ShuffleText';
 import { useConfettiEgg } from '@/components/effects/useConfettiEgg';
 import { FloatingElements } from '@/components/effects/FloatingElements';
+import { ParallaxLayer } from '@/components/effects/ParallaxLayer';
+import { MagneticButton } from '@/components/effects/MagneticButton';
+import { TypewriterSubtitle } from '@/components/effects/TypewriterSubtitle';
 
 const LaserFlow = dynamic(
   () => import('@/components/effects/LaserFlow').then(mod => ({ default: mod.LaserFlow })),
@@ -16,16 +19,19 @@ export function Hero() {
 
   return (
     <section id="beranda" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
-      <LaserFlow />
-      <FloatingElements />
+      <ParallaxLayer speed={0.15} className="absolute inset-0 pointer-events-none">
+        <LaserFlow />
+        <FloatingElements />
+      </ParallaxLayer>
 
-      {/* Morphing blob backgrounds */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/15 blur-3xl animate-float"
-           style={{ animation: 'blob-morph 12s ease-in-out infinite, float 6s ease-in-out infinite' }} />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/15 blur-3xl"
-           style={{ animation: 'blob-morph 15s ease-in-out infinite reverse, float 8s ease-in-out infinite 2s' }} />
-      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-secondary/10 blur-3xl"
-           style={{ animation: 'blob-morph 10s ease-in-out infinite 3s, float 7s ease-in-out infinite 1s' }} />
+      <ParallaxLayer speed={0.3} className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/15 blur-3xl animate-float"
+             style={{ animation: 'blob-morph 12s ease-in-out infinite, float 6s ease-in-out infinite' }} />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/15 blur-3xl"
+             style={{ animation: 'blob-morph 15s ease-in-out infinite reverse, float 8s ease-in-out infinite 2s' }} />
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-secondary/10 blur-3xl"
+             style={{ animation: 'blob-morph 10s ease-in-out infinite 3s, float 7s ease-in-out infinite 1s' }} />
+      </ParallaxLayer>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div
@@ -43,12 +49,15 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-4 leading-tight">
             <span className="text-neutral-light">Halo, Saya </span>
             <span onClick={handleClick}>
               <ShuffleText text="Salsa" className="text-gradient" />
             </span>
           </h1>
+          <div className="mb-6">
+            <TypewriterSubtitle className="text-lg md:text-xl text-primary font-semibold" />
+          </div>
         </motion.div>
 
         <motion.p
@@ -67,12 +76,16 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center"
         >
-          <a href="#proyek" className="btn-primary w-full sm:w-auto text-center">
-            Lihat Portofolio
-          </a>
-          <a href="#kontak" className="btn-secondary w-full sm:w-auto text-center">
-            Mari Berdiskusi
-          </a>
+          <MagneticButton>
+            <a href="#proyek" className="btn-primary w-full sm:w-auto text-center">
+              Lihat Portofolio
+            </a>
+          </MagneticButton>
+          <MagneticButton>
+            <a href="#kontak" className="btn-secondary w-full sm:w-auto text-center">
+              Mari Berdiskusi
+            </a>
+          </MagneticButton>
         </motion.div>
       </div>
     </section>
