@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface Sparkle {
   x: number;
@@ -13,28 +13,46 @@ interface Sparkle {
   color: string;
 }
 
-const SPARKLE_COLORS = ['#FF99C8', '#CFBAF0', '#9ED2D6', '#FCB1D1', '#FFF9E1'];
+const SPARKLE_COLORS = ["#FF99C8", "#CFBAF0", "#9ED2D6", "#FCB1D1", "#FFF9E1"];
 
 export function SparkleTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
+  // Detect prefers-reduced-motion
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    const checkMobile = () => {
+      setIsMobile(
+        window.matchMedia("(pointer: coarse)").matches ||
+          window.innerWidth < 768,
+      );
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Skip animation jika mobile atau prefers reduced motion
+    if (isMobile || prefersReducedMotion) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationId: number;
@@ -45,7 +63,7 @@ export function SparkleTrail() {
       canvas.height = window.innerHeight;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     let throttle = 0;
     const handleMouseMove = (e: MouseEvent) => {
@@ -61,14 +79,22 @@ export function SparkleTrail() {
           rotation: Math.random() * 360,
           vx: (Math.random() - 0.5) * 1.5,
           vy: (Math.random() - 0.5) * 1.5 - 0.5,
-          color: SPARKLE_COLORS[Math.floor(Math.random() * SPARKLE_COLORS.length)],
+          color:
+            SPARKLE_COLORS[Math.floor(Math.random() * SPARKLE_COLORS.length)],
         });
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
-    const drawStar = (cx: number, cy: number, size: number, rotation: number, color: string, opacity: number) => {
+    const drawStar = (
+      cx: number,
+      cy: number,
+      size: number,
+      rotation: number,
+      color: string,
+      opacity: number,
+    ) => {
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate((rotation * Math.PI) / 180);
@@ -78,9 +104,15 @@ export function SparkleTrail() {
       for (let i = 0; i < 4; i++) {
         const angle = (i * Math.PI) / 2;
         ctx.moveTo(0, 0);
-        ctx.lineTo(Math.cos(angle - 0.3) * size * 0.4, Math.sin(angle - 0.3) * size * 0.4);
+        ctx.lineTo(
+          Math.cos(angle - 0.3) * size * 0.4,
+          Math.sin(angle - 0.3) * size * 0.4,
+        );
         ctx.lineTo(Math.cos(angle) * size, Math.sin(angle) * size);
-        ctx.lineTo(Math.cos(angle + 0.3) * size * 0.4, Math.sin(angle + 0.3) * size * 0.4);
+        ctx.lineTo(
+          Math.cos(angle + 0.3) * size * 0.4,
+          Math.sin(angle + 0.3) * size * 0.4,
+        );
       }
       ctx.closePath();
       ctx.fill();
@@ -118,8 +150,8 @@ export function SparkleTrail() {
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isMobile]);
 
