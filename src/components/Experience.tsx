@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView as useFramerInView,
+} from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { HiBriefcase, HiAcademicCap } from "react-icons/hi";
 import portfolioData from "@/data/portfolio.json";
 
@@ -68,7 +74,7 @@ function ExperienceItem({
   isLeft: boolean;
 }) {
   const itemRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(itemRef, { once: true, margin: "-100px" });
+  const isInView = useFramerInView(itemRef, { once: true, margin: "-100px" });
 
   return (
     <motion.div
@@ -144,7 +150,7 @@ function EducationItem({
   isLeft: boolean;
 }) {
   const itemRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(itemRef, { once: true, margin: "-100px" });
+  const isInView = useFramerInView(itemRef, { once: true, margin: "-100px" });
 
   return (
     <motion.div
