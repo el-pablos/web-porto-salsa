@@ -1,32 +1,70 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { HiAcademicCap, HiDatabase, HiChartBar, HiDocumentText } from 'react-icons/hi';
-import { BouncyEntrance } from '@/components/effects/BouncyEntrance';
-import { WaveText } from '@/components/effects/WaveText';
-import { TiltCard } from '@/components/effects/TiltCard';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  HiAcademicCap,
+  HiDatabase,
+  HiChartBar,
+  HiDocumentText,
+} from "react-icons/hi";
+import { BouncyEntrance } from "@/components/effects/BouncyEntrance";
+import { WaveText } from "@/components/effects/WaveText";
+import { TiltCard } from "@/components/effects/TiltCard";
+import { ProgressRing } from "@/components/effects/ProgressRing";
+import portfolioData from "@/data/portfolio.json";
 
 const highlights = [
   {
     icon: HiChartBar,
-    title: 'Data Analysis',
-    desc: 'Mengolah dataset besar menjadi insight yang actionable',
+    title: "Data Analysis",
+    desc: "Mengolah dataset besar menjadi insight yang actionable",
   },
   {
     icon: HiDatabase,
-    title: 'Database & Query',
-    desc: 'Mengelola dan mengquery data dengan SQL dan tools modern',
+    title: "Database & Query",
+    desc: "Mengelola dan mengquery data dengan SQL dan tools modern",
   },
   {
     icon: HiDocumentText,
-    title: 'Visualization',
-    desc: 'Membangun dashboard & chart interaktif yang informatif',
+    title: "Visualization",
+    desc: "Membangun dashboard & chart interaktif yang informatif",
   },
   {
     icon: HiAcademicCap,
-    title: 'Research',
-    desc: 'Riset sosial kuantitatif dengan pendekatan data-driven',
+    title: "Research",
+    desc: "Riset sosial kuantitatif dengan pendekatan data-driven",
+  },
+];
+
+const stats = [
+  {
+    value: portfolioData.stats.projectsCompleted,
+    max: 20,
+    label: "Proyek Selesai",
+    color: "primary" as const,
+    suffix: "+",
+  },
+  {
+    value: portfolioData.stats.datasetsAnalyzed,
+    max: 50,
+    label: "Dataset Dianalisis",
+    color: "secondary" as const,
+    suffix: "+",
+  },
+  {
+    value: portfolioData.stats.toolsMastered,
+    max: 15,
+    label: "Tools Dikuasai",
+    color: "accent" as const,
+    suffix: "",
+  },
+  {
+    value: portfolioData.stats.yearsLearning,
+    max: 5,
+    label: "Tahun Belajar",
+    color: "primary" as const,
+    suffix: "",
   },
 ];
 
@@ -34,7 +72,36 @@ export function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <section id="tentang" className="section-container" ref={ref}>
+    <section
+      id="tentang"
+      className="section-container relative overflow-hidden"
+      ref={ref}
+    >
+      {/* Decorative background blobs */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div
+          className="absolute -top-20 -left-20 w-72 h-72 bg-primary/10 blur-3xl rounded-full"
+          style={{
+            animation:
+              "blob-morph 14s ease-in-out infinite, float 8s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute -bottom-20 -right-20 w-80 h-80 bg-accent/10 blur-3xl rounded-full"
+          style={{
+            animation:
+              "blob-morph 16s ease-in-out infinite reverse, float 10s ease-in-out infinite 3s",
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/3 w-56 h-56 bg-secondary/8 blur-3xl rounded-full"
+          style={{
+            animation:
+              "blob-morph 12s ease-in-out infinite 2s, float 7s ease-in-out infinite 1s",
+          }}
+        />
+      </div>
+
       <BouncyEntrance>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,18 +124,27 @@ export function About() {
           >
             <div className="space-y-6 text-lg text-neutral-light leading-relaxed">
               <p>
-                Halo! Saya <span className="text-primary font-bold">Adinda Salsa Aryadi Putri</span>,
-                seorang mahasiswi Sosiologi yang memiliki ketertarikan mendalam pada dunia data.
+                Halo! Saya{" "}
+                <span className="text-primary font-bold">
+                  Adinda Salsa Aryadi Putri
+                </span>
+                , seorang mahasiswi Sosiologi yang memiliki ketertarikan
+                mendalam pada dunia data.
               </p>
               <p>
-                Bagi saya, data bukan sekadar angka, melainkan cerita yang menunggu untuk diceritakan.
-                Fokus saya adalah menjembatani antara fenomena sosial dengan analisis data kuantitatif
-                untuk menghasilkan insight yang valid dan berdampak.
+                Bagi saya, data bukan sekadar angka, melainkan cerita yang
+                menunggu untuk diceritakan. Fokus saya adalah menjembatani
+                antara fenomena sosial dengan analisis data kuantitatif untuk
+                menghasilkan insight yang valid dan berdampak.
               </p>
               <p>
-                Berbekal pengalaman di <span className="text-secondary font-bold">Komisi Nasional Disabilitas (KND)</span>,
-                saya terbiasa menangani dataset kompleks dan mengubahnya menjadi visualisasi yang mudah dipahami
-                oleh para pengambil kebijakan.
+                Berbekal pengalaman di{" "}
+                <span className="text-secondary font-bold">
+                  Komisi Nasional Disabilitas (KND)
+                </span>
+                , saya terbiasa menangani dataset kompleks dan mengubahnya
+                menjadi visualisasi yang mudah dipahami oleh para pengambil
+                kebijakan.
               </p>
             </div>
 
@@ -93,8 +169,12 @@ export function About() {
                 <div className="w-12 h-12 rounded-soft-md bg-primary/10 flex items-center justify-center mb-4 text-primary text-2xl">
                   <item.icon />
                 </div>
-                <h3 className="font-bold text-neutral text-sm mb-2">{item.title}</h3>
-                <p className="text-neutral-soft text-xs leading-tight">{item.desc}</p>
+                <h3 className="font-bold text-neutral text-sm mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-neutral-soft text-xs leading-tight">
+                  {item.desc}
+                </p>
               </TiltCard>
             ))}
           </motion.div>
