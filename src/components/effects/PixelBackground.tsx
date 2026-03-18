@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface Pixel {
   x: number;
@@ -13,9 +13,9 @@ interface Pixel {
 }
 
 const PIXEL_COLORS = [
-  'rgba(232, 132, 154, ',
-  'rgba(184, 169, 212, ',
-  'rgba(244, 184, 193, ',
+  "rgba(232, 132, 154, ",
+  "rgba(184, 169, 212, ",
+  "rgba(244, 184, 193, ",
 ];
 
 const FPS_LIMIT = 30;
@@ -23,12 +23,26 @@ const FRAME_INTERVAL = 1000 / FPS_LIMIT;
 
 export function PixelBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  // Detect prefers-reduced-motion
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationId: number;
@@ -47,7 +61,7 @@ export function PixelBackground() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(resize, 250);
     };
-    window.addEventListener('resize', debouncedResize);
+    window.addEventListener("resize", debouncedResize);
 
     const pixelSize = 4;
     const gap = 60;
@@ -71,6 +85,22 @@ export function PixelBackground() {
       }
     }
 
+    // Jika prefers reduced motion, render static pixels sekali lalu stop
+    if (prefersReducedMotion) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pixels.forEach((pixel) => {
+        // Gunakan opacity tetap (tanpa animasi pulse)
+        ctx.fillStyle = `${pixel.color}${pixel.targetOpacity})`;
+        ctx.fillRect(pixel.x, pixel.y, pixel.size, pixel.size);
+      });
+
+      // Cleanup hanya resize listener
+      return () => {
+        clearTimeout(resizeTimer);
+        window.removeEventListener("resize", debouncedResize);
+      };
+    }
+
     let time = 0;
 
     const animate = (timestamp: number) => {
@@ -89,7 +119,9 @@ export function PixelBackground() {
       time += 0.01;
 
       pixels.forEach((pixel) => {
-        pixel.opacity = pixel.targetOpacity * (0.5 + 0.5 * Math.sin(time * pixel.speed * 100 + pixel.x + pixel.y));
+        pixel.opacity =
+          pixel.targetOpacity *
+          (0.5 + 0.5 * Math.sin(time * pixel.speed * 100 + pixel.x + pixel.y));
 
         ctx.fillStyle = `${pixel.color}${Math.max(0, pixel.opacity)})`;
         ctx.fillRect(pixel.x, pixel.y, pixel.size, pixel.size);
@@ -103,15 +135,15 @@ export function PixelBackground() {
     const handleVisibilityChange = () => {
       paused = document.hidden;
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       cancelAnimationFrame(animationId);
       clearTimeout(resizeTimer);
-      window.removeEventListener('resize', debouncedResize);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener("resize", debouncedResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <canvas
