@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls, AnimatePresence } from "framer-motion";
 
 interface ChickenState {
   x: number;
@@ -9,6 +9,13 @@ interface ChickenState {
   isWalking: boolean;
   isPecking: boolean;
 }
+
+interface EggProps {
+  id: number;
+  x: number;
+}
+
+const EGG_THRESHOLD = 10; // Klik 10 kali untuk lay egg
 
 export function WalkingChicken() {
   const [chicken, setChicken] = useState<ChickenState>({
@@ -18,6 +25,11 @@ export function WalkingChicken() {
     isPecking: false,
   });
   const [isClient, setIsClient] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const [showHint, setShowHint] = useState(false);
+  const [eggs, setEggs] = useState<EggProps[]>([]);
+  const [eggsCollected, setEggsCollected] = useState(0);
+  const eggIdRef = { current: 0 };
   const controls = useAnimationControls();
 
   // Handle hydration
@@ -105,23 +117,101 @@ export function WalkingChicken() {
     }
   }, [chicken.isPecking, controls]);
 
+  // Lay egg function
+  const layEgg = useCallback(() => {
+    const newEgg: EggProps = {
+      id: eggIdRef.current++,
+      x: chicken.x + 15,
+    };
+
+    setEggs((prev) => {
+      if (prev.length >= 10) {
+        return [...prev.slice(1), newEgg];
+      }
+      return [...prev, newEgg];
+    });
+
+    // Auto-remove egg after 15 seconds
+    setTimeout(() => {
+      setEggs((prev) => prev.filter((e) => e.id !== newEgg.id));
+    }, 15000);
+  }, [chicken.x]);
+
+  // Collect egg function
+  const collectEgg = useCallback((eggId: number) => {
+    setEggs((prev) => prev.filter((e) => e.id !== eggId));
+    setEggsCollected((prev) => prev + 1);
+  }, []);
+
+  // Handle chicken click
+  const handleChickenClick = useCallback(() => {
+    // Jump animation
+    controls.start({
+      y: [0, -30, 0],
+      transition: { duration: 0.4, ease: "easeOut" },
+    });
+
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    // Show hint after 5 clicks
+    if (newCount >= 5 && newCount < EGG_THRESHOLD) {
+      setShowHint(true);
+      setTimeout(() => setShowHint(false), 1500);
+    }
+
+    // Lay egg when threshold reached
+    if (newCount >= EGG_THRESHOLD) {
+      setClickCount(0);
+      layEgg();
+    }
+  }, [clickCount, controls, layEgg]);
+
   if (!isClient) return null;
 
   return (
-    <motion.div
-      className="fixed bottom-4 z-40 cursor-pointer select-none"
-      style={{ left: chicken.x }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      onClick={() => {
-        // Jump on click
-        controls.start({
-          y: [0, -30, 0],
-          transition: { duration: 0.4, ease: "easeOut" },
-        });
-      }}
-      title="Klik untuk lompat!"
-    >
+    <>
+      {/* Eggs */}
+      <AnimatePresence>
+        {eggs.map((egg) => (
+          <motion.div
+            key={egg.id}
+            className="fixed bottom-4 z-39 cursor-pointer"
+            style={{ left: egg.x }}
+            initial={{ scale: 0, y: -20, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            onClick={() => collectEgg(egg.id)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            title="Klik untuk mengumpulkan telur!"
+          >
+            <EggSVG />
+          </motion.div>
+        ))}
+      </AnimatePresence>
+
+      {/* Chicken */}
+      <motion.div
+        className="fixed bottom-4 z-40 cursor-pointer select-none"
+        style={{ left: chicken.x }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        onClick={handleChickenClick}
+        title="Klik untuk lompat! (10x untuk telur)"
+      >
+        {/* Hint bubble */}
+        {showHint && (
+          <motion.span
+            className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs text-primary whitespace-nowrap bg-white/90 px-2 py-1 rounded-full shadow-soft"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+          >
+            {EGG_THRESHOLD - clickCount} more...
+          </motion.span>
+        )}
       <motion.div
         animate={controls}
         style={{
@@ -262,7 +352,57 @@ export function WalkingChicken() {
             <div className="w-2 h-2 rounded-full bg-amber-200/50" />
           </motion.div>
         )}
+
+        {/* Eggs collected counter */}
+        {eggsCollected > 0 && (
+          <motion.div
+            className="absolute -top-2 -right-2 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold shadow-soft"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            {eggsCollected}
+          </motion.div>
+        )}
       </motion.div>
     </motion.div>
+    </>
+  );
+}
+
+function EggSVG() {
+  return (
+    <svg width="30" height="40" viewBox="0 0 30 40" className="drop-shadow-md">
+      {/* Egg shape */}
+      <ellipse cx="15" cy="22" rx="13" ry="18" fill="#FCB1D1" />
+      <ellipse cx="15" cy="22" rx="13" ry="18" fill="url(#eggGradientWC)" />
+
+      {/* Gradient */}
+      <defs>
+        <radialGradient id="eggGradientWC" cx="30%" cy="30%" r="60%">
+          <stop offset="0%" stopColor="#FFF9E1" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#FCB1D1" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Stroke */}
+      <ellipse
+        cx="15"
+        cy="22"
+        rx="12"
+        ry="17"
+        fill="none"
+        stroke="#FF99C8"
+        strokeWidth="2"
+      />
+
+      {/* Decorative spots */}
+      <circle cx="10" cy="18" r="2" fill="#CFBAF0" opacity="0.5" />
+      <circle cx="18" cy="25" r="1.5" fill="#9ED2D6" opacity="0.5" />
+      <circle cx="12" cy="28" r="1" fill="#CFBAF0" opacity="0.5" />
+
+      {/* Shine */}
+      <ellipse cx="10" cy="14" rx="3" ry="4" fill="white" opacity="0.3" />
+    </svg>
   );
 }

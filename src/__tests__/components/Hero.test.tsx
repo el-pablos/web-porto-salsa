@@ -25,6 +25,10 @@ jest.mock('react-type-animation', () => ({
   ),
 }));
 
+jest.mock('@/components/effects/TimeGreetingText', () => ({
+  TimeGreetingText: () => <span data-testid="time-greeting">Halo</span>,
+}));
+
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -52,9 +56,10 @@ describe('Hero', () => {
     expect(screen.getByTestId('shuffle-text')).toBeInTheDocument();
   });
 
-  it('renders heading text', () => {
+  it('renders heading text with time greeting', () => {
     render(<Hero />);
-    expect(screen.getByText(/Halo, Saya/)).toBeInTheDocument();
+    expect(screen.getByTestId('time-greeting')).toBeInTheDocument();
+    expect(screen.getByText(/, Saya/)).toBeInTheDocument();
   });
 
   it('renders CTA buttons', () => {

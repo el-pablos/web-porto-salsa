@@ -6,6 +6,8 @@ import { IconType } from "react-icons";
 import portfolioData from "@/data/portfolio.json";
 import { StaggerReveal } from "./effects/StaggerReveal";
 import { MagneticButton } from "./effects/MagneticButton";
+import { BouncyIcon } from "./effects/BouncyIcon";
+import { RandomQuoteDisplay } from "./effects/RandomQuoteDisplay";
 import { useConfettiEgg } from "./effects/useConfettiEgg";
 
 interface SocialLink {
@@ -60,23 +62,28 @@ export function Footer() {
     <footer className="py-12 px-6 border-t border-primary/5 bg-white/30 backdrop-blur-sm mt-20">
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-8">
         <StaggerReveal className="flex items-center gap-6">
-          {socialLinks.map((social) => {
+          {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
-              <MagneticButton key={social.name} strength={0.4}>
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className={`w-12 h-12 rounded-full bg-neutral/5 flex items-center justify-center text-neutral-light transition-all duration-300 shadow-soft ${social.hoverColor}`}
-                >
-                  <Icon size={24} />
-                </a>
-              </MagneticButton>
+              <BouncyIcon key={social.name} delay={index * 0.2} intensity="subtle">
+                <MagneticButton strength={0.4}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className={`w-12 h-12 rounded-full bg-neutral/5 flex items-center justify-center text-neutral-light transition-all duration-300 shadow-soft ${social.hoverColor}`}
+                  >
+                    <Icon size={24} />
+                  </a>
+                </MagneticButton>
+              </BouncyIcon>
             );
           })}
         </StaggerReveal>
+
+        {/* Random Quote Section */}
+        <RandomQuoteDisplay autoRotate rotateInterval={30000} className="max-w-sm" />
 
         <div className="text-center space-y-2">
           <p className="text-neutral-light font-bold flex items-center justify-center gap-2">

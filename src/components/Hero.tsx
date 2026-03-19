@@ -8,6 +8,7 @@ import { FloatingElements } from '@/components/effects/FloatingElements';
 import { ParallaxLayer } from '@/components/effects/ParallaxLayer';
 import { MagneticButton } from '@/components/effects/MagneticButton';
 import { TypewriterSubtitle } from '@/components/effects/TypewriterSubtitle';
+import { TimeGreetingText } from '@/components/effects/TimeGreetingText';
 
 const LaserFlow = dynamic(
   () => import('@/components/effects/LaserFlow').then(mod => ({ default: mod.LaserFlow })),
@@ -50,7 +51,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-4 leading-tight">
-            <span className="text-neutral-light">Halo, Saya </span>
+            <span className="text-neutral-light">
+              <TimeGreetingText />, Saya{' '}
+            </span>
             <span onClick={handleClick}>
               <ShuffleText text="Salsa" className="text-gradient" />
             </span>

@@ -9,6 +9,16 @@ const SparkleTrail = dynamic(
   { ssr: false }
 );
 
+const HeartBurst = dynamic(
+  () => import('@/components/effects/HeartBurst').then(mod => ({ default: mod.HeartBurst })),
+  { ssr: false }
+);
+
+const IdleAvatarPeek = dynamic(
+  () => import('@/components/effects/IdleAvatarPeek').then(mod => ({ default: mod.IdleAvatarPeek })),
+  { ssr: false }
+);
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -41,6 +51,8 @@ export default function RootLayout({
       <body className="bg-soft-light text-neutral antialiased selection:bg-primary/20 selection:text-primary-dark">
         <ScrollProgress />
         <SparkleTrail />
+        <HeartBurst triggerOnClick maxParticles={50} />
+        <IdleAvatarPeek idleTimeout={45000} side="right" />
         <main className="relative overflow-x-hidden">
           {children}
         </main>
