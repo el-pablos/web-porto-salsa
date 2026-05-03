@@ -80,68 +80,146 @@
     {
       "title": "Analisis Data Disabilitas Nasional",
       "description": "Proyek analisis data terkait isu disabilitas di Indonesia untuk Komisi Nasional Disabilitas. Meliputi pengolahan data sensus, visualisasi tren, dan penyusunan rekomendasi kebijakan.",
-      "tech": ["Python", "Pandas", "Power BI", "Excel"],
-      "highlights": ["Dataset nasional", "Visualisasi interaktif", "Laporan kebijakan"],
+      "tech": [
+        "Python",
+        "Pandas",
+        "Power BI",
+        "Excel"
+      ],
+      "highlights": [
+        "Dataset nasional",
+        "Visualisasi interaktif",
+        "Laporan kebijakan"
+      ],
       "category": "data-analysis"
     },
     {
       "title": "Dashboard Visualisasi Data KND",
       "description": "Membangun dashboard interaktif untuk monitoring dan visualisasi data disabilitas nasional. Dashboard menyajikan tren regional, demografi, dan progress program aksesibilitas.",
-      "tech": ["Power BI", "SQL", "Python", "DAX"],
-      "highlights": ["Dashboard real-time", "34 provinsi", "Filter interaktif"],
+      "tech": [
+        "Power BI",
+        "SQL",
+        "Python",
+        "DAX"
+      ],
+      "highlights": [
+        "Dashboard real-time",
+        "34 provinsi",
+        "Filter interaktif"
+      ],
       "category": "data-analysis"
     },
     {
       "title": "SILAF (Sistem Layanan Administrasi FISIP)",
       "description": "Sistem layanan administrasi digital untuk FISIP yang mencakup Surat Permohonan Data dan Wawancara Penelitian, Pengajuan Surat Pengantar Magang, Formulir Permohonan Dokumen Akademik FISIP, Pendaftaran Seminar Proposal (Sempro) FISIP, dan Pendaftaran Sidang Skripsi/TA FISIP.",
-      "tech": ["Google Form", "Google Sheets", "Web App"],
-      "highlights": ["5 layanan administrasi", "Digitalisasi proses", "QR Code akses"],
+      "tech": [
+        "Google Form",
+        "Google Sheets",
+        "Web App"
+      ],
+      "highlights": [
+        "5 layanan administrasi",
+        "Digitalisasi proses",
+        "QR Code akses"
+      ],
       "category": "tech",
       "link": ""
     },
     {
       "title": "Photostory: Nusantara",
       "description": "Proyek photostory bertema 'Warisan Budaya Nusantara di Tengah Modernitas' untuk mata kuliah Sejarah Masyarakat Asia Tenggara. Tersedia dalam format flipbook digital dan website interaktif.",
-      "tech": ["Canva", "Heyzine Flipbooks", "Web Design"],
-      "highlights": ["Flipbook digital", "Website interaktif", "Narasi visual budaya"],
+      "tech": [
+        "Canva",
+        "Heyzine Flipbooks",
+        "Web Design"
+      ],
+      "highlights": [
+        "Flipbook digital",
+        "Website interaktif",
+        "Narasi visual budaya"
+      ],
       "category": "creative",
       "link": "https://heyzine.com/flip-book/5b3f6b0784.html"
     },
     {
       "title": "Sociology Visual: Social Interaction",
       "description": "Proyek Photostory Social Contradictions yang mengeksplorasi kontradiksi sosial melalui pendekatan visual sosiologi. Dipresentasikan pada 17 November 2024.",
-      "tech": ["Canva", "Photography", "Visual Design"],
-      "highlights": ["Photostory visual", "Analisis kontradiksi sosial", "Presentasi akademik"],
+      "tech": [
+        "Canva",
+        "Photography",
+        "Visual Design"
+      ],
+      "highlights": [
+        "Photostory visual",
+        "Analisis kontradiksi sosial",
+        "Presentasi akademik"
+      ],
       "category": "creative",
       "link": "https://www.canva.com/design/DAGWcqv5Feo/Hhc7OzWzXoNzdE73pHkptA/view"
     },
     {
       "title": "Virtual Exhibition: Urban Life",
       "description": "Pameran fotografi virtual bertema Urban Life yang menampilkan karya mahasiswa Kelas Sosiologi Visual, Universitas Nasional. Melalui pendekatan visual, proyek ini menggambarkan kehidupan dinamis dan kompleks masyarakat urban Jakarta.",
-      "tech": ["Photography", "Web Exhibition", "Visual Sociology"],
-      "highlights": ["Pameran virtual", "Tema kehidupan urban Jakarta", "Kolaborasi kelas"],
+      "tech": [
+        "Photography",
+        "Web Exhibition",
+        "Visual Sociology"
+      ],
+      "highlights": [
+        "Pameran virtual",
+        "Tema kehidupan urban Jakarta",
+        "Kolaborasi kelas"
+      ],
       "category": "creative",
       "link": "https://sosiologi.fisip.unas.ac.id/photography/"
     },
     {
       "title": "Sociopreneurship: EcoCraft Creation",
       "description": "Inisiatif kewirausahaan sosial yang bertujuan mengurangi sampah plastik melalui pengolahan limbah menjadi produk kreatif seperti gantungan kunci. Mengusung konsep sustainability dan community empowerment, dipasarkan secara online dengan model Direct-to-Consumer (D2C) melalui TikTok Shop, Shopee, dan Instagram.",
-      "tech": ["Social Media Marketing", "E-Commerce", "Canva", "Product Design"],
-      "highlights": ["TikTok Shop & Shopee", "D2C model", "Sustainability focus", "Instagram & Linktree"],
+      "tech": [
+        "Social Media Marketing",
+        "E-Commerce",
+        "Canva",
+        "Product Design"
+      ],
+      "highlights": [
+        "TikTok Shop & Shopee",
+        "D2C model",
+        "Sustainability focus",
+        "Instagram & Linktree"
+      ],
       "category": "sociopreneurship"
     },
     {
       "title": "Penelitian Sosial Kuantitatif UNAS",
       "description": "Riset akademik menggunakan metode kuantitatif untuk menganalisis fenomena sosial. Pengumpulan data primer melalui survei dan analisis menggunakan tools statistik.",
-      "tech": ["SPSS", "Google Forms", "Excel", "Statistical Analysis"],
-      "highlights": ["Metode kuantitatif", "Survei 200+ responden", "Paper akademik"],
+      "tech": [
+        "SPSS",
+        "Google Forms",
+        "Excel",
+        "Statistical Analysis"
+      ],
+      "highlights": [
+        "Metode kuantitatif",
+        "Survei 200+ responden",
+        "Paper akademik"
+      ],
       "category": "research"
     },
     {
       "title": "Analisis Sentimen Media Sosial",
       "description": "Menganalisis sentimen publik terkait isu disabilitas dan inklusi sosial di media sosial menggunakan teknik NLP dan text mining untuk mendukung strategi advokasi.",
-      "tech": ["Python", "NLTK", "Pandas", "Matplotlib"],
-      "highlights": ["10.000+ data tweets", "Sentiment scoring", "Visualisasi tren"],
+      "tech": [
+        "Python",
+        "NLTK",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "highlights": [
+        "10.000+ data tweets",
+        "Sentiment scoring",
+        "Visualisasi tren"
+      ],
       "category": "data-analysis"
     }
   ],
@@ -189,149 +267,309 @@
   ],
   "certificates": [
     {
-      "title": "Belajar Dasar Cloud dan Gen AI di AWS",
-      "issuer": "Dicoding Indonesia",
-      "date": "Juni 2025",
-      "category": "course",
-      "description": "Sertifikat kelulusan kelas Belajar Dasar Cloud dan Gen AI di AWS. Materi meliputi pengantar AWS, komputasi cloud, infrastruktur global, penyimpanan, database, keamanan, dan layanan AI/ML. Berlaku hingga Juni 2028.",
-      "credentialId": "53XED29QVPRN",
-      "image": null
+      "title": "Olimpiade Bisnis 2022",
+      "issuer": "University ID",
+      "date": "2022",
+      "category": "academic",
+      "description": "Peserta Nasional Olimpiade Bisnis 2022, meraih Medali Perunggu Nasional dan Peringkat 6 Provinsi DKI Jakarta dari SMKN 3 Jakarta",
+      "credentialId": "01/021/21912870",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bisnis 2022 - Peserta Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bisnis 2022 - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bisnis 2022 - Peringkat 6 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Relawan Pengabdian Masyarakat - Berbagi Makanan Kepada Sesama",
-      "issuer": "Kegiatan Pengabdian Masyarakat",
-      "date": "Desember 2025",
-      "category": "volunteer",
-      "description": "Sertifikat atas partisipasi sebagai relawan dalam kegiatan pengabdian masyarakat 'Berbagi Makanan Kepada Sesama' di Jalan Sawo Manila pada 14 Desember 2025. Berperan sebagai Ketua Pelaksana kegiatan.",
-      "image": "/certificates/cert-pengabdian-berbagi-makanan-2025.png"
+      "title": "Olimpiade Ilmu Komunikasi 2022",
+      "issuer": "University ID",
+      "date": "2022",
+      "category": "academic",
+      "description": "Peserta Nasional Olimpiade Ilmu Komunikasi 2022, meraih Medali Perunggu Nasional dan Peringkat 8 Provinsi DKI Jakarta dari SMKN 3 Jakarta",
+      "credentialId": "01/021/21912870",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Ilmu Komunikasi 2022 - Peserta Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Ilmu Komunikasi 2022 - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Ilmu Komunikasi 2022 - Peringkat 8 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Committee of Debate Department - UNAS FEST 2024",
-      "issuer": "Universitas Nasional",
-      "date": "November 2024",
-      "category": "organization",
-      "description": "Certificate of Appreciation sebagai Committee of Debate Department dalam kegiatan UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'",
-      "image": null
+      "title": "Olimpiade IPS 2022",
+      "issuer": "University ID",
+      "date": "2022",
+      "category": "academic",
+      "description": "Peserta Nasional Olimpiade IPS 2022, meraih Medali Perunggu Nasional dan Peringkat 14 Provinsi DKI Jakarta dari SMKN 3 Jakarta",
+      "credentialId": "01/021/21912870",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade IPS 2022 - Peserta Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade IPS 2022 - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade IPS 2022 - Peringkat 14 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Participant - IPEST Scientific Meeting: Practical Research Methodology",
-      "issuer": "IPEST (International Postgraduate Education Seminar & Training)",
-      "date": "Oktober 2024",
-      "category": "seminar",
-      "description": "Certificate of Achievement sebagai Participant dalam Scientific Meeting Discussion bertopik 'Practical Research Methodology' via Zoom Meeting, 26 Oktober 2024. Ditandatangani oleh Prof. Dr. Paisal Halim., M.Hum.",
-      "image": "/certificates/cert-ipest-research-methodology-2024.png"
+      "title": "Olimpiade Sastra dan Bahasa 2022",
+      "issuer": "University ID",
+      "date": "2022",
+      "category": "academic",
+      "description": "Peserta Nasional Olimpiade Sastra dan Bahasa 2022, meraih Medali Perak Nasional dan Peringkat 9 Provinsi DKI Jakarta dari SMKN 3 Jakarta",
+      "credentialId": "01/021/21912870",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sastra dan Bahasa 2022 - Peserta Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sastra dan Bahasa 2022 - Medali Perak Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sastra dan Bahasa 2022 - Peringkat 9 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Participant - IPEST Scientific Meeting: Spiritual Support in Healthcare",
-      "issuer": "IPEST & Sulapa Institute",
-      "date": "September 2024",
-      "category": "seminar",
-      "description": "Certificate of Achievement sebagai Participant dalam Scientific Meeting Discussion bertopik 'Effects of Spiritual Support in Patient Cure, Pain Tolerance, and Immunity' via Zoom Meeting, 28 September 2024.",
-      "image": "/certificates/cert-ipest-spiritual-support-2024.png"
+      "title": "Olimpiade Sosiologi 2022",
+      "issuer": "University ID",
+      "date": "2022",
+      "category": "academic",
+      "description": "Peserta Nasional Olimpiade Sosiologi 2022, meraih Medali Perunggu Nasional dan Peringkat 9 Provinsi DKI Jakarta dari SMKN 3 Jakarta",
+      "credentialId": "01/021/21912870",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2022 - Peserta Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2022 - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2022 - Peringkat 9 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Committee International Seminar - UNAS FEST 2024",
-      "issuer": "Universitas Nasional",
-      "date": "September 2024",
-      "category": "organization",
-      "description": "Sertifikat sebagai Committee dalam International Seminar UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'. Dies Natalis ke-75 UNAS.",
-      "image": "/certificates/cert-unas-fest-international-seminar-2024.png"
-    },
-    {
-      "title": "Peserta Sociology Camp VI National - Yogyakarta",
-      "issuer": "HIMASOS Universitas Nasional",
-      "date": "Agustus 2024",
-      "category": "seminar",
-      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan Sociology Camp VI National dengan tema 'Social Development in Urban Area of Yogyakarta Province' pada 11-15 Agustus 2024.",
-      "image": null
-    },
-    {
-      "title": "Relawan Generasi Bebas Plastik Batch 7",
-      "issuer": "Novo Club by Paragon Corp & Indorelawan.org",
-      "date": "Juni - Agustus 2024",
-      "category": "volunteer",
-      "description": "Sertifikat apresiasi atas kerja keras dan semangat sebagai relawan pada program Generasi Bebas Plastik Batch 7 dari 22 Juni - 15 Agustus 2024.",
-      "image": null
-    },
-    {
-      "title": "Peserta Self Training Development YRI",
-      "issuer": "Youth Ranger Indonesia",
-      "date": "Desember 2023",
-      "category": "seminar",
-      "description": "Sertifikat apresiasi atas partisipasi sebagai Peserta dalam kegiatan Self Training Development dengan tema 'Merajut Potensi ala Generasi Sandwich' pada Minggu, 10 Desember 2023.",
-      "image": "/certificates/cert-yri-self-training-2023.png"
-    },
-    {
-      "title": "Volunteer Minggu Pagi Project YRI",
-      "issuer": "Youth Ranger Indonesia Jakarta-Banten",
-      "date": "Desember 2023",
-      "category": "volunteer",
-      "description": "Sertifikat atas partisipasi sebagai Volunteer dalam rangka menyukseskan program Minggu Pagi Project yang diadakan oleh Youth Ranger Indonesia pada Minggu, 10 Desember 2023.",
-      "image": "/certificates/cert-yri-volunteer-minggu-pagi-2023.png"
-    },
-    {
-      "title": "Panitia First Gathering YRI - Impress of the Rangers",
+      "title": "First Gathering YRI 2023 - Impress of the Rangers",
       "issuer": "Youth Ranger Indonesia",
       "date": "Oktober 2023",
       "category": "organization",
-      "description": "Sertifikat sebagai Panitia dalam acara First Gathering YRI pada hari Minggu, 22 Oktober 2023 dengan tema 'Impress of the Rangers'.",
-      "image": null
+      "description": "Sertifikat sebagai Panitia dalam acara First Gathering YRI pada hari Minggu, 22 Oktober 2023 dengan tema 'Impress of the Rangers'",
+      "credentialId": "28/S/YRlJ/X/2023",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - First Gathering YRI 2023 - Panitia.jpg"
+      ]
     },
     {
-      "title": "Panitia Kelas Mengajar Nusantara - ARKEDUNA",
-      "issuer": "Kelas Mengajar Nusantara",
-      "date": "September 2023",
-      "category": "community-service",
-      "description": "Sertifikat sebagai Panitia pengabdian masyarakat dengan tema 'AKREDUNA (Asah Kreativitas dan Edukasi Anak Bangsa)' bersama Kelas Mengajar Nusantara di Kemuning pada 24 September 2023.",
-      "image": "/certificates/cert-kelas-mengajar-nusantara-2023.jpg"
+      "title": "Olimpiade Biologi 2021",
+      "issuer": "University ID",
+      "date": "2021",
+      "category": "academic",
+      "description": "Finalis Nasional Olimpiade Biologi 2021, meraih Medali Perak Nasional dan Peringkat 27 Provinsi DKI Jakarta",
+      "credentialId": "02/10022290",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Biologi 2021 - Finalis Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Biologi 2021 - Medali Perak Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Biologi 2021 - Peringkat 27 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Peserta Talkshow SAUDC 2023",
-      "issuer": "UKM PD UGM (Universitas Gadjah Mada)",
-      "date": "Juni 2023",
-      "category": "seminar",
-      "description": "Sertifikat atas partisipasi sebagai peserta dalam kegiatan Talkshow SAUDC (South Asian Universities Debate Championship) 2023 yang diselenggarakan oleh UKM PD UGM.",
-      "image": null
+      "title": "Olimpiade Bahasa Indonesia 2021 Desember",
+      "issuer": "University ID",
+      "date": "Desember 2021",
+      "category": "academic",
+      "description": "Finalis Nasional Olimpiade Bahasa Indonesia Desember 2021, meraih Medali Perunggu Nasional dan Peringkat 81 Provinsi DKI Jakarta",
+      "credentialId": "02/10022290",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 Desember - Finalis Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 Desember - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 Desember - Peringkat 81 Provinsi DKI Jakarta.jpg"
+      ]
     },
     {
-      "title": "Peserta IYPF 2023 (Indonesia Youth Peace Forum)",
-      "issuer": "Indonesia Youth Peace Forum",
-      "date": "2023",
-      "category": "seminar",
-      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan Indonesia Youth Peace Forum (IYPF) 2023.",
-      "image": null
-    },
-    {
-      "title": "Peserta Sociology on Day - From Sociology to Sociopreneur",
-      "issuer": "HIMASOS Universitas Nasional",
-      "date": "Maret 2023",
-      "category": "seminar",
-      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan 'Sociology on Day' bertemakan 'From Sociology to be a successful Sociopreneur' yang diselenggarakan pada 2 Maret 2023.",
-      "image": "/certificates/cert-sociology-on-day-2023.jpg"
-    },
-    {
-      "title": "Peserta Kick Andy Show",
-      "issuer": "Kick Andy Foundation",
-      "date": "2023",
-      "category": "seminar",
-      "description": "Sertifikat atas partisipasi sebagai peserta dalam acara Kick Andy Show.",
-      "image": null
-    },
-    {
-      "title": "Certificate Summit - Universitas Nasional",
-      "issuer": "Universitas Nasional",
+      "title": "GIE Talk - Perempuan Sebagai Tulang Punggung Generasi Emas",
+      "issuer": "Generasi Muda Indonesia Emas",
       "date": "2024",
       "category": "seminar",
-      "description": "Certificate of participation dalam kegiatan Summit yang diselenggarakan oleh Universitas Nasional.",
-      "image": null
+      "description": "Certificate of Recognition sebagai peserta pada kegiatan Webinar GIE Talk dengan tema 'Perempuan Sebagai Tulang Punggung Generasi Emas'",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - GIE Talk Perempuan Sebagai Tulang Punggung Generasi Emas 2024 - Peserta.jpg"
+      ]
     },
     {
-      "title": "PLBA UNAS 2022 - Pengenalan Lingkungan Budaya Akademik",
-      "issuer": "Universitas Nasional",
-      "date": "September 2022",
+      "title": "Kick Andy Goes To Campus 2024",
+      "issuer": "Metro TV",
+      "date": "2024",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Audiens pada acara Kick Andy Goes To Campus Sesi 1: 'Cahaya Dari Jambi' & Sesi 2: 'Dari Kampung Untuk Negeri'",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Kick Andy Goes To Campus 2024 - Audiens.jpg"
+      ]
+    },
+    {
+      "title": "Sociology Camp VI National 2024",
+      "issuer": "HIMASOS / Universitas Nasional",
+      "date": "Agustus 2024",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan Sociology Camp VI National dengan tema 'Social Development in Urban Area of Yogyakarta Province' pada 11-15 Agustus 2024",
+      "credentialId": "143/PANPEL/HIMASOS/VIII/2024",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Sociology Camp VI National 2024 - Peserta.jpg"
+      ]
+    },
+    {
+      "title": "Olimpiade Sosiologi 2021",
+      "issuer": "University ID",
+      "date": "2021",
       "category": "academic",
-      "description": "Sertifikat telah mengikuti 'Pengenalan Lingkungan Budaya Akademik' Tahun Akademik Ganjil 2022/2023 pada 22-24 September 2022 secara Hybrid. Materi: Akademik, Hak & Kewajiban Kemahasiswaan, Penelitian & Pengabdian Masyarakat, Bela Negara, dan Narkoba.",
-      "image": "/certificates/cert-plba-unas-2022.jpeg"
+      "description": "Finalis Nasional Olimpiade Sosiologi 2021, meraih Medali Perunggu Nasional dan Peringkat 109 Provinsi DKI Jakarta",
+      "credentialId": "02/10022290",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2021 - Finalis Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2021 - Medali Perunggu Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Sosiologi 2021 - Peringkat 109 Provinsi DKI Jakarta.jpg"
+      ]
+    },
+    {
+      "title": "Suara Hati 2025 - Volunteer",
+      "issuer": "Suara Hati",
+      "date": "September 2025",
+      "category": "volunteer",
+      "description": "Sertifikat penghargaan sebagai Volunteer pada tanggal 14 September 2025 di Panti Asrama Domyadhu Pejaten, Jakarta Selatan",
+      "credentialId": "SH VOL 001 09 2025",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Suara Hati 2025 - Volunteer.jpg"
+      ]
+    },
+    {
+      "title": "Olimpiade Bahasa Indonesia 2021 November",
+      "issuer": "University ID",
+      "date": "November 2021",
+      "category": "academic",
+      "description": "Finalis Nasional Olimpiade Bahasa Indonesia November 2021, meraih Medali Perak Nasional dan Peringkat 49 Provinsi DKI Jakarta",
+      "credentialId": "01/20210424",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 November - Finalis Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 November - Medali Perak Nasional.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Olimpiade Bahasa Indonesia 2021 November - Peringkat 49 Provinsi DKI Jakarta.jpg"
+      ]
+    },
+    {
+      "title": "Gebyar Academia - Olimpiade Bahasa Inggris 2021",
+      "issuer": "Sejuta Prestasi",
+      "date": "Desember 2021",
+      "category": "academic",
+      "description": "Finalis Olimpiade Bahasa Inggris 2021 dan masuk 100 Besar Finalis Terbaik dalam ajang Gebyar Academia yang merupakan rangkaian acara Sejuta Prestasi",
+      "credentialId": "202/424.91/SJT-P/Xll/2021",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Gebyar Academia Olimpiade Bahasa Inggris 2021 - Finalis.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Gebyar Academia Olimpiade Bahasa Inggris 2021 - 100 Besar Finalis Terbaik.jpg"
+      ]
+    },
+    {
+      "title": "Gebyar Academia - Olimpiade Bahasa Indonesia 2021",
+      "issuer": "Sejuta Prestasi",
+      "date": "Desember 2021",
+      "category": "academic",
+      "description": "Finalis Olimpiade Bahasa Indonesia 2021 dan masuk 80 Besar Finalis Terbaik dalam ajang Gebyar Academia yang merupakan rangkaian acara Sejuta Prestasi",
+      "credentialId": "202/423.88/SJT-P/Xll.2021",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Gebyar Academia Olimpiade Bahasa Indonesia 2021 - Finalis.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Gebyar Academia Olimpiade Bahasa Indonesia 2021 - 80 Besar Finalis Terbaik.jpg"
+      ]
+    },
+    {
+      "title": "IDX Webinar Analisis Fundamental 2023",
+      "issuer": "Indonesia Stock Exchange / Universitas Nasional",
+      "date": "2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam rangka meningkatkan pengetahuan dan wawasan mengenai Analisis Fundamental yang diselenggarakan oleh Bursa Efek Indonesia",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - IDX Webinar Analisis Fundamental 2023 - Peserta.jpg"
+      ]
+    },
+    {
+      "title": "9th IndonesiaNEXT Summit 2025",
+      "issuer": "Telkomsel / IndonesiaNEXT",
+      "date": "2025",
+      "category": "seminar",
+      "description": "Certificate of Appreciation in recognition of participation and presence at the 9th IndonesiaNEXT Summit 2025 - The Digital Talent Accelerator",
+      "credentialId": "003000",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - IndonesiaNEXT Summit 2025 - Participant.jpg"
+      ]
+    },
+    {
+      "title": "Generasi Bebas Plastik Batch 7",
+      "issuer": "Indorelawan / ParagonCorp",
+      "date": "Juni - Agustus 2024",
+      "category": "volunteer",
+      "description": "Sertifikat apresiasi atas kerja keras dan semangat sebagai relawan pada program Generasi Bebas Plastik Batch 7 dari 22 Juni - 15 Agustus 2024",
+      "credentialId": "13.1194/IR/VIII/2024",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Generasi Bebas Plastik Batch 7 2024 - Relawan.jpg"
+      ]
+    },
+    {
+      "title": "Sertifikat Kompetensi BNSP - Bisnis Daring dan Pemasaran",
+      "issuer": "BNSP",
+      "date": "2021",
+      "category": "course",
+      "description": "Sertifikat Kompetensi KKNI Level II Bisnis Daring dan Pemasaran (Online Business and Marketing) yang mencakup berbagai unit kompetensi dalam bidang bisnis digital dan pemasaran",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Sertifikat Kompetensi BNSP Bisnis Daring dan Pemasaran - Halaman 1.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Sertifikat Kompetensi BNSP Bisnis Daring dan Pemasaran - Daftar Unit Kompetensi.jpg"
+      ]
+    },
+    {
+      "title": "Pelatihan Kewirausahaan Bersama Forvita",
+      "issuer": "Forvita / SMKN 3 Jakarta",
+      "date": "2022",
+      "category": "course",
+      "description": "Sertifikat telah menyelesaikan program Pelatihan Kewirausahaan Bersama Forvita sebagai Siswa/i di SMKN 3 Jakarta",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Pelatihan Kewirausahaan Forvita 2022 - Siswa.jpg"
+      ]
+    },
+    {
+      "title": "Indonesian Youth Potential Fest 2023",
+      "issuer": "Youth Ranger Indonesia / ParagonCorp",
+      "date": "Oktober 2023",
+      "category": "seminar",
+      "description": "Sertifikat penghargaan atas partisipasi sebagai Peserta dalam Indonesian Youth Potential Fest 2023 yang diselenggarakan pada 1 Oktober 2023",
+      "credentialId": "092/S/lYPF/PES/YPlJ/XXXl/X/2023",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Indonesian Youth Potential Fest 2023 - Peserta.jpg"
+      ]
+    },
+    {
+      "title": "PKL / Prakerin dan Magang Guru Online Batch I",
+      "issuer": "PPTIK ITB",
+      "date": "2021",
+      "category": "course",
+      "description": "Sertifikat telah mengikuti PKL / Prakerin dan Magang Guru Online Batch I dari PPTIK-ITB Laboratorium Internet of Things dengan hasil Predikat Baik",
+      "credentialId": "990.22947/1T1.B07.3.7/TU/2021",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - PKL Prakerin Magang Guru Online Batch I PPTIK ITB 2021 - Peserta.jpg"
+      ]
+    },
+    {
+      "title": "Program Prakerin Alfamart Non Class",
+      "issuer": "Alfamart Corporate University",
+      "date": "2021",
+      "category": "course",
+      "description": "Sertifikat sebagai peserta yang telah mengikuti Program Prakerin Alfamart Non Class dengan daftar nilai kompetensi lengkap untuk Paket Keahlian Bisnis dan Pemasaran",
+      "credentialId": "097/31/01/2022/PRAKERIN/SAT",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Prakerin Alfamart Non Class 2021 - Sertifikat.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Prakerin Alfamart Non Class 2021 - Daftar Nilai Kompetensi.jpg"
+      ]
+    },
+    {
+      "title": "Talkshow SAUDC UGM - Unheard Voices",
+      "issuer": "UKM Peduli Difabel UGM",
+      "date": "Juni 2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam acara 'Unheard Voices' yang diselenggarakan oleh Departemen SLB Mitra Unit Kegiatan Mahasiswa Peduli Difabel UGM",
+      "credentialId": "228/ST/UKM PD UGM/06/23",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Talkshow SAUDC UGM Unheard Voices 2023 - Peserta.jpg"
+      ]
+    },
+    {
+      "title": "Dicoding - Belajar Dasar Cloud dan Gen AI di AWS",
+      "issuer": "Dicoding Indonesia",
+      "date": "Juni 2025",
+      "category": "course",
+      "description": "Sertifikat kompetensi atas kelulusan pada kelas Belajar Dasar Cloud dan Gen AI di AWS yang mencakup materi Cloud Computing, AWS Global Infrastructure, Penyimpanan dan Database, Keamanan, Arsitektur, Harga dan Dukungan, serta Generative AI",
+      "credentialId": "53XED29QvpRN",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Dicoding Belajar Dasar Cloud dan Gen AI di AWS 2025 - Sertifikat Kompetensi.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Dicoding Belajar Dasar Cloud dan Gen AI di AWS 2025 - Materi Halaman 2.jpg",
+        "/certificates/Adinda Salsa Aryadi Putri - Dicoding Belajar Dasar Cloud dan Gen AI di AWS 2025 - Materi Halaman 3.jpg"
+      ]
     }
   ],
   "skills": {
@@ -378,7 +616,7 @@
     "projectsCompleted": 20,
     "datasetsAnalyzed": 30,
     "toolsMastered": 15,
-    "certificatesEarned": 18,
+    "certificatesEarned": 26,
     "yearsLearning": 3
   }
 }

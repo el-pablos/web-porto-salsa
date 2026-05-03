@@ -91,7 +91,8 @@ export function Certificates() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [activeFilter, setActiveFilter] = useState("all");
   const [showAll, setShowAll] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [lightboxTitle, setLightboxTitle] = useState<string>("");
 
   const certificates = portfolioData.certificates as Array<{
@@ -102,6 +103,7 @@ export function Certificates() {
     description: string;
     credentialId?: string;
     image?: string | null;
+    images?: string[];
   }>;
 
   const filteredCerts =
@@ -115,17 +117,26 @@ export function Certificates() {
 
   const hasMore = filteredCerts.length > INITIAL_SHOW_COUNT;
 
-  const openLightbox = useCallback((image: string, title: string) => {
-    setLightboxImage(image);
+  const openLightbox = useCallback((images: string | string[], title: string) => {
+    const imageArray = Array.isArray(images) ? images : [images];
+    setLightboxImages(imageArray);
+    setLightboxIndex(0);
     setLightboxTitle(title);
-    document.body.style.overflow = "hidden";
   }, []);
 
   const closeLightbox = useCallback(() => {
-    setLightboxImage(null);
+    setLightboxImages([]);
+    setLightboxIndex(0);
     setLightboxTitle("");
-    document.body.style.overflow = "";
   }, []);
+
+  const nextImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev + 1) % lightboxImages.length);
+  }, [lightboxImages.length]);
+
+  const prevImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+  }, [lightboxImages.length]);
 
   const getCategoryConfig = (category?: string) => {
     if (!category) return categoryConfig.all;
@@ -179,28 +190,6 @@ export function Certificates() {
             yang pernah diikuti.
           </p>
           <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full mt-4" />
-
-          {/* Stats badges */}
-          <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {certCategories
-              .filter((c) => c.key !== "all")
-              .map((cat) => {
-                const count = certificates.filter(
-                  (c) => c.category === cat.key,
-                ).length;
-                if (count === 0) return null;
-                const config = getCategoryConfig(cat.key);
-                return (
-                  <span
-                    key={cat.key}
-                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] md:text-xs font-bold ${config.bgColor} ${config.color}`}
-                  >
-                    <config.icon className="w-3 h-3" />
-                    {count} {cat.label}
-                  </span>
-                );
-              })}
-          </div>
         </motion.div>
 
         {/* Filter Tabs */}
@@ -257,14 +246,17 @@ export function Certificates() {
                   >
                     <TiltCard className="card-soft h-full flex flex-col group">
                       {/* Image Preview (if available) */}
-                      {cert.image && (
+                      {(cert.images || cert.image) && (
                         <div
                           className="relative -mx-4 sm:-mx-6 lg:-mx-8 -mt-4 sm:-mt-6 lg:-mt-8 mb-4 overflow-hidden rounded-t-soft-lg cursor-pointer"
-                          onClick={() => openLightbox(cert.image!, cert.title)}
+                          onClick={() => {
+                            const images = cert.images || (cert.image ? [cert.image] : []);
+                            openLightbox(images, cert.title);
+                          }}
                         >
                           <div className="aspect-[16/10] relative bg-gradient-to-br from-cream to-soft-light">
                             <Image
-                              src={cert.image}
+                              src={cert.images ? cert.images[0] : cert.image!}
                               alt={cert.title}
                               fill
                               className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -276,6 +268,12 @@ export function Certificates() {
                                 <HiPhotograph className="w-5 h-5 text-primary" />
                               </div>
                             </div>
+                            {/* Multi-page indicator */}
+                            {cert.images && cert.images.length > 1 && (
+                              <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full font-bold">
+                                {cert.images.length} halaman
+                              </div>
+                            )}
                           </div>
                         </div>
                       )}
@@ -390,7 +388,7 @@ export function Certificates() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {lightboxImage && (
+        {lightboxImages.length > 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -409,9 +407,16 @@ export function Certificates() {
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between px-4 md:px-6 py-3 border-b border-primary/10 bg-cream/50">
-                <h4 className="text-sm md:text-base font-bold text-neutral truncate pr-4">
-                  {lightboxTitle}
-                </h4>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm md:text-base font-bold text-neutral truncate pr-4">
+                    {lightboxTitle}
+                  </h4>
+                  {lightboxImages.length > 1 && (
+                    <p className="text-xs text-neutral-light mt-0.5">
+                      Halaman {lightboxIndex + 1} dari {lightboxImages.length}
+                    </p>
+                  )}
+                </div>
                 <button
                   onClick={closeLightbox}
                   className="flex-shrink-0 w-8 h-8 rounded-full bg-neutral/10 hover:bg-neutral/20 flex items-center justify-center transition-colors"
@@ -424,14 +429,61 @@ export function Certificates() {
               {/* Modal Image */}
               <div className="relative w-full h-[60vh] md:h-[70vh] bg-neutral/5">
                 <Image
-                  src={lightboxImage}
-                  alt={lightboxTitle}
+                  src={lightboxImages[lightboxIndex]}
+                  alt={`${lightboxTitle} - Halaman ${lightboxIndex + 1}`}
                   fill
                   className="object-contain p-2"
                   sizes="(max-width: 768px) 100vw, 80vw"
                   priority
                 />
+
+                {/* Navigation Arrows (only show if multiple images) */}
+                {lightboxImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110"
+                      aria-label="Halaman sebelumnya"
+                    >
+                      <HiChevronUp className="w-5 h-5 text-neutral rotate-[-90deg]" />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all hover:scale-110"
+                      aria-label="Halaman selanjutnya"
+                    >
+                      <HiChevronUp className="w-5 h-5 text-neutral rotate-90" />
+                    </button>
+                  </>
+                )}
               </div>
+
+              {/* Page Indicators (only show if multiple images) */}
+              {lightboxImages.length > 1 && (
+                <div className="flex justify-center gap-1.5 px-4 py-3 bg-cream/50 border-t border-primary/10">
+                  {lightboxImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLightboxIndex(idx);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        idx === lightboxIndex
+                          ? "bg-primary w-6"
+                          : "bg-neutral/30 hover:bg-neutral/50"
+                      }`}
+                      aria-label={`Halaman ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
