@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaGithub, FaLinkedin, FaHeart } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaHeart } from "react-icons/fa";
 import { IconType } from "react-icons";
 import portfolioData from "@/data/portfolio.json";
 import { StaggerReveal } from "./effects/StaggerReveal";
@@ -30,19 +30,12 @@ const socialLinks: SocialLink[] = [
     icon: FaLinkedin,
     hoverColor: "hover:bg-[#0077b5] hover:text-white",
   },
-  // Tambah social links lain di sini jika diperlukan
-  // {
-  //   name: 'Twitter',
-  //   url: 'https://twitter.com/username',
-  //   icon: FaTwitter,
-  //   hoverColor: 'hover:bg-[#1da1f2] hover:text-white',
-  // },
-  // {
-  //   name: 'Instagram',
-  //   url: 'https://instagram.com/username',
-  //   icon: FaInstagram,
-  //   hoverColor: 'hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#dc2743] hover:text-white',
-  // },
+  {
+    name: "Instagram",
+    url: portfolioData.contact.instagram,
+    icon: FaInstagram,
+    hoverColor: "hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#dc2743] hover:text-white",
+  },
 ];
 
 export function Footer() {

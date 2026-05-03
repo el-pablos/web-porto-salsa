@@ -27,12 +27,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Adinda Salsa Aryadi Putri | Portfolio',
-  description: 'Portfolio - Data Analyst & Researcher. Mengubah data mentah menjadi insight bermakna.',
-  keywords: ['portfolio', 'data analyst', 'researcher', 'Adinda Salsa', 'UNAS'],
+  description: 'Portfolio - Sociology Student, Data Analyst & Social Researcher. Menganalisis fenomena sosial dengan pendekatan data-driven untuk perubahan yang bermakna.',
+  keywords: ['portfolio', 'data analyst', 'sociology', 'researcher', 'Adinda Salsa', 'UNAS', 'social researcher', 'volunteer'],
   authors: [{ name: 'Adinda Salsa Aryadi Putri' }],
   openGraph: {
     title: 'Adinda Salsa Aryadi Putri | Portfolio',
-    description: 'Data Analyst & Researcher',
+    description: 'Sociology Student | Data Analyst & Social Researcher',
     type: 'website',
   },
 };
