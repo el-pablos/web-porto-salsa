@@ -4,6 +4,8 @@ import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
+import { Certificates } from "@/components/Certificates";
+import { DesignGallery } from "@/components/DesignGallery";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { VisitorCounter } from "@/components/VisitorCounter";
@@ -23,6 +25,10 @@ export default function Home() {
       <SectionDivider variant="curve" color="soft-light" flip height={70} />
       <Projects />
       <Experience />
+      <Certificates />
+      {/* Divider: Certificates -> Design Gallery */}
+      <SectionDivider variant="wave-smooth" color="cream" flip height={60} />
+      <DesignGallery />
       <Contact />
       <VisitorCounter />
       <WalkingChicken />
