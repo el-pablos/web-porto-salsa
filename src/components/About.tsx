@@ -4,67 +4,35 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   HiAcademicCap,
-  HiDatabase,
-  HiChartBar,
-  HiDocumentText,
+  HiLightBulb,
+  HiUserGroup,
+  HiDesktopComputer,
 } from "react-icons/hi";
 import { BouncyEntrance } from "@/components/effects/BouncyEntrance";
 import { WaveText } from "@/components/effects/WaveText";
 import { TiltCard } from "@/components/effects/TiltCard";
-import { ProgressRing } from "@/components/effects/ProgressRing";
 import portfolioData from "@/data/portfolio.json";
 
 const highlights = [
   {
-    icon: HiChartBar,
-    title: "Data Analysis",
-    desc: "Mengolah dataset besar menjadi insight yang actionable",
-  },
-  {
-    icon: HiDatabase,
-    title: "Database & Query",
-    desc: "Mengelola dan mengquery data dengan SQL dan tools modern",
-  },
-  {
-    icon: HiDocumentText,
-    title: "Visualization",
-    desc: "Membangun dashboard & chart interaktif yang informatif",
-  },
-  {
     icon: HiAcademicCap,
-    title: "Research",
+    title: "Social Research",
     desc: "Riset sosial kuantitatif dengan pendekatan data-driven",
   },
-];
-
-const stats = [
   {
-    value: portfolioData.stats.projectsCompleted,
-    max: 20,
-    label: "Proyek Selesai",
-    color: "primary" as const,
-    suffix: "+",
+    icon: HiLightBulb,
+    title: "Data Analysis",
+    desc: "Mengolah dataset menjadi insight yang actionable",
   },
   {
-    value: portfolioData.stats.datasetsAnalyzed,
-    max: 50,
-    label: "Dataset Dianalisis",
-    color: "secondary" as const,
-    suffix: "+",
+    icon: HiUserGroup,
+    title: "Community Service",
+    desc: "Aktif dalam kegiatan pengabdian masyarakat dan volunteer",
   },
   {
-    value: portfolioData.stats.toolsMastered,
-    max: 15,
-    label: "Tools Dikuasai",
-    color: "accent" as const,
-    suffix: "",
-  },
-  {
-    value: portfolioData.stats.yearsLearning,
-    max: 5,
-    label: "Tahun Belajar",
-    color: "primary" as const,
-    suffix: "",
+    icon: HiDesktopComputer,
+    title: "Tech & Design",
+    desc: "Ketertarikan di dunia teknologi, QA, dan desain kreatif",
   },
 ];
 
@@ -107,50 +75,62 @@ export function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
             Tentang <WaveText text="Saya" charClassName="text-gradient" />
           </h2>
           <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7 space-y-8"
+            className="lg:col-span-7 space-y-6 md:space-y-8"
           >
-            <div className="space-y-6 text-lg text-neutral-light leading-relaxed">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-neutral-light leading-relaxed">
               <p>
                 Halo! Saya{" "}
                 <span className="text-primary font-bold">
-                  Adinda Salsa Aryadi Putri
+                  {portfolioData.name}
                 </span>
-                , seorang mahasiswi Sosiologi yang memiliki ketertarikan
-                mendalam pada dunia data.
+                , mahasiswi Ilmu Sosial dan Ilmu Politik, Program Studi Sosiologi
+                yang memiliki kemampuan memahami dan menganalisis berbagai
+                permasalahan secara kritis dan logis.
               </p>
               <p>
-                Bagi saya, data bukan sekadar angka, melainkan cerita yang
-                menunggu untuk diceritakan. Fokus saya adalah menjembatani
-                antara fenomena sosial dengan analisis data kuantitatif untuk
-                menghasilkan insight yang valid dan berdampak.
+                Saya terbiasa mengartikulasikan ide secara jelas dan efektif,
+                serta memiliki komitmen tinggi untuk terus belajar dan
+                berkembang. Di luar bidang akademik, saya memiliki ketertarikan
+                di dunia teknologi, khususnya dalam aspek pengujian dan kualitas
+                sistem perangkat lunak.
               </p>
               <p>
                 Berbekal pengalaman di{" "}
                 <span className="text-secondary font-bold">
                   Komisi Nasional Disabilitas (KND)
+                </span>{" "}
+                sebagai Data Analyst Intern dan aktif di berbagai organisasi
+                seperti{" "}
+                <span className="text-accent font-bold">
+                  Youth Ranger Indonesia
                 </span>
-                , saya terbiasa menangani dataset kompleks dan mengubahnya
-                menjadi visualisasi yang mudah dipahami oleh para pengambil
-                kebijakan.
+                ,{" "}
+                <span className="text-accent font-bold">UNAS FEST</span>, dan
+                program volunteer{" "}
+                <span className="text-accent font-bold">
+                  Generasi Bebas Plastik
+                </span>
+                , saya dikenal sebagai pribadi yang komunikatif, bertanggung
+                jawab, dan disiplin.
               </p>
             </div>
 
             <div className="pt-4">
               <a href="#kontak" className="btn-primary">
-                Unduh CV
+                Hubungi Saya
               </a>
             </div>
           </motion.div>
@@ -159,20 +139,20 @@ export function About() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="lg:col-span-5 grid grid-cols-2 gap-4"
+            className="lg:col-span-5 grid grid-cols-2 gap-3 md:gap-4"
           >
             {highlights.map((item) => (
               <TiltCard
                 key={item.title}
-                className="card-soft flex flex-col items-center text-center p-6"
+                className="card-soft flex flex-col items-center text-center p-4 md:p-6"
               >
-                <div className="w-12 h-12 rounded-soft-md bg-primary/10 flex items-center justify-center mb-4 text-primary text-2xl">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-soft-md bg-primary/10 flex items-center justify-center mb-3 md:mb-4 text-primary text-xl md:text-2xl">
                   <item.icon />
                 </div>
-                <h3 className="font-bold text-neutral text-sm mb-2">
+                <h3 className="font-bold text-neutral text-xs md:text-sm mb-1 md:mb-2">
                   {item.title}
                 </h3>
-                <p className="text-neutral-soft text-xs leading-tight">
+                <p className="text-neutral-soft text-[10px] md:text-xs leading-tight">
                   {item.desc}
                 </p>
               </TiltCard>
