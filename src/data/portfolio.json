@@ -1,16 +1,16 @@
 {
   "name": "Adinda Salsa Aryadi Putri",
   "nickname": "Salsa",
-  "title": "Data Analyst & Researcher",
-  "tagline": "Mengubah data mentah menjadi insight bermakna",
-  "description": "Mahasiswi Sosiologi FISIP UNAS yang passionate di bidang Data Analysis, Data Visualization, dan Riset Kuantitatif. Berpengalaman mengolah data dan membangun visualisasi yang informatif untuk mendukung pengambilan keputusan berbasis data.",
+  "title": "Sociology Student | Data Analyst & Social Researcher",
+  "tagline": "Menganalisis fenomena sosial dengan pendekatan data-driven untuk perubahan yang bermakna",
+  "description": "Mahasiswi Ilmu Sosial dan Ilmu Politik, Program Studi Sosiologi yang memiliki kemampuan memahami dan menganalisis berbagai permasalahan secara kritis dan logis. Terbiasa mengartikulasikan ide secara jelas dan efektif, serta memiliki komitmen tinggi untuk terus belajar dan berkembang. Di luar bidang akademik, memiliki ketertarikan di dunia teknologi, khususnya dalam aspek pengujian dan kualitas sistem perangkat lunak. Dikenal sebagai pribadi yang komunikatif, bertanggung jawab, mampu bekerja dalam tim, teliti, dan disiplin dalam menyelesaikan tugas.",
   "education": [
     {
       "institution": "Universitas Nasional (UNAS)",
       "degree": "S1 Sosiologi",
       "faculty": "FISIP - Fakultas Ilmu Sosial dan Ilmu Politik",
       "year": "2022 - Sekarang",
-      "description": "Fokus pada penelitian sosial kuantitatif dan analisis data sosial"
+      "description": "Fokus pada penelitian sosial kuantitatif, analisis data sosial, dan pengembangan teknologi informasi"
     }
   ],
   "experience": [
@@ -18,32 +18,237 @@
       "company": "Komisi Nasional Disabilitas (KND)",
       "role": "Data Analyst Intern",
       "period": "2024 - 2025",
+      "type": "internship",
       "description": "Mengolah dan menganalisis data terkait isu disabilitas nasional untuk mendukung kebijakan publik",
       "highlights": [
         "Menganalisis dataset disabilitas nasional",
         "Membuat visualisasi data untuk laporan tahunan",
         "Mendukung penelitian kebijakan berbasis data"
       ]
+    },
+    {
+      "company": "UNAS FEST",
+      "role": "Tabulator English Debate Competition",
+      "period": "2024",
+      "type": "organization",
+      "description": "Sebagai tabulator dalam kompetisi debat antar-mahasiswa, menyusun kriteria penilaian, mendesain sistem input skor di Google Sheets, dan menganalisis hasil penilaian dari 32 peserta. Melakukan uji kelayakan dan koordinasi teknis dengan tim IT untuk memastikan fitur scoring di website Caturnawa berjalan optimal.",
+      "highlights": [
+        "Mendesain sistem scoring di Google Sheets",
+        "Menganalisis hasil 32 peserta debat",
+        "Koordinasi teknis dengan tim IT website Caturnawa"
+      ],
+      "link": "https://caturnawa.unasfest.com/"
+    },
+    {
+      "company": "Youth Ranger Indonesia (YRI)",
+      "role": "Committee - Security Division",
+      "period": "2023",
+      "type": "organization",
+      "description": "Sebagai volunteer di Divisi Keamanan Youth Ranger Indonesia, berperan memastikan seluruh acara berjalan aman dan tertib. Menyusun aturan keamanan, memantau kondisi peserta, dan mengatur arus kerumunan untuk menghindari situasi yang tidak kondusif.",
+      "highlights": [
+        "Menyusun aturan keamanan acara",
+        "Memantau kondisi dan keselamatan peserta",
+        "Mengatur arus kerumunan dan logistik acara"
+      ]
+    },
+    {
+      "company": "Kelas Mengajar Nusantara Kemuning",
+      "role": "Deputy & Secretary Division II - ARKEDUNA",
+      "period": "2023",
+      "type": "community-service",
+      "description": "Dalam kegiatan Kelas Mengajar Nusantara Kemuning 'Asah Kreativitas dan Edukasi Anak Bangsa (ARKEDUNA)', berperan sebagai Wakil dan Sekretaris Divisi II. Menyiapkan proposal, surat permohonan program, dan laporan akhir sebagai dokumentasi kegiatan pengabdian masyarakat.",
+      "highlights": [
+        "Menyiapkan proposal dan surat permohonan program",
+        "Mengelola sistem pengarsipan dokumen",
+        "Koordinasi teknis dari perencanaan hingga evaluasi"
+      ]
+    },
+    {
+      "company": "Novo Club by Paragon Corp with Indorelawan.org",
+      "role": "Volunteer - Generasi Bebas Plastik",
+      "period": "2024",
+      "type": "volunteer",
+      "description": "Sebagai volunteer dalam program Generasi Bebas Plastik, berpartisipasi dalam serangkaian kegiatan untuk meningkatkan kesadaran tentang pentingnya pengurangan sampah plastik. Menyelesaikan berbagai misi seperti membawa tumbler sendiri, memilah sampah, membuat kerajinan dari barang bekas, dan donasi ke bank sampah.",
+      "highlights": [
+        "Menyelesaikan misi pengurangan sampah plastik",
+        "Menghadiri sesi edukasi dari NOVO CLUB",
+        "Membuat konten edukatif tentang pentingnya daur ulang"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Analisis Data Disabilitas Nasional",
+      "description": "Proyek analisis data terkait isu disabilitas di Indonesia untuk Komisi Nasional Disabilitas. Meliputi pengolahan data sensus, visualisasi tren, dan penyusunan rekomendasi kebijakan.",
+      "tech": ["Python", "Pandas", "Power BI", "Excel"],
+      "highlights": ["Dataset nasional", "Visualisasi interaktif", "Laporan kebijakan"],
+      "category": "data-analysis"
+    },
+    {
+      "title": "Dashboard Visualisasi Data KND",
+      "description": "Membangun dashboard interaktif untuk monitoring dan visualisasi data disabilitas nasional. Dashboard menyajikan tren regional, demografi, dan progress program aksesibilitas.",
+      "tech": ["Power BI", "SQL", "Python", "DAX"],
+      "highlights": ["Dashboard real-time", "34 provinsi", "Filter interaktif"],
+      "category": "data-analysis"
+    },
+    {
+      "title": "SILAF (Sistem Layanan Administrasi FISIP)",
+      "description": "Sistem layanan administrasi digital untuk FISIP yang mencakup Surat Permohonan Data dan Wawancara Penelitian, Pengajuan Surat Pengantar Magang, Formulir Permohonan Dokumen Akademik FISIP, Pendaftaran Seminar Proposal (Sempro) FISIP, dan Pendaftaran Sidang Skripsi/TA FISIP.",
+      "tech": ["Google Form", "Google Sheets", "Web App"],
+      "highlights": ["5 layanan administrasi", "Digitalisasi proses", "QR Code akses"],
+      "category": "tech",
+      "link": ""
+    },
+    {
+      "title": "Photostory: Nusantara",
+      "description": "Proyek photostory bertema 'Warisan Budaya Nusantara di Tengah Modernitas' untuk mata kuliah Sejarah Masyarakat Asia Tenggara. Tersedia dalam format flipbook digital dan website interaktif.",
+      "tech": ["Canva", "Heyzine Flipbooks", "Web Design"],
+      "highlights": ["Flipbook digital", "Website interaktif", "Narasi visual budaya"],
+      "category": "creative",
+      "link": "https://heyzine.com/flip-book/5b3f6b0784.html"
+    },
+    {
+      "title": "Sociology Visual: Social Interaction",
+      "description": "Proyek Photostory Social Contradictions yang mengeksplorasi kontradiksi sosial melalui pendekatan visual sosiologi. Dipresentasikan pada 17 November 2024.",
+      "tech": ["Canva", "Photography", "Visual Design"],
+      "highlights": ["Photostory visual", "Analisis kontradiksi sosial", "Presentasi akademik"],
+      "category": "creative",
+      "link": "https://www.canva.com/design/DAGWcqv5Feo/Hhc7OzWzXoNzdE73pHkptA/view"
+    },
+    {
+      "title": "Virtual Exhibition: Urban Life",
+      "description": "Pameran fotografi virtual bertema Urban Life yang menampilkan karya mahasiswa Kelas Sosiologi Visual, Universitas Nasional. Melalui pendekatan visual, proyek ini menggambarkan kehidupan dinamis dan kompleks masyarakat urban Jakarta.",
+      "tech": ["Photography", "Web Exhibition", "Visual Sociology"],
+      "highlights": ["Pameran virtual", "Tema kehidupan urban Jakarta", "Kolaborasi kelas"],
+      "category": "creative",
+      "link": "https://sosiologi.fisip.unas.ac.id/photography/"
+    },
+    {
+      "title": "Sociopreneurship: EcoCraft Creation",
+      "description": "Inisiatif kewirausahaan sosial yang bertujuan mengurangi sampah plastik melalui pengolahan limbah menjadi produk kreatif seperti gantungan kunci. Mengusung konsep sustainability dan community empowerment, dipasarkan secara online dengan model Direct-to-Consumer (D2C) melalui TikTok Shop, Shopee, dan Instagram.",
+      "tech": ["Social Media Marketing", "E-Commerce", "Canva", "Product Design"],
+      "highlights": ["TikTok Shop & Shopee", "D2C model", "Sustainability focus", "Instagram & Linktree"],
+      "category": "sociopreneurship"
+    },
+    {
+      "title": "Penelitian Sosial Kuantitatif UNAS",
+      "description": "Riset akademik menggunakan metode kuantitatif untuk menganalisis fenomena sosial. Pengumpulan data primer melalui survei dan analisis menggunakan tools statistik.",
+      "tech": ["SPSS", "Google Forms", "Excel", "Statistical Analysis"],
+      "highlights": ["Metode kuantitatif", "Survei 200+ responden", "Paper akademik"],
+      "category": "research"
+    },
+    {
+      "title": "Analisis Sentimen Media Sosial",
+      "description": "Menganalisis sentimen publik terkait isu disabilitas dan inklusi sosial di media sosial menggunakan teknik NLP dan text mining untuk mendukung strategi advokasi.",
+      "tech": ["Python", "NLTK", "Pandas", "Matplotlib"],
+      "highlights": ["10.000+ data tweets", "Sentiment scoring", "Visualisasi tren"],
+      "category": "data-analysis"
+    }
+  ],
+  "designs": [
+    {
+      "title": "Infografis Pengabdian Masyarakat ARKEDUNA",
+      "category": "infographic",
+      "description": "Infografis kegiatan pengabdian masyarakat Asah Kreativitas dan Edukasi Anak Bangsa"
+    },
+    {
+      "title": "Infografis Cryptocurrency",
+      "category": "infographic",
+      "description": "Infografis edukatif tentang investasi cryptocurrency dan blockchain"
+    },
+    {
+      "title": "Infografis Ramadhan - Berbagi Takjil",
+      "category": "infographic",
+      "description": "Infografis kegiatan pengabdian masyarakat berbagi takjil di bulan Ramadhan"
+    },
+    {
+      "title": "Infografis Kelestarian Lingkungan",
+      "category": "infographic",
+      "description": "Infografis tentang pentingnya kelestarian lingkungan dan aksi kolektif"
+    },
+    {
+      "title": "Poster Pengabdian Kepada Masyarakat KJMU UNAS",
+      "category": "poster",
+      "description": "Poster kegiatan pengabdian kepada masyarakat mahasiswa KJMU Universitas Nasional"
+    },
+    {
+      "title": "Sticker Design - Mochi Veby",
+      "category": "sticker-logo",
+      "description": "Desain sticker karakter mochi yang lucu untuk brand makanan"
+    },
+    {
+      "title": "Sticker Design - Bobbaby",
+      "category": "sticker-logo",
+      "description": "Desain sticker karakter boba yang playful untuk brand minuman"
+    },
+    {
+      "title": "Sticker Design - Mentai Yuk!",
+      "category": "sticker-logo",
+      "description": "Desain logo dan sticker untuk brand makanan mentai"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Panitia First Gathering YRI",
+      "issuer": "Youth Ranger Indonesia",
+      "date": "Oktober 2023",
+      "description": "Sebagai Panitia dalam acara First Gathering YRI dengan tema 'Impress of the Rangers'"
+    },
+    {
+      "title": "Volunteer Minggu Pagi Project",
+      "issuer": "Youth Ranger Indonesia",
+      "date": "Desember 2023",
+      "description": "Atas partisipasi sebagai Volunteer dalam program Minggu Pagi Project YRI Jakarta-Banten"
+    },
+    {
+      "title": "Panitia Kelas Mengajar Nusantara",
+      "issuer": "Kelas Mengajar Nusantara",
+      "date": "September 2023",
+      "description": "Sebagai Panitia pengabdian masyarakat dengan tema ARKEDUNA bersama Kelas Mengajar Nusantara di Kemuning"
+    },
+    {
+      "title": "Relawan Generasi Bebas Plastik Batch 7",
+      "issuer": "Novo Club by Paragon Corp & Indorelawan.org",
+      "date": "Juni - Agustus 2024",
+      "description": "Sertifikat apresiasi atas kerja keras dan semangat sebagai relawan pada program Generasi Bebas Plastik Batch 7"
+    },
+    {
+      "title": "Committee of Debate Department - UNAS FEST",
+      "issuer": "Universitas Nasional",
+      "date": "November 2024",
+      "description": "Certificate of Appreciation sebagai Committee of Debate Department dalam kegiatan UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'"
+    },
+    {
+      "title": "Committee International Seminar - UNAS FEST",
+      "issuer": "Universitas Nasional",
+      "date": "September 2024",
+      "description": "Sertifikat sebagai Committee dalam International Seminar UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'"
     }
   ],
   "skills": {
     "dataAnalysis": [
       "Python (Pandas, NumPy)",
-      "SQL & Database",
+      "SPSS",
       "Statistical Analysis",
       "Data Cleaning & Processing"
     ],
     "visualization": [
       "Power BI",
-      "Tableau",
+      "Canva",
       "Matplotlib & Seaborn",
       "Excel Advanced"
     ],
     "databaseQuery": [
       "SQL & PostgreSQL",
       "Google Sheets Advanced",
-      "ETL & Data Pipeline",
-      "Data Warehousing Basics"
+      "Google Forms",
+      "NVivo"
+    ],
+    "techTools": [
+      "Google Colab",
+      "Figma",
+      "Microsoft Office (Word, Excel, PPT)",
+      "Web Development Basics"
     ],
     "softSkills": [
       "Research & Analysis",
@@ -52,42 +257,19 @@
       "Critical Thinking"
     ]
   },
-  "projects": [
-    {
-      "title": "Analisis Data Disabilitas Nasional",
-      "description": "Proyek analisis data terkait isu disabilitas di Indonesia untuk Komisi Nasional Disabilitas. Meliputi pengolahan data sensus, visualisasi tren, dan penyusunan rekomendasi kebijakan.",
-      "tech": ["Python", "Pandas", "Power BI", "Excel"],
-      "highlights": ["Dataset nasional", "Visualisasi interaktif", "Laporan kebijakan"]
-    },
-    {
-      "title": "Dashboard Visualisasi Data KND",
-      "description": "Membangun dashboard interaktif untuk monitoring dan visualisasi data disabilitas nasional. Dashboard menyajikan tren regional, demografi, dan progress program aksesibilitas.",
-      "tech": ["Power BI", "SQL", "Python", "DAX"],
-      "highlights": ["Dashboard real-time", "34 provinsi", "Filter interaktif"]
-    },
-    {
-      "title": "Penelitian Sosial Kuantitatif UNAS",
-      "description": "Riset akademik menggunakan metode kuantitatif untuk menganalisis fenomena sosial. Pengumpulan data primer melalui survei dan analisis menggunakan tools statistik.",
-      "tech": ["SPSS", "Google Forms", "Excel", "Statistical Analysis"],
-      "highlights": ["Metode kuantitatif", "Survei 200+ responden", "Paper akademik"]
-    },
-    {
-      "title": "Analisis Sentimen Media Sosial",
-      "description": "Menganalisis sentimen publik terkait isu disabilitas dan inklusi sosial di media sosial menggunakan teknik NLP dan text mining untuk mendukung strategi advokasi.",
-      "tech": ["Python", "NLTK", "Pandas", "Matplotlib"],
-      "highlights": ["10.000+ data tweets", "Sentiment scoring", "Visualisasi tren"]
-    }
-  ],
   "contact": {
-    "email": "",
+    "email": "adindasalsaaryadi@gmail.com",
+    "phone": "+6838-7113-9954",
     "github": "https://github.com/adndaaryadi",
-    "linkedin": "https://linkedin.com/in/adinda-salsa-aryadi-putri",
-    "location": "Jakarta, Indonesia"
+    "linkedin": "https://www.linkedin.com/in/adinda-salsa-aryadi-putri-837108241/",
+    "instagram": "https://instagram.com/adndaaryadi",
+    "location": "Jakarta Selatan, Indonesia"
   },
   "stats": {
-    "projectsCompleted": 15,
+    "projectsCompleted": 20,
     "datasetsAnalyzed": 30,
-    "toolsMastered": 12,
+    "toolsMastered": 15,
+    "certificatesEarned": 6,
     "yearsLearning": 3
   }
 }
