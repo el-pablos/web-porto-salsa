@@ -62,6 +62,8 @@ const navLinks = [
   { name: "Skill", href: "#skill", sectionId: "skill" },
   { name: "Proyek", href: "#proyek", sectionId: "proyek" },
   { name: "Pengalaman", href: "#pengalaman", sectionId: "pengalaman" },
+  { name: "Sertifikat", href: "#sertifikat", sectionId: "sertifikat" },
+  { name: "Desain", href: "#desain", sectionId: "desain" },
   { name: "Kontak", href: "#kontak", sectionId: "kontak" },
 ];
 
