@@ -11,10 +11,11 @@ export function TypewriterSubtitle({ className }: TypewriterSubtitleProps) {
     <span data-testid="typewriter-subtitle">
       <TypeAnimation
         sequence={[
+          'Sociology Student', 2000,
           'Data Analyst', 2000,
-          'Data Storyteller', 2000,
-          'Insight Hunter', 2000,
-          'Dashboard Builder', 2000,
+          'Social Researcher', 2000,
+          'Creative Designer', 2000,
+          'Community Volunteer', 2000,
         ]}
         wrapper="span"
         cursor={true}

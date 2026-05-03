@@ -41,7 +41,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-sm font-semibold tracking-wide mb-6">
-            Data Analyst & Researcher
+            Sociology Student | Data Analyst & Social Researcher
           </span>
         </motion.div>
 
@@ -69,8 +69,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg md:text-xl text-neutral-light max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
         >
-          Mengubah data mentah menjadi insight bermakna.
-          Mahasiswi Sosiologi yang berfokus pada analisis data dan riset sosial.
+          Menganalisis fenomena sosial dengan pendekatan data-driven.
+          Mahasiswi Sosiologi FISIP UNAS yang passionate di bidang riset, analisis data, dan teknologi.
         </motion.p>
 
         <motion.div
