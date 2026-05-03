@@ -8,8 +8,51 @@ import {
   useInView as useFramerInView,
 } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { HiBriefcase, HiAcademicCap } from "react-icons/hi";
+import {
+  HiBriefcase,
+  HiAcademicCap,
+  HiUserGroup,
+  HiHeart,
+  HiGlobe,
+} from "react-icons/hi";
 import portfolioData from "@/data/portfolio.json";
+
+// Mapping type ke icon dan warna
+const typeConfig: Record<
+  string,
+  {
+    icon: typeof HiBriefcase;
+    colorClass: "primary" | "accent" | "secondary";
+    label: string;
+  }
+> = {
+  internship: {
+    icon: HiBriefcase,
+    colorClass: "primary",
+    label: "Magang",
+  },
+  organization: {
+    icon: HiUserGroup,
+    colorClass: "accent",
+    label: "Organisasi",
+  },
+  "community-service": {
+    icon: HiHeart,
+    colorClass: "secondary",
+    label: "Pengabdian",
+  },
+  volunteer: {
+    icon: HiGlobe,
+    colorClass: "secondary",
+    label: "Volunteer",
+  },
+};
+
+const defaultTypeConfig = {
+  icon: HiBriefcase,
+  colorClass: "primary" as const,
+  label: "Pengalaman",
+};
 
 // Timeline node component dengan pulse animation
 function TimelineNode({
@@ -18,13 +61,27 @@ function TimelineNode({
   isInView,
 }: {
   icon: typeof HiBriefcase;
-  colorClass: "primary" | "accent";
+  colorClass: "primary" | "accent" | "secondary";
   isInView: boolean;
 }) {
   const borderColor =
-    colorClass === "primary" ? "border-primary/20" : "border-accent/20";
-  const textColor = colorClass === "primary" ? "text-primary" : "text-accent";
-  const glowColor = colorClass === "primary" ? "bg-primary/30" : "bg-accent/30";
+    colorClass === "primary"
+      ? "border-primary/20"
+      : colorClass === "accent"
+        ? "border-accent/20"
+        : "border-secondary/20";
+  const textColor =
+    colorClass === "primary"
+      ? "text-primary"
+      : colorClass === "accent"
+        ? "text-accent"
+        : "text-secondary";
+  const glowColor =
+    colorClass === "primary"
+      ? "bg-primary/30"
+      : colorClass === "accent"
+        ? "bg-accent/30"
+        : "bg-secondary/30";
 
   return (
     <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
@@ -35,7 +92,7 @@ function TimelineNode({
             initial={{ scale: 0.8, opacity: 0.8 }}
             animate={{ scale: 2, opacity: 0 }}
             transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
-            className={`absolute inset-0 w-12 h-12 rounded-full ${glowColor}`}
+            className={`absolute inset-0 w-10 h-10 md:w-12 md:h-12 rounded-full ${glowColor}`}
           />
           <motion.div
             initial={{ scale: 0.8, opacity: 0.6 }}
@@ -46,7 +103,7 @@ function TimelineNode({
               repeatDelay: 0.5,
               delay: 0.3,
             }}
-            className={`absolute inset-0 w-12 h-12 rounded-full ${glowColor}`}
+            className={`absolute inset-0 w-10 h-10 md:w-12 md:h-12 rounded-full ${glowColor}`}
           />
         </>
       )}
@@ -55,15 +112,15 @@ function TimelineNode({
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`relative w-12 h-12 rounded-full bg-white border-4 ${borderColor} flex items-center justify-center shadow-soft`}
+        className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-4 ${borderColor} flex items-center justify-center shadow-soft`}
       >
-        <Icon className={`${textColor} text-lg`} />
+        <Icon className={`${textColor} text-base md:text-lg`} />
       </motion.div>
     </div>
   );
 }
 
-// Individual timeline item dengan own inView detection
+// Individual experience/organization item
 function ExperienceItem({
   exp,
   index,
@@ -76,13 +133,31 @@ function ExperienceItem({
   const itemRef = useRef<HTMLDivElement>(null);
   const isInView = useFramerInView(itemRef, { once: true, margin: "-100px" });
 
+  const expType = (exp as { type?: string }).type || "internship";
+  const config = typeConfig[expType] || defaultTypeConfig;
+  const expLink = (exp as { link?: string }).link;
+
+  const lineColor =
+    config.colorClass === "primary"
+      ? "bg-primary/40"
+      : config.colorClass === "accent"
+        ? "bg-accent/40"
+        : "bg-secondary/40";
+
+  const badgeBg =
+    config.colorClass === "primary"
+      ? "bg-primary/10 text-primary-dark"
+      : config.colorClass === "accent"
+        ? "bg-accent/10 text-accent"
+        : "bg-secondary/10 text-secondary";
+
   return (
     <motion.div
       ref={itemRef}
       initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.1 }}
-      className={`relative flex items-start gap-6 mb-12 ${
+      className={`relative flex items-start gap-4 md:gap-6 mb-8 md:mb-12 ${
         isLeft ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
@@ -91,8 +166,8 @@ function ExperienceItem({
       />
       {/* Timeline node with pulse */}
       <TimelineNode
-        icon={HiBriefcase}
-        colorClass="primary"
+        icon={config.icon}
+        colorClass={config.colorClass}
         isInView={isInView}
       />
       {/* Connector line from node to card */}
@@ -101,7 +176,7 @@ function ExperienceItem({
         animate={isInView ? { scaleX: 1 } : {}}
         transition={{ duration: 0.4, delay: 0.3 }}
         style={{ originX: isLeft ? 0 : 1 }}
-        className={`hidden md:block absolute top-5 h-0.5 bg-primary/40 ${
+        className={`hidden md:block absolute top-5 h-0.5 ${lineColor} ${
           isLeft
             ? "left-1/2 ml-6 w-[calc(2rem-6px)]"
             : "right-1/2 mr-6 w-[calc(2rem-6px)]"
@@ -111,35 +186,70 @@ function ExperienceItem({
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className={`ml-16 md:ml-0 md:w-1/2 card-soft p-6 ${isLeft ? "md:ml-8" : "md:mr-8"}`}
+        className={`ml-14 md:ml-0 md:w-1/2 card-soft p-4 md:p-6 ${isLeft ? "md:ml-8" : "md:mr-8"}`}
       >
-        <span className="text-xs font-black text-primary uppercase tracking-widest mb-2 block">
-          {exp.period}
-        </span>
-        <h3 className="text-lg font-black text-neutral mb-1">{exp.role}</h3>
-        <p className="text-sm font-bold text-neutral-light mb-4">
+        <div className="flex flex-wrap items-center gap-2 mb-2">
+          <span
+            className={`text-[10px] md:text-xs font-black uppercase tracking-widest ${
+              config.colorClass === "primary"
+                ? "text-primary"
+                : config.colorClass === "accent"
+                  ? "text-accent"
+                  : "text-secondary"
+            }`}
+          >
+            {exp.period}
+          </span>
+          <span
+            className={`text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeBg}`}
+          >
+            {config.label}
+          </span>
+        </div>
+        <h3 className="text-base md:text-lg font-black text-neutral mb-1">
+          {exp.role}
+        </h3>
+        <p className="text-xs md:text-sm font-bold text-neutral-light mb-3 md:mb-4">
           {exp.company}
         </p>
-        <p className="text-sm text-neutral-soft leading-relaxed mb-3">
+        <p className="text-xs md:text-sm text-neutral-soft leading-relaxed mb-3">
           {exp.description}
         </p>
-        <ul className="space-y-2">
+        <ul className="space-y-1.5 md:space-y-2">
           {exp.highlights.map((h) => (
             <li
               key={h}
-              className="text-sm text-neutral-soft flex items-start gap-2"
+              className="text-xs md:text-sm text-neutral-soft flex items-start gap-2"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+              <span
+                className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${
+                  config.colorClass === "primary"
+                    ? "bg-primary"
+                    : config.colorClass === "accent"
+                      ? "bg-accent"
+                      : "bg-secondary"
+                }`}
+              />
               {h}
             </li>
           ))}
         </ul>
+        {expLink && (
+          <a
+            href={expLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-3 text-xs font-bold text-primary hover:text-primary-dark transition-colors"
+          >
+            Lihat Detail →
+          </a>
+        )}
       </motion.div>
     </motion.div>
   );
 }
 
-// Individual education item dengan own inView detection
+// Individual education item
 function EducationItem({
   edu,
   totalIndex,
@@ -158,7 +268,7 @@ function EducationItem({
       initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.1 }}
-      className={`relative flex items-start gap-6 mb-12 ${
+      className={`relative flex items-start gap-4 md:gap-6 mb-8 md:mb-12 ${
         isLeft ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
@@ -187,17 +297,24 @@ function EducationItem({
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className={`ml-16 md:ml-0 md:w-1/2 card-soft p-6 ${isLeft ? "md:ml-8" : "md:mr-8"}`}
+        className={`ml-14 md:ml-0 md:w-1/2 card-soft p-4 md:p-6 ${isLeft ? "md:ml-8" : "md:mr-8"}`}
       >
-        <span className="text-xs font-black text-accent uppercase tracking-widest mb-2 block">
-          {edu.year}
-        </span>
-        <h3 className="text-lg font-black text-neutral mb-1">{edu.degree}</h3>
-        <p className="text-sm font-bold text-neutral-light">
+        <div className="flex flex-wrap items-center gap-2 mb-2">
+          <span className="text-[10px] md:text-xs font-black text-accent uppercase tracking-widest">
+            {edu.year}
+          </span>
+          <span className="text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+            Pendidikan
+          </span>
+        </div>
+        <h3 className="text-base md:text-lg font-black text-neutral mb-1">
+          {edu.degree}
+        </h3>
+        <p className="text-xs md:text-sm font-bold text-neutral-light">
           {edu.institution}
         </p>
-        <p className="text-sm text-neutral-light">{edu.faculty}</p>
-        <p className="text-xs text-neutral-soft mt-3 italic">
+        <p className="text-xs md:text-sm text-neutral-light">{edu.faculty}</p>
+        <p className="text-[10px] md:text-xs text-neutral-soft mt-3 italic">
           {edu.description}
         </p>
       </motion.div>
@@ -230,9 +347,9 @@ export function Experience() {
         initial={{ opacity: 0, y: 20 }}
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-center mb-20"
+        className="text-center mb-12 md:mb-20"
       >
-        <h2 className="text-4xl md:text-5xl font-black mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
           Jejak <span className="text-gradient">Akademik & Karir</span>
         </h2>
         <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
