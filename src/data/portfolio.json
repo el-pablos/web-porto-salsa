@@ -189,40 +189,149 @@
   ],
   "certificates": [
     {
-      "title": "Panitia First Gathering YRI",
-      "issuer": "Youth Ranger Indonesia",
-      "date": "Oktober 2023",
-      "description": "Sebagai Panitia dalam acara First Gathering YRI dengan tema 'Impress of the Rangers'"
+      "title": "Belajar Dasar Cloud dan Gen AI di AWS",
+      "issuer": "Dicoding Indonesia",
+      "date": "Juni 2025",
+      "category": "course",
+      "description": "Sertifikat kelulusan kelas Belajar Dasar Cloud dan Gen AI di AWS. Materi meliputi pengantar AWS, komputasi cloud, infrastruktur global, penyimpanan, database, keamanan, dan layanan AI/ML. Berlaku hingga Juni 2028.",
+      "credentialId": "53XED29QVPRN",
+      "image": null
     },
     {
-      "title": "Volunteer Minggu Pagi Project",
-      "issuer": "Youth Ranger Indonesia",
-      "date": "Desember 2023",
-      "description": "Atas partisipasi sebagai Volunteer dalam program Minggu Pagi Project YRI Jakarta-Banten"
+      "title": "Relawan Pengabdian Masyarakat - Berbagi Makanan Kepada Sesama",
+      "issuer": "Kegiatan Pengabdian Masyarakat",
+      "date": "Desember 2025",
+      "category": "volunteer",
+      "description": "Sertifikat atas partisipasi sebagai relawan dalam kegiatan pengabdian masyarakat 'Berbagi Makanan Kepada Sesama' di Jalan Sawo Manila pada 14 Desember 2025. Berperan sebagai Ketua Pelaksana kegiatan.",
+      "image": "/certificates/cert-pengabdian-berbagi-makanan-2025.png"
     },
     {
-      "title": "Panitia Kelas Mengajar Nusantara",
-      "issuer": "Kelas Mengajar Nusantara",
-      "date": "September 2023",
-      "description": "Sebagai Panitia pengabdian masyarakat dengan tema ARKEDUNA bersama Kelas Mengajar Nusantara di Kemuning"
+      "title": "Committee of Debate Department - UNAS FEST 2024",
+      "issuer": "Universitas Nasional",
+      "date": "November 2024",
+      "category": "organization",
+      "description": "Certificate of Appreciation sebagai Committee of Debate Department dalam kegiatan UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'",
+      "image": null
+    },
+    {
+      "title": "Participant - IPEST Scientific Meeting: Practical Research Methodology",
+      "issuer": "IPEST (International Postgraduate Education Seminar & Training)",
+      "date": "Oktober 2024",
+      "category": "seminar",
+      "description": "Certificate of Achievement sebagai Participant dalam Scientific Meeting Discussion bertopik 'Practical Research Methodology' via Zoom Meeting, 26 Oktober 2024. Ditandatangani oleh Prof. Dr. Paisal Halim., M.Hum.",
+      "image": "/certificates/cert-ipest-research-methodology-2024.png"
+    },
+    {
+      "title": "Participant - IPEST Scientific Meeting: Spiritual Support in Healthcare",
+      "issuer": "IPEST & Sulapa Institute",
+      "date": "September 2024",
+      "category": "seminar",
+      "description": "Certificate of Achievement sebagai Participant dalam Scientific Meeting Discussion bertopik 'Effects of Spiritual Support in Patient Cure, Pain Tolerance, and Immunity' via Zoom Meeting, 28 September 2024.",
+      "image": "/certificates/cert-ipest-spiritual-support-2024.png"
+    },
+    {
+      "title": "Committee International Seminar - UNAS FEST 2024",
+      "issuer": "Universitas Nasional",
+      "date": "September 2024",
+      "category": "organization",
+      "description": "Sertifikat sebagai Committee dalam International Seminar UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'. Dies Natalis ke-75 UNAS.",
+      "image": "/certificates/cert-unas-fest-international-seminar-2024.png"
+    },
+    {
+      "title": "Peserta Sociology Camp VI National - Yogyakarta",
+      "issuer": "HIMASOS Universitas Nasional",
+      "date": "Agustus 2024",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan Sociology Camp VI National dengan tema 'Social Development in Urban Area of Yogyakarta Province' pada 11-15 Agustus 2024.",
+      "image": null
     },
     {
       "title": "Relawan Generasi Bebas Plastik Batch 7",
       "issuer": "Novo Club by Paragon Corp & Indorelawan.org",
       "date": "Juni - Agustus 2024",
-      "description": "Sertifikat apresiasi atas kerja keras dan semangat sebagai relawan pada program Generasi Bebas Plastik Batch 7"
+      "category": "volunteer",
+      "description": "Sertifikat apresiasi atas kerja keras dan semangat sebagai relawan pada program Generasi Bebas Plastik Batch 7 dari 22 Juni - 15 Agustus 2024.",
+      "image": null
     },
     {
-      "title": "Committee of Debate Department - UNAS FEST",
-      "issuer": "Universitas Nasional",
-      "date": "November 2024",
-      "description": "Certificate of Appreciation sebagai Committee of Debate Department dalam kegiatan UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'"
+      "title": "Peserta Self Training Development YRI",
+      "issuer": "Youth Ranger Indonesia",
+      "date": "Desember 2023",
+      "category": "seminar",
+      "description": "Sertifikat apresiasi atas partisipasi sebagai Peserta dalam kegiatan Self Training Development dengan tema 'Merajut Potensi ala Generasi Sandwich' pada Minggu, 10 Desember 2023.",
+      "image": "/certificates/cert-yri-self-training-2023.png"
     },
     {
-      "title": "Committee International Seminar - UNAS FEST",
+      "title": "Volunteer Minggu Pagi Project YRI",
+      "issuer": "Youth Ranger Indonesia Jakarta-Banten",
+      "date": "Desember 2023",
+      "category": "volunteer",
+      "description": "Sertifikat atas partisipasi sebagai Volunteer dalam rangka menyukseskan program Minggu Pagi Project yang diadakan oleh Youth Ranger Indonesia pada Minggu, 10 Desember 2023.",
+      "image": "/certificates/cert-yri-volunteer-minggu-pagi-2023.png"
+    },
+    {
+      "title": "Panitia First Gathering YRI - Impress of the Rangers",
+      "issuer": "Youth Ranger Indonesia",
+      "date": "Oktober 2023",
+      "category": "organization",
+      "description": "Sertifikat sebagai Panitia dalam acara First Gathering YRI pada hari Minggu, 22 Oktober 2023 dengan tema 'Impress of the Rangers'.",
+      "image": null
+    },
+    {
+      "title": "Panitia Kelas Mengajar Nusantara - ARKEDUNA",
+      "issuer": "Kelas Mengajar Nusantara",
+      "date": "September 2023",
+      "category": "community-service",
+      "description": "Sertifikat sebagai Panitia pengabdian masyarakat dengan tema 'AKREDUNA (Asah Kreativitas dan Edukasi Anak Bangsa)' bersama Kelas Mengajar Nusantara di Kemuning pada 24 September 2023.",
+      "image": "/certificates/cert-kelas-mengajar-nusantara-2023.jpg"
+    },
+    {
+      "title": "Peserta Talkshow SAUDC 2023",
+      "issuer": "UKM PD UGM (Universitas Gadjah Mada)",
+      "date": "Juni 2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai peserta dalam kegiatan Talkshow SAUDC (South Asian Universities Debate Championship) 2023 yang diselenggarakan oleh UKM PD UGM.",
+      "image": null
+    },
+    {
+      "title": "Peserta IYPF 2023 (Indonesia Youth Peace Forum)",
+      "issuer": "Indonesia Youth Peace Forum",
+      "date": "2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan Indonesia Youth Peace Forum (IYPF) 2023.",
+      "image": null
+    },
+    {
+      "title": "Peserta Sociology on Day - From Sociology to Sociopreneur",
+      "issuer": "HIMASOS Universitas Nasional",
+      "date": "Maret 2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai Peserta dalam kegiatan 'Sociology on Day' bertemakan 'From Sociology to be a successful Sociopreneur' yang diselenggarakan pada 2 Maret 2023.",
+      "image": "/certificates/cert-sociology-on-day-2023.jpg"
+    },
+    {
+      "title": "Peserta Kick Andy Show",
+      "issuer": "Kick Andy Foundation",
+      "date": "2023",
+      "category": "seminar",
+      "description": "Sertifikat atas partisipasi sebagai peserta dalam acara Kick Andy Show.",
+      "image": null
+    },
+    {
+      "title": "Certificate Summit - Universitas Nasional",
       "issuer": "Universitas Nasional",
-      "date": "September 2024",
-      "description": "Sertifikat sebagai Committee dalam International Seminar UNAS FEST 2024 bertema 'Exploring the Potential of Renewable Energy Through Technology Innovation to Achieve Global Green Momentum'"
+      "date": "2024",
+      "category": "seminar",
+      "description": "Certificate of participation dalam kegiatan Summit yang diselenggarakan oleh Universitas Nasional.",
+      "image": null
+    },
+    {
+      "title": "PLBA UNAS 2022 - Pengenalan Lingkungan Budaya Akademik",
+      "issuer": "Universitas Nasional",
+      "date": "September 2022",
+      "category": "academic",
+      "description": "Sertifikat telah mengikuti 'Pengenalan Lingkungan Budaya Akademik' Tahun Akademik Ganjil 2022/2023 pada 22-24 September 2022 secara Hybrid. Materi: Akademik, Hak & Kewajiban Kemahasiswaan, Penelitian & Pengabdian Masyarakat, Bela Negara, dan Narkoba.",
+      "image": "/certificates/cert-plba-unas-2022.jpeg"
     }
   ],
   "skills": {
@@ -269,7 +378,7 @@
     "projectsCompleted": 20,
     "datasetsAnalyzed": 30,
     "toolsMastered": 15,
-    "certificatesEarned": 6,
+    "certificatesEarned": 18,
     "yearsLearning": 3
   }
 }
