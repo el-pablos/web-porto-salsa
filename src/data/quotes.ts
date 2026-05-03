@@ -1,11 +1,11 @@
 /**
  * Koleksi quotes untuk ditampilkan di Footer
- * Minimal 20 quotes dengan berbagai kategori
+ * Disesuaikan dengan persona gabungan: Sociology + Data Analysis + Tech + Volunteer
  */
 
 export interface Quote {
   text: string;
-  category: 'motivational' | 'data-analysis' | 'cute' | 'tech-humor';
+  category: 'motivational' | 'data-analysis' | 'cute' | 'tech-humor' | 'sociology';
 }
 
 export const quotes: Quote[] = [
@@ -27,21 +27,39 @@ export const quotes: Quote[] = [
     category: 'motivational'
   },
   {
-    text: "Terus belajar, terus berkembang, terus berkarya! ✨",
+    text: "Terus belajar, terus berkembang, terus berkarya!",
     category: 'motivational'
   },
 
-  // Data Analysis Fun Facts (6)
+  // Sociology (5)
+  {
+    text: "Sosiologi mengajarkan kita melihat dunia dari perspektif yang berbeda",
+    category: 'sociology'
+  },
+  {
+    text: "Di balik setiap angka, ada cerita manusia yang menunggu untuk dipahami",
+    category: 'sociology'
+  },
+  {
+    text: "Perubahan sosial dimulai dari memahami masyarakat secara mendalam",
+    category: 'sociology'
+  },
+  {
+    text: "Data tanpa konteks sosial hanyalah angka, konteks tanpa data hanyalah opini",
+    category: 'sociology'
+  },
+  {
+    text: "Volunteer bukan tentang waktu yang kita berikan, tapi dampak yang kita ciptakan",
+    category: 'sociology'
+  },
+
+  // Data Analysis Fun Facts (5)
   {
     text: "Data is the new oil, tapi butuh analyst buat refine-nya!",
     category: 'data-analysis'
   },
   {
     text: "Behind every great decision, ada data yang di-analyze dengan teliti",
-    category: 'data-analysis'
-  },
-  {
-    text: "Statistik itu kayak bikini - yang terlihat menarik, tapi yang tersembunyi itu yang vital",
     category: 'data-analysis'
   },
   {
@@ -59,11 +77,11 @@ export const quotes: Quote[] = [
 
   // Cute Messages (5)
   {
-    text: "Coffee + Data = Magic ✨",
+    text: "Coffee + Data = Magic",
     category: 'cute'
   },
   {
-    text: "Terima kasih sudah mampir di portfolio ku! 💖",
+    text: "Terima kasih sudah mampir di portfolio ku!",
     category: 'cute'
   },
   {
@@ -75,17 +93,13 @@ export const quotes: Quote[] = [
     category: 'cute'
   },
   {
-    text: "Keep scrolling, ada easter egg tersembunyi lho! 🐣",
+    text: "Keep scrolling, ada easter egg tersembunyi lho!",
     category: 'cute'
   },
 
-  // Tech Humor (6)
+  // Tech Humor (4)
   {
     text: "SELECT * FROM visitors WHERE vibe = 'awesome' -- That's you!",
-    category: 'tech-humor'
-  },
-  {
-    text: "Life is too short to use Excel for everything... but sometimes you have to",
     category: 'tech-humor'
   },
   {
@@ -100,20 +114,6 @@ export const quotes: Quote[] = [
     text: "Roses are red, violets are blue, unexpected 'NaN' on line 32",
     category: 'tech-humor'
   },
-  {
-    text: "I don't always test my code, but when I do, I do it in production",
-    category: 'tech-humor'
-  },
-
-  // Bonus quotes (2)
-  {
-    text: "Analyst mindset: Question everything, validate with data",
-    category: 'data-analysis'
-  },
-  {
-    text: "Error is just another way of saying 'opportunity to learn'",
-    category: 'motivational'
-  }
 ];
 
 export default quotes;
