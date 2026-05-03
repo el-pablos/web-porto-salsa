@@ -7,8 +7,9 @@ import {
   HiLocationMarker,
   HiCheckCircle,
   HiExclamationCircle,
+  HiPhone,
 } from "react-icons/hi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import portfolioData from "@/data/portfolio.json";
 import { BouncyEntrance } from "@/components/effects/BouncyEntrance";
 import { RippleButton } from "@/components/effects/RippleButton";
@@ -42,7 +43,7 @@ export function Contact() {
     {
       icon: FaLinkedin,
       label: "LinkedIn",
-      value: "Adinda Salsa",
+      value: "Adinda Salsa Aryadi Putri",
       href: portfolioData.contact.linkedin,
       color: "text-blue-600",
     },
@@ -52,6 +53,20 @@ export function Contact() {
       value: "adndaaryadi",
       href: portfolioData.contact.github,
       color: "text-neutral",
+    },
+    {
+      icon: FaInstagram,
+      label: "Instagram",
+      value: "@adndaaryadi",
+      href: portfolioData.contact.instagram,
+      color: "text-pink-500",
+    },
+    {
+      icon: HiPhone,
+      label: "Telepon",
+      value: portfolioData.contact.phone,
+      href: `tel:${portfolioData.contact.phone.replace(/[^+\d]/g, "")}`,
+      color: "text-green-500",
     },
     {
       icon: HiLocationMarker,
@@ -175,8 +190,8 @@ export function Contact() {
         `Nama: ${formData.name}\nEmail: ${formData.email}\n\nPesan:\n${formData.message}`,
       );
 
-      // Buka email client dengan data terisi
-      const mailtoLink = `mailto:adnda.salsa@gmail.com?subject=${subject}&body=${body}`;
+      // Buka email client dengan data terisi — gunakan email dari portfolio.json
+      const mailtoLink = `mailto:${portfolioData.contact.email}?subject=${subject}&body=${body}`;
       window.location.href = mailtoLink;
 
       setSubmitStatus("success");
@@ -196,7 +211,7 @@ export function Contact() {
   // Helper untuk mendapatkan class input berdasarkan state
   const getInputClassName = (field: keyof FormData): string => {
     const baseClass =
-      "w-full px-5 py-4 bg-soft-light/50 border-2 rounded-soft-md focus:outline-none transition-all font-medium";
+      "w-full px-4 md:px-5 py-3 md:py-4 bg-soft-light/50 border-2 rounded-soft-md focus:outline-none transition-all font-medium text-sm md:text-base";
     const hasError = touched[field] && errors[field];
     const isValid = touched[field] && !errors[field] && formData[field];
 
@@ -217,39 +232,39 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-20"
+            className="text-center mb-12 md:mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
               Ayo <span className="text-gradient">Terhubung</span>
             </h2>
             <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid lg:grid-cols-11 gap-12 items-start">
+          <div className="grid lg:grid-cols-11 gap-8 lg:gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-4 space-y-4"
+              className="lg:col-span-4 space-y-3 md:space-y-4"
             >
               {contactLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
+                  target={link.href !== "#" ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="card-soft p-5 flex items-center gap-5 group hover:bg-white"
+                  className="card-soft p-4 md:p-5 flex items-center gap-4 md:gap-5 group hover:bg-white"
                 >
                   <div
-                    className={`w-12 h-12 rounded-soft-md bg-neutral/5 flex items-center justify-center text-2xl ${link.color} group-hover:scale-110 transition-transform`}
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-soft-md bg-neutral/5 flex items-center justify-center text-xl md:text-2xl ${link.color} group-hover:scale-110 transition-transform`}
                   >
                     <link.icon />
                   </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest font-black text-neutral-soft mb-0.5">
+                  <div className="min-w-0">
+                    <p className="text-[9px] md:text-[10px] uppercase tracking-widest font-black text-neutral-soft mb-0.5">
                       {link.label}
                     </p>
-                    <p className="font-bold text-neutral group-hover:text-primary transition-colors">
+                    <p className="font-bold text-sm md:text-base text-neutral group-hover:text-primary transition-colors truncate">
                       {link.value}
                     </p>
                   </div>
@@ -262,7 +277,7 @@ export function Contact() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="lg:col-span-7 card-soft p-10 space-y-8 bg-white"
+              className="lg:col-span-7 card-soft p-6 md:p-10 space-y-6 md:space-y-8 bg-white"
               noValidate
             >
               {/* Success/Error Message */}
@@ -272,10 +287,10 @@ export function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-soft-md"
+                    className="flex items-center gap-3 p-3 md:p-4 bg-green-50 border border-green-200 rounded-soft-md"
                   >
                     <HiCheckCircle className="text-green-500 text-xl flex-shrink-0" />
-                    <p className="text-green-700 text-sm font-medium">
+                    <p className="text-green-700 text-xs md:text-sm font-medium">
                       Email client terbuka! Silakan kirim pesan dari aplikasi
                       email kamu.
                     </p>
@@ -286,22 +301,22 @@ export function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-soft-md"
+                    className="flex items-center gap-3 p-3 md:p-4 bg-red-50 border border-red-200 rounded-soft-md"
                   >
                     <HiExclamationCircle className="text-red-500 text-xl flex-shrink-0" />
-                    <p className="text-red-700 text-sm font-medium">
+                    <p className="text-red-700 text-xs md:text-sm font-medium">
                       Terjadi kesalahan. Silakan coba lagi.
                     </p>
                   </motion.div>
                 )}
               </AnimatePresence>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {/* Name Input */}
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
-                    className="text-sm font-black text-neutral uppercase tracking-wider ml-1"
+                    className="text-xs md:text-sm font-black text-neutral uppercase tracking-wider ml-1"
                   >
                     Nama Kamu
                   </label>
@@ -338,7 +353,7 @@ export function Contact() {
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-black text-neutral uppercase tracking-wider ml-1"
+                    className="text-xs md:text-sm font-black text-neutral uppercase tracking-wider ml-1"
                   >
                     Email
                   </label>
@@ -376,7 +391,7 @@ export function Contact() {
               <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-black text-neutral uppercase tracking-wider ml-1"
+                  className="text-xs md:text-sm font-black text-neutral uppercase tracking-wider ml-1"
                 >
                   Pesan
                 </label>
@@ -420,7 +435,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={submitStatus === "loading"}
-                  className="btn-primary w-full py-5 text-lg flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="btn-primary w-full py-4 md:py-5 text-base md:text-lg flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {submitStatus === "loading" ? (
                     <>
@@ -457,7 +472,7 @@ export function Contact() {
                 </button>
               </RippleButton>
 
-              <p className="text-xs text-neutral-soft text-center">
+              <p className="text-[10px] md:text-xs text-neutral-soft text-center">
                 Akan membuka aplikasi email default kamu dengan pesan yang sudah
                 terisi.
               </p>
