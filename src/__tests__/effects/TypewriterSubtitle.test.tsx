@@ -18,7 +18,7 @@ describe('TypewriterSubtitle', () => {
   it('renders type animation text content', () => {
     render(<TypewriterSubtitle />);
     expect(screen.getByTestId('type-animation')).toBeInTheDocument();
-    expect(screen.getByTestId('type-animation')).toHaveTextContent('Data Analyst');
+    expect(screen.getByTestId('type-animation')).toHaveTextContent('Sociology Student');
   });
 
   it('passes className to TypeAnimation', () => {

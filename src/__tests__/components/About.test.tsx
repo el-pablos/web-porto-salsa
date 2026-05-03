@@ -37,10 +37,10 @@ describe('About', () => {
 
   it('renders highlight cards', () => {
     render(<About />);
+    expect(screen.getByText('Social Research')).toBeInTheDocument();
     expect(screen.getByText('Data Analysis')).toBeInTheDocument();
-    expect(screen.getByText('Database & Query')).toBeInTheDocument();
-    expect(screen.getByText('Visualization')).toBeInTheDocument();
-    expect(screen.getByText('Research')).toBeInTheDocument();
+    expect(screen.getByText('Community Service')).toBeInTheDocument();
+    expect(screen.getByText('Tech & Design')).toBeInTheDocument();
   });
 
   it('renders KND mention', () => {

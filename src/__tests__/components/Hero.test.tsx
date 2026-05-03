@@ -48,7 +48,7 @@ beforeAll(() => {
 describe('Hero', () => {
   it('renders badge text', () => {
     render(<Hero />);
-    expect(screen.getByText('Data Analyst & Researcher')).toBeInTheDocument();
+    expect(screen.getByText('Sociology Student | Data Analyst & Social Researcher')).toBeInTheDocument();
   });
 
   it('renders name with shuffle text', () => {
@@ -71,7 +71,7 @@ describe('Hero', () => {
   it('renders hero section element', () => {
     render(<Hero />);
     expect(
-      screen.getByText('Data Analyst & Researcher').closest('section')
+      screen.getByText('Sociology Student | Data Analyst & Social Researcher').closest('section')
     ).toHaveAttribute('id', 'beranda');
   });
 
