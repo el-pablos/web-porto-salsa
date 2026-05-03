@@ -14,23 +14,28 @@ type SkillCategory = {
   dotColorClass: string;
 };
 
-// Hardcoded skill levels (1-5) karena data portfolio.json tidak punya level
+// Hardcoded skill levels (1-5) untuk setiap skill item
 const skillLevels: Record<string, number> = {
   // Data Analysis
   "Python (Pandas, NumPy)": 5,
-  "SQL & Database": 4,
+  "SPSS": 4,
   "Statistical Analysis": 4,
   "Data Cleaning & Processing": 5,
   // Visualization
   "Power BI": 5,
-  Tableau: 4,
+  "Canva": 5,
   "Matplotlib & Seaborn": 4,
   "Excel Advanced": 5,
   // Database & Query
   "SQL & PostgreSQL": 4,
   "Google Sheets Advanced": 5,
-  "ETL & Data Pipeline": 3,
-  "Data Warehousing Basics": 3,
+  "Google Forms": 5,
+  "NVivo": 3,
+  // Tech Tools
+  "Google Colab": 4,
+  "Figma": 3,
+  "Microsoft Office (Word, Excel, PPT)": 5,
+  "Web Development Basics": 3,
   // Soft Skills
   "Research & Analysis": 5,
   "Report Writing": 4,
@@ -59,6 +64,13 @@ const categories: SkillCategory[] = [
     bgClass: "bg-secondary/10",
     textClass: "text-secondary",
     dotColorClass: "bg-secondary",
+  },
+  {
+    label: "Tech Tools",
+    key: "techTools",
+    bgClass: "bg-cream/50",
+    textClass: "text-neutral",
+    dotColorClass: "bg-neutral",
   },
   {
     label: "Soft Skills",
@@ -142,34 +154,34 @@ export function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
-            Keahlian <WaveText text="Analitis" charClassName="text-gradient" />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
+            Keahlian <WaveText text="Saya" charClassName="text-gradient" />
           </h2>
           <div className="w-16 h-1.5 bg-primary/30 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {categories.map((cat, catIndex) => (
             <motion.div
               key={cat.key}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-              className="card-soft"
+              className={`card-soft ${catIndex === categories.length - 1 && categories.length % 3 === 2 ? "sm:col-span-2 lg:col-span-1" : ""}`}
             >
-              <h3 className="text-xl font-black mb-6 flex items-center gap-3">
+              <h3 className="text-lg md:text-xl font-black mb-4 md:mb-6 flex items-center gap-3">
                 <span
-                  className={`w-2 h-6 rounded-full ${cat.bgClass.replace("/10", "")}`}
+                  className={`w-2 h-6 rounded-full ${cat.bgClass.replace("/10", "").replace("/50", "").replace("/5", "")}`}
                 />
                 {cat.label}
               </h3>
-              <StaggerReveal className="flex flex-wrap gap-3">
+              <StaggerReveal className="flex flex-wrap gap-2 md:gap-3">
                 {portfolioData.skills[cat.key].map((skill, skillIndex) => (
                   <span
                     key={skill}
-                    className={`inline-flex items-center px-4 py-2 rounded-soft-md text-sm font-bold ${cat.bgClass} ${cat.textClass}
+                    className={`inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-soft-md text-xs md:text-sm font-bold ${cat.bgClass} ${cat.textClass}
                                hover:scale-105 transition-transform duration-200 cursor-default`}
                   >
                     {skill}
