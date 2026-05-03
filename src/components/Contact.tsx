@@ -261,7 +261,7 @@ export function Contact() {
                     <link.icon />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[9px] md:text-[10px] uppercase tracking-widest font-black text-neutral-soft mb-0.5">
+                    <p className="text-[10px] md:text-[11px] uppercase tracking-widest font-black text-neutral-soft mb-0.5">
                       {link.label}
                     </p>
                     <p className="font-bold text-sm md:text-base text-neutral group-hover:text-primary transition-colors truncate">
@@ -472,7 +472,7 @@ export function Contact() {
                 </button>
               </RippleButton>
 
-              <p className="text-[10px] md:text-xs text-neutral-soft text-center">
+              <p className="text-[11px] md:text-xs text-neutral-soft text-center">
                 Akan membuka aplikasi email default kamu dengan pesan yang sudah
                 terisi.
               </p>

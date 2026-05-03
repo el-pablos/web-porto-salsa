@@ -32,7 +32,7 @@ export function VisitorCounter() {
                 {inView && <CountUp end={stat.value} duration={2} />}
                 {stat.suffix}
               </div>
-              <p className="text-neutral-soft text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider">{stat.label}</p>
+              <p className="text-neutral-soft text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-wider">{stat.label}</p>
             </motion.div>
           ))}
         </div>

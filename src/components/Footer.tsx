@@ -52,9 +52,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="py-12 px-6 border-t border-primary/5 bg-white/30 backdrop-blur-sm mt-20">
-      <div className="max-w-6xl mx-auto flex flex-col items-center gap-8">
-        <StaggerReveal className="flex items-center gap-6">
+    <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-primary/5 bg-white/30 backdrop-blur-sm mt-12 sm:mt-20">
+      <div className="max-w-6xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
+        <StaggerReveal className="flex items-center gap-4 sm:gap-6">
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
@@ -79,7 +79,7 @@ export function Footer() {
         <RandomQuoteDisplay autoRotate rotateInterval={30000} className="max-w-sm" />
 
         <div className="text-center space-y-2">
-          <p className="text-neutral-light font-bold flex items-center justify-center gap-2">
+          <p className="text-neutral-light font-bold text-sm sm:text-base flex items-center justify-center gap-2 flex-wrap">
             Made with <FaHeart className="text-primary animate-pulse" /> by{" "}
             <button
               onClick={handleNameClick}
@@ -100,7 +100,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-primary/5 w-full text-center">
-          <p className="text-[10px] text-neutral-soft uppercase tracking-widest font-black">
+          <p className="text-[11px] text-neutral-soft uppercase tracking-widest font-black">
             Built with Next.js & Tailwind CSS
           </p>
         </div>

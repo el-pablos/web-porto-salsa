@@ -89,7 +89,7 @@ export function Certificates() {
               </div>
 
               {/* Description */}
-              <p className="text-[10px] md:text-xs text-neutral-soft leading-relaxed mt-3 pt-3 border-t border-primary/10">
+              <p className="text-[11px] md:text-xs text-neutral-soft leading-relaxed mt-3 pt-3 border-t border-primary/10">
                 {cert.description}
               </p>
             </TiltCard>

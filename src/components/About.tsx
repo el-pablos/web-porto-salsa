@@ -152,7 +152,7 @@ export function About() {
                 <h3 className="font-bold text-neutral text-xs md:text-sm mb-1 md:mb-2">
                   {item.title}
                 </h3>
-                <p className="text-neutral-soft text-[10px] md:text-xs leading-tight">
+                <p className="text-neutral-soft text-[11px] md:text-xs leading-tight">
                   {item.desc}
                 </p>
               </TiltCard>

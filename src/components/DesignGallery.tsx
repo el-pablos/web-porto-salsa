@@ -148,7 +148,7 @@ export function DesignGallery() {
               >
                 {/* Thumbnail Placeholder */}
                 <div
-                  className={`relative aspect-square mb-4 -mx-4 md:-mx-6 -mt-4 md:-mt-6 overflow-hidden rounded-t-soft bg-gradient-to-br ${config.gradient}`}
+                  className={`relative aspect-square mb-4 -mx-4 sm:-mx-6 lg:-mx-8 -mt-4 sm:-mt-6 lg:-mt-8 overflow-hidden rounded-t-soft bg-gradient-to-br ${config.gradient}`}
                 >
                   {/* Pattern Overlay */}
                   <div
@@ -174,7 +174,7 @@ export function DesignGallery() {
 
                   {/* Category Badge */}
                   <div className="absolute top-3 right-3">
-                    <span className="text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/80 backdrop-blur-sm text-neutral">
+                    <span className="text-[10px] md:text-[11px] font-bold px-2 py-0.5 rounded-full bg-white/80 backdrop-blur-sm text-neutral">
                       {config.label}
                     </span>
                   </div>
@@ -184,7 +184,7 @@ export function DesignGallery() {
                 <h3 className="text-sm md:text-base font-black text-neutral mb-1 leading-tight group-hover:text-primary transition-colors line-clamp-2">
                   {design.title}
                 </h3>
-                <p className="text-[10px] md:text-xs text-neutral-soft leading-relaxed line-clamp-2">
+                <p className="text-[11px] md:text-xs text-neutral-soft leading-relaxed line-clamp-2">
                   {design.description}
                 </p>
               </motion.div>

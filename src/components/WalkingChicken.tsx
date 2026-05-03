@@ -72,15 +72,16 @@ export function WalkingChicken() {
     const walkInterval = setInterval(() => {
       if (chicken.isWalking && !chicken.isPecking) {
         setChicken((prev) => {
-          const speed = 3;
+          const speed = 2;
           const newX =
             prev.direction === "right" ? prev.x + speed : prev.x - speed;
           const maxX =
-            typeof window !== "undefined" ? window.innerWidth - 80 : 1000;
+            typeof window !== "undefined" ? window.innerWidth - 100 : 1000;
+          const minX = 10;
 
-          // Turn around at edges
-          if (newX <= 20) {
-            return { ...prev, x: 20, direction: "right" };
+          // Turn around at edges — prevent viewport overflow
+          if (newX <= minX) {
+            return { ...prev, x: minX, direction: "right" };
           }
           if (newX >= maxX) {
             return { ...prev, x: maxX, direction: "left" };

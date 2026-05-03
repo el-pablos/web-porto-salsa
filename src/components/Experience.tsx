@@ -190,7 +190,7 @@ function ExperienceItem({
       >
         <div className="flex flex-wrap items-center gap-2 mb-2">
           <span
-            className={`text-[10px] md:text-xs font-black uppercase tracking-widest ${
+            className={`text-[11px] md:text-xs font-black uppercase tracking-widest ${
               config.colorClass === "primary"
                 ? "text-primary"
                 : config.colorClass === "accent"
@@ -201,7 +201,7 @@ function ExperienceItem({
             {exp.period}
           </span>
           <span
-            className={`text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeBg}`}
+            className={`text-[10px] md:text-[11px] font-bold px-2 py-0.5 rounded-full ${badgeBg}`}
           >
             {config.label}
           </span>
@@ -300,10 +300,10 @@ function EducationItem({
         className={`ml-14 md:ml-0 md:w-1/2 card-soft p-4 md:p-6 ${isLeft ? "md:ml-8" : "md:mr-8"}`}
       >
         <div className="flex flex-wrap items-center gap-2 mb-2">
-          <span className="text-[10px] md:text-xs font-black text-accent uppercase tracking-widest">
+          <span className="text-[11px] md:text-xs font-black text-accent uppercase tracking-widest">
             {edu.year}
           </span>
-          <span className="text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+          <span className="text-[10px] md:text-[11px] font-bold px-2 py-0.5 rounded-full bg-accent/10 text-accent">
             Pendidikan
           </span>
         </div>
@@ -314,7 +314,7 @@ function EducationItem({
           {edu.institution}
         </p>
         <p className="text-xs md:text-sm text-neutral-light">{edu.faculty}</p>
-        <p className="text-[10px] md:text-xs text-neutral-soft mt-3 italic">
+        <p className="text-[11px] md:text-xs text-neutral-soft mt-3 italic">
           {edu.description}
         </p>
       </motion.div>

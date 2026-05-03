@@ -164,7 +164,7 @@ export function Projects() {
                     defaultThumbnailConfig;
                   const IconComponent = config.icon;
                   return (
-                    <div className="relative aspect-video mb-4 md:mb-6 -mx-4 md:-mx-6 -mt-4 md:-mt-6 overflow-hidden rounded-t-soft">
+                    <div className="relative aspect-video mb-4 md:mb-6 -mx-4 sm:-mx-6 lg:-mx-8 -mt-4 sm:-mt-6 lg:-mt-8 overflow-hidden rounded-t-soft">
                       {/* Gradient Background */}
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${config.gradient}`}
@@ -215,7 +215,7 @@ export function Projects() {
                       {project.highlights?.map((h) => (
                         <span
                           key={h}
-                          className="text-[9px] md:text-[10px] uppercase tracking-wider px-1.5 md:px-2 py-0.5 bg-primary/5 text-primary-dark font-black rounded border border-primary/10"
+                          className="text-[10px] md:text-[11px] uppercase tracking-wider px-1.5 md:px-2 py-0.5 bg-primary/5 text-primary-dark font-black rounded border border-primary/10"
                         >
                           {h}
                         </span>
@@ -225,7 +225,7 @@ export function Projects() {
                       {project.tech.map((t) => (
                         <span
                           key={t}
-                          className="text-[10px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 bg-neutral/5 text-neutral-light rounded-soft-sm"
+                          className="text-[11px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 bg-neutral/5 text-neutral-light rounded-soft-sm"
                         >
                           #{t}
                         </span>

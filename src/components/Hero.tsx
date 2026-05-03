@@ -25,22 +25,22 @@ export function Hero() {
         <FloatingElements />
       </ParallaxLayer>
 
-      <ParallaxLayer speed={0.3} className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/15 blur-3xl animate-float"
+      <ParallaxLayer speed={0.3} className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 -left-10 sm:left-10 w-48 sm:w-64 h-48 sm:h-64 bg-primary/15 blur-3xl animate-float"
              style={{ animation: 'blob-morph 12s ease-in-out infinite, float 6s ease-in-out infinite' }} />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/15 blur-3xl"
+        <div className="absolute bottom-20 -right-10 sm:right-10 w-56 sm:w-72 h-56 sm:h-72 bg-accent/15 blur-3xl"
              style={{ animation: 'blob-morph 15s ease-in-out infinite reverse, float 8s ease-in-out infinite 2s' }} />
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-secondary/10 blur-3xl"
+        <div className="absolute top-1/3 right-1/4 w-36 sm:w-48 h-36 sm:h-48 bg-secondary/10 blur-3xl"
              style={{ animation: 'blob-morph 10s ease-in-out infinite 3s, float 7s ease-in-out infinite 1s' }} />
       </ParallaxLayer>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-sm font-semibold tracking-wide mb-6">
+          <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs sm:text-sm font-semibold tracking-wide mb-4 sm:mb-6">
             Sociology Student | Data Analyst & Social Researcher
           </span>
         </motion.div>
@@ -50,7 +50,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black mb-4 leading-tight">
             <span className="text-neutral-light">
               <TimeGreetingText />, Saya{' '}
             </span>
@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-neutral-light max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          className="text-base sm:text-lg md:text-xl text-neutral-light max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-medium"
         >
           Menganalisis fenomena sosial dengan pendekatan data-driven.
           Mahasiswi Sosiologi FISIP UNAS yang passionate di bidang riset, analisis data, dan teknologi.

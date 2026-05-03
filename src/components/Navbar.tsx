@@ -286,7 +286,7 @@ export function Navbar() {
           aria-label={
             isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
           }
-          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          className="md:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <span
@@ -328,7 +328,7 @@ export function Navbar() {
                   role="menuitem"
                   aria-current={isActive ? "page" : undefined}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-lg font-bold transition-colors duration-300 flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                  className={`text-lg font-bold transition-colors duration-300 flex items-center gap-2 rounded-md py-1.5 px-3 min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                     isActive
                       ? "text-primary"
                       : "text-neutral-light hover:text-primary"
