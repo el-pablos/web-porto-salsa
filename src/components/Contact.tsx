@@ -7,7 +7,6 @@ import {
   HiLocationMarker,
   HiCheckCircle,
   HiExclamationCircle,
-  HiPhone,
 } from "react-icons/hi";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import portfolioData from "@/data/portfolio.json";
@@ -60,13 +59,6 @@ export function Contact() {
       value: "@adndaaryadi",
       href: portfolioData.contact.instagram,
       color: "text-pink-500",
-    },
-    {
-      icon: HiPhone,
-      label: "Telepon",
-      value: portfolioData.contact.phone,
-      href: `tel:${portfolioData.contact.phone.replace(/[^+\d]/g, "")}`,
-      color: "text-green-500",
     },
     {
       icon: HiLocationMarker,
