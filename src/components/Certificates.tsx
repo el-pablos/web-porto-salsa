@@ -22,7 +22,6 @@ import type { IconType } from "react-icons";
 import Image from "next/image";
 import portfolioData from "@/data/portfolio.json";
 import { WaveText } from "@/components/effects/WaveText";
-import { StaggerReveal } from "@/components/effects/StaggerReveal";
 import { TiltCard } from "@/components/effects/TiltCard";
 
 // Category configuration
@@ -234,15 +233,15 @@ export function Certificates() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <StaggerReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {displayedCerts.map((cert, i) => {
                 const catConfig = getCategoryConfig(cert.category);
                 return (
                   <motion.div
                     key={cert.title}
                     initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: i * 0.08 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.06 }}
                   >
                     <TiltCard className="card-soft h-full flex flex-col group">
                       {/* Image Preview (if available) */}
@@ -345,7 +344,7 @@ export function Certificates() {
                   </motion.div>
                 );
               })}
-            </StaggerReveal>
+            </div>
 
             {/* Show More / Show Less Button */}
             {hasMore && !showAll && (
