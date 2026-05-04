@@ -267,6 +267,16 @@
   ],
   "certificates": [
     {
+      "title": "Pengabdian Masyarakat - Berbagi Makanan Kepada Sesama 2025",
+      "issuer": "Kegiatan Pengabdian Masyarakat",
+      "date": "Desember 2025",
+      "category": "volunteer",
+      "description": "Sertifikat atas partisipasi sebagai Relawan dan Ketua Pelaksana dalam Kegiatan Pengabdian Masyarakat Berbagi Makanan Kepada Sesama di Jalan Sawo Manila pada 14 Desember 2025",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - Pengabdian Masyarakat Berbagi Makanan Kepada Sesama 2025 - Relawan.png"
+      ]
+    },
+    {
       "title": "Olimpiade Bisnis 2022",
       "issuer": "University ID",
       "date": "2022",
@@ -616,7 +626,7 @@
     "projectsCompleted": 20,
     "datasetsAnalyzed": 30,
     "toolsMastered": 15,
-    "certificatesEarned": 26,
+    "certificatesEarned": 27,
     "yearsLearning": 3
   }
 }
