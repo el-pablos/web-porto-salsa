@@ -62,3 +62,7 @@ credentials/
 # AI Agent Prompts - internal use only
 CLAUDE.md
 MEGA_PROMPT*.md
+
+# Python venv
+.venv/
+__pycache__/
