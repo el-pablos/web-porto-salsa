@@ -617,6 +617,17 @@
       "images": [
         "/certificates/Adinda Salsa Aryadi Putri - MySkill Basic English 2026 - Skill Specialization.jpg"
       ]
+    },
+    {
+      "title": "MySkill - SQL Introduction for Data Analysis",
+      "issuer": "MySkill (PT. Linimuda Inspirasi Negeri)",
+      "date": "Juli 2026",
+      "category": "course",
+      "description": "MySkill Short Class Data Analysis dengan topik SQL Introduction for Data Analysis. Diselesaikan pada 13 Juli 2026 sebagai bagian dari peningkatan kompetensi di bidang analisis data",
+      "credentialId": "330170/DTA/LM/07/2026",
+      "images": [
+        "/certificates/Adinda Salsa Aryadi Putri - MySkill SQL Introduction for Data Analysis 2026 - Short Class.jpg"
+      ]
     }
   ],
   "skills": {
@@ -662,7 +673,7 @@
     "projectsCompleted": 20,
     "datasetsAnalyzed": 30,
     "toolsMastered": 15,
-    "certificatesEarned": 34,
+    "certificatesEarned": 35,
     "yearsLearning": 3
   }
 }
