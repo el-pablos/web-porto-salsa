@@ -26,6 +26,7 @@ const config = {
     ],
   },
   transformIgnorePatterns: ["node_modules/(?!(react-icons)/)"],
+  roots: ["<rootDir>/src"],
   testPathIgnorePatterns: [
     "<rootDir>/node_modules/",
     "<rootDir>/.next/",
